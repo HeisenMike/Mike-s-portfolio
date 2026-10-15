@@ -28,14 +28,15 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[48px] md:text-[68px] font-bold leading-[1.05] tracking-tight mb-6"
+            className="text-[48px] md:text-[68px] font-bold leading-[1.05] tracking-tight mb-6 text-white"
           >
-            Automating the Complex.<br />
-            Connecting Everything with{' '}
+            I fix business problems.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-[#ff6b57]">
-              n8n
-            </span>.
+              Automation
+            </span>{' '}
+            is just how.
           </motion.h1>
+
 
           {/* Description */}
           <motion.p
