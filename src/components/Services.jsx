@@ -47,10 +47,10 @@ const Services = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mb-16">
           <h2 className="text-[36px] md:text-[48px] text-white font-bold tracking-tight mb-4">
-            n8n Solutions
+            Business Automation
           </h2>
           <p className="text-zinc-400 text-lg font-light">
-            Custom workflows engineered to connect platforms, orchestrate intelligence, and run on autopilot.
+            Custom workflows built around how your business actually runs. Set up once, then they just do their job.
           </p>
         </div>
 
