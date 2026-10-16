@@ -1,11 +1,15 @@
-import React from 'react';
-import { Braces, Database, Cpu, Webhook, Magnet, Users, Code2 } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react'
+import { WorkflowSquare03Icon } from '@hugeicons/core-free-icons';
+
+// import React from 'react';
+// import { Braces, Database, Cpu, Webhook, Magnet, Users, Code2 } from 'lucide-react';
+
 
 const services = [
   {
     title: "Workflow Automation",
     description: "Leads get followed up, your pipeline stays current, and the boring daily stuff just happens. GoHighLevel or whatever CRM you’re on.",
-    icon: <Cpu className="w-8 h-8 mb-2 text-violet-400" />
+    icon: <WorkflowSquare03Icon className="w-8 h-8 mb-2 text-violet-400" />
   },
   {
     title: "AI That Does the Busywork",
