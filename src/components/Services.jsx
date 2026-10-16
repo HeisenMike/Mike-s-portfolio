@@ -9,7 +9,11 @@ const services = [
   {
     title: "Workflow Automation",
     description: "Leads get followed up, your pipeline stays current, and the boring daily stuff just happens. GoHighLevel or whatever CRM you’re on.",
-    icon: <WorkflowSquare03Icon className="w-8 h-8 mb-2 text-violet-400" />
+    icon: (
+      <HugeiconsIcon
+        icon={WorkflowSquare03Icon}
+        className="w-8 h-8 mb-2 text-violet-400" />
+    )
   },
   {
     title: "AI That Does the Busywork",
