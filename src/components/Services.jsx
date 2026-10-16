@@ -3,28 +3,28 @@ import { Braces, Database, Cpu, Webhook, Magnet, Users, Code2 } from 'lucide-rea
 
 const services = [
   {
-    title: "AI Agent Workflows",
-    description: "Put AI to work inside n8n to automate your workflows, handle repetitive data tasks, and scale your operations.",
+    title: "Workflow Automation",
+    description: "Leads get followed up, your pipeline stays current, and the boring daily stuff just happens. GoHighLevel or whatever CRM you’re on.",
     icon: <Cpu className="w-8 h-8 mb-2 text-violet-400" />
   },
   {
-    title: "REST API Integration",
-    description: "Sync enriched product data, customer reviews, and custom endpoints across all your marketplaces flawlessly in real time.",
+    title: "AI That Does the Busywork",
+    description: "I build AI agents that do the boring stuff for you, like fixing your Shopify catalog, feeding Google Shopping, chasing leads or handling bad reviews. If it’s repetitive, chances are I can build an agent for it.",
     icon: <Braces className="w-8 h-8 mb-2 text-fuchsia-400" />
   },
   {
-    title: "Custom Webhooks & Events",
-    description: "Connect dynamic external tools to your workflows using custom webhooks that listen, filter, and route live event data automatically.",
+    title: "We Don’t Have an Integration for That",
+    description: "Heard that from a vendor? I build the missing piece. Custom API work so your tools finally work together, even the ones that were never meant to.",
     icon: <Webhook className="w-8 h-8 mb-2 text-[#ff6b57]" />
   },
   {
-    title: "Automated Data Syncing",
-    description: "We build automated workflows to instantly connect and move your data between business tools, keeping all your records clean and up to date without manual typing.",
+    title: "Reports and Dashboards",
+    description: "Sales, stock, ad spend and returns, all in one place and updated on their own. You open one dashboard instead of five tabs.",
     icon: <Database className="w-8 h-8 mb-2 text-emerald-400" />
   },
   {
-    title: "Intelligent Lead Enrichment",
-    description: "Qualify, score, and enrich lead profiles dynamically before inserting into sales pipelines.",
+    title: "Stop Answering the Same Questions",
+    description: "Same five questions, all day long. “What’s the price?” “Are you free Thursday?” “Where’s my project at?” My assistant answers them in WhatsApp, Slack, or wherever you chat.",
     icon: (
       <div className="relative w-11 h-11 mb-1 text-amber-400">
         <Magnet className="absolute left-0 bottom-0 w-6 h-6 -rotate-180 origin-center" />
@@ -33,8 +33,8 @@ const services = [
     )
   },
   {
-    title: "Error & Exception Handling",
-    description: "I build smart retry rules and backup paths into your automations, ensuring your workflows automatically handle exceptions, fix themselves, and keep running without breaking.",
+    title: "Automations That Don’t Break",
+    description: "A quiet failure is worse than no automation at all. I build in automatic retries and alerts, so you hear about real problems right away.",
     icon: <Code2 className="w-8 h-8 mb-2 text-sky-400" />
   }
 ];
