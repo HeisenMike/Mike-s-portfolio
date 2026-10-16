@@ -1,7 +1,7 @@
 export const config = {
   name: "Michael Estrella",
-  role: "n8n & AI Automation Specialist",
-  description: "I design production-grade n8n workflows, custom API integrations, and business automation systems that connect tools, eliminate manual work, and scale operations.",
+  role: "Business Automation",
+  description: "Most businesses don’t need another tool. They need someone to find what’s slowing them down and make it go away. That’s what I do.",
   socials: {
     linkedin: "https://www.linkedin.com/in/janmichaelestrella",
     whatsapp: "https://wa.me/639150078054",
