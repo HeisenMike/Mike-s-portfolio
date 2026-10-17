@@ -36,7 +36,7 @@ const services = [
     icon: (
       <HugeiconsIcon
         icon={DashboardCircleEditIcon}
-        className="w-8 h-8 mb-2 text-emerald-400" />
+        className="w-8 h-8 mb-2 text-amber-400" />
     )
   },
   {
@@ -45,7 +45,7 @@ const services = [
     icon: (
       <HugeiconsIcon
         icon={WhatsappIcon}
-        className="w-8 h-8 mb-2 text-amber-400" />
+        className="w-8 h-8 mb-2 text-emerald-400" />
     )
   },
   {
