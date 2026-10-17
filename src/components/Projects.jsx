@@ -98,102 +98,44 @@ const ProjectModal = ({ project, onClose }) => {
       onClick={onClose}
     >
       <motion.div
-        initial={{ scale: 0.95, y: 20 }}
+        initial={{ scale: 0.96, y: 15 }}
         animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.95, y: 20 }}
-        className="bg-[#121216] border border-zinc-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+        exit={{ scale: 0.96, y: 15 }}
+        className="bg-zinc-950 border border-zinc-800 text-zinc-100 rounded-2xl w-full max-w-[1200px] h-full max-h-[800px] md:h-[86vh] grid grid-cols-1 md:grid-cols-[1.3fr_1fr] overflow-hidden shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Cover Image / Close Header */}
-        <div className="relative w-full bg-zinc-950/60 border-b border-zinc-800 p-6 md:p-8 flex items-center justify-center min-h-[200px]">
-          {project.image ? (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="max-w-full max-h-[320px] object-contain rounded-lg shadow-2xl border border-zinc-800/80"
-              style={{ filter: 'drop-shadow(0 25px 50px rgb(0 0 0 / 0.5))' }}
-            />
-          ) : (
-            <div className="text-zinc-600 text-sm font-light">
-              Case Study Asset Visualization
-            </div>
-          )}
 
-          <button
-            onClick={onClose}
-            className="absolute top-6 right-6 p-2 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors z-10"
-          >
-            <X className="w-5 h-5" />
-          </button>
+        {/* LEFT COLUMN: Fixed Image Stage */}
+        <div className="bg-black p-6 md:p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
+          <span className="text-zinc-500 text-sm">[Image column wrapper placeholder]</span>
         </div>
 
+        {/* RIGHT COLUMN: Independent Scrolling Text Sheet */}
+        <div className="p-6 md:p-10 space-y-6 overflow-y-auto text-left h-full relative bg-zinc-950">
 
-        {/* Content */}
-        <div className="p-6 md:p-10 space-y-8 text-left">
+          {/* Close X Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 p-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors z-20 cursor-pointer"
+          >
+            <X className="w-4 h-4" />
+          </button>
+
+          {/* Project Title Block */}
           <div>
-            <span className="text-sm font-semibold tracking-wider text-violet-400 uppercase block mb-1">
-              Case Study // {project.client}
+            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-zinc-500 block mb-1">
+              Project Details // {project.client}
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">
               {project.title}
             </h3>
           </div>
 
-          <div className="text-zinc-300 text-base md:text-lg font-light leading-relaxed bg-zinc-900/30 p-6 rounded-xl border border-zinc-800/50">
+          <p className="text-zinc-400 text-sm md:text-base font-light leading-relaxed">
             {project.narrative}
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 pt-4">
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center gap-2">
-                <Wrench className="w-4 h-4 text-violet-400" /> What it does
-              </h4>
-              <ul className="space-y-3">
-                {project.whatItDoes && project.whatItDoes.map((item, idx) => (
-                  <li key={idx} className="text-sm font-light text-zinc-400 leading-relaxed flex items-start gap-2.5">
-                    <span className="text-violet-400 mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-4 flex items-center gap-2">
-                <BarChart2 className="w-4 h-4 text-emerald-400" /> Result
-              </h4>
-              <ul className="space-y-3">
-                {project.result && project.result.map((item, idx) => (
-                  <li key={idx} className="text-sm font-light text-zinc-400 leading-relaxed flex items-start gap-2.5">
-                    <span className="text-emerald-400 mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {project.tools && project.tools.length > 0 && (
-            <div className="pt-6 border-t border-zinc-800/60">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
-                <Tag className="w-4 h-4 text-sky-400" /> Built with
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {project.tools.map((tool, idx) => (
-                  <span key={idx} className="text-xs font-medium px-3 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {project.architecture && (
-            <div className="pt-6 border-t border-zinc-800/60 text-sm font-light text-zinc-400 leading-relaxed italic bg-zinc-900/20 p-5 rounded-lg border border-zinc-900">
-              {project.architecture}
-            </div>
-          )}
+          </p>
         </div>
+
       </motion.div>
     </motion.div>
   );
