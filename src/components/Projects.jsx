@@ -79,80 +79,99 @@ const projects = [
 ];
 
 const ProjectModal = ({ project, onClose }) => {
+  // NEW STATE: Tracks if the full-resolution lightbox is currently active
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
+    const handleKey = (e) => {
+      if (e.key === 'Escape') {
+        // If the lightbox is open, pressing Escape closes ONLY the lightbox first
+        if (lightboxOpen) setLightboxOpen(false);
+        else onClose();
+      }
+    };
     window.addEventListener('keydown', handleKey);
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKey);
     };
-  }, [onClose]);
+  }, [onClose, lightboxOpen]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-6"
-      onClick={onClose}
-    >
+    <>
       <motion.div
-        initial={{ scale: 0.96, y: 15 }}
-        animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.96, y: 15 }}
-        className="bg-zinc-950 border border-zinc-800 text-zinc-100 rounded-2xl w-full max-w-[1200px] h-full max-h-[800px] md:h-[86vh] grid grid-cols-1 md:grid-cols-[1.3fr_1fr] overflow-hidden shadow-2xl relative"
-        onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-6"
+        onClick={onClose}
       >
+        <motion.div
+          initial={{ scale: 0.96, y: 15 }}
+          animate={{ scale: 1, y: 0 }}
+          exit={{ scale: 0.96, y: 15 }}
+          className="bg-zinc-950 border border-zinc-800 text-zinc-100 rounded-2xl w-full max-w-[1200px] h-full max-h-[800px] md:h-[86vh] grid grid-cols-1 md:grid-cols-[1.3fr_1fr] overflow-hidden shadow-2xl relative"
+          onClick={(e) => e.stopPropagation()}
+        >
 
-        {/* LEFT COLUMN: Fixed Image Stage */}
-        <div className="bg-black p-6 md:p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
-          {project.image ? (
-            <div className="w-full h-full max-h-[360px] bg-zinc-900/30 rounded-xl border border-zinc-800 p-4 flex items-center justify-center relative overflow-hidden group">
-              <img
-                src={project.image}
-                alt="Active flow screen display state"
-                className="max-w-full max-h-full object-contain rounded select-none shadow-md"
-              />
-            </div>
-          ) : (
-            <div className="text-zinc-600 text-sm font-light">
-              No image visualization provided
-            </div>
-          )}
-        </div>
+          {/* LEFT COLUMN: Fixed Image Stage */}
+          <div className="bg-black p-6 md:p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
+            {project.image ? (
+              <div className="w-full h-full max-h-[360px] bg-zinc-900/30 rounded-xl border border-zinc-800 p-4 flex items-center justify-center relative overflow-hidden group">
+                <img
+                  src={project.image}
+                  alt="Active flow screen display state"
+                  className="max-w-full max-h-full object-contain rounded select-none shadow-md"
+                />
 
-
-        {/* RIGHT COLUMN: Independent Scrolling Text Sheet */}
-        <div className="p-6 md:p-10 space-y-6 overflow-y-auto text-left h-full relative bg-zinc-950">
-
-          {/* Close X Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-6 right-6 p-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors z-20 cursor-pointer"
-          >
-            <X className="w-4 h-4" />
-          </button>
-
-          {/* Project Title Block */}
-          <div>
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-zinc-500 block mb-1">
-              Project Details // {project.client}
-            </span>
-            <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">
-              {project.title}
-            </h3>
+                {/* NEW BUTTON: Triggers the lightboxOpen state on click */}
+                <button
+                  onClick={() => setLightboxOpen(true)}
+                  className="absolute left-4 bottom-4 text-xs font-medium text-zinc-400 hover:text-white flex items-center gap-1 bg-zinc-950 border border-zinc-800 px-3 py-1.5 rounded-lg shadow-lg cursor-pointer transition-colors"
+                >
+                  Open full size <ArrowUpRight size={13} className="text-violet-400" />
+                </button>
+              </div>
+            ) : (
+              <div className="text-zinc-600 text-sm font-light">
+                No image visualization provided
+              </div>
+            )}
           </div>
 
-          <p className="text-zinc-400 text-sm md:text-base font-light leading-relaxed">
-            {project.narrative}
-          </p>
-        </div>
+          {/* RIGHT COLUMN: Independent Scrolling Text Sheet */}
+          <div className="p-6 md:p-10 space-y-6 overflow-y-auto text-left h-full relative bg-zinc-950">
 
+            {/* Close X Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 p-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors z-20 cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Project Title Block */}
+            <div>
+              <span className="text-xs font-mono font-semibold uppercase tracking-widest text-zinc-500 block mb-1">
+                Project Details // {project.client}
+              </span>
+              <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight">
+                {project.title}
+              </h3>
+            </div>
+
+            <p className="text-zinc-400 text-sm md:text-base font-light leading-relaxed">
+              {project.narrative}
+            </p>
+          </div>
+
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </>
   );
 };
+
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
