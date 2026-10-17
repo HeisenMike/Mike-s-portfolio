@@ -157,6 +157,25 @@ const ProjectModal = ({ project, onClose }) => {
                 No image visualization provided
               </div>
             )}
+            {project.tools && project.tools.length > 0 && (
+              <div className="mt-3 w-full shrink-0 border-t border-zinc-800 pt-3">
+                <h4 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-300">
+                  <Tag className="w-3.5 h-3.5 text-sky-400" />
+                  Built with
+                </h4>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* RIGHT COLUMN: Independent Scrolling Text Sheet */}
@@ -218,25 +237,10 @@ const ProjectModal = ({ project, onClose }) => {
                     ))}
                   </ul>
                 </div>
-              )}
+              )},
 
-              {/* 4. Complete Technology Tag Deck */}
-              {project.tools && project.tools.length > 0 && (
-                <div className="pt-4 border-t border-zinc-900">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-3 flex items-center gap-2">
-                    <Tag className="w-3.5 h-3.5 text-sky-400" /> Built with
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tools.map((tool, idx) => (
-                      <span key={idx} className="text-xs font-medium px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
 
-              {/* 5. System Architecture / Flow Deep-dive (Now with a clean intro sentence) */}
+              {/* 4. System Architecture / Flow Deep-dive (Now with a clean intro sentence) */}
               {project.architecture && project.architecture.length > 0 && (
                 <div className="pt-6 border-t border-zinc-900 space-y-4">
                   <div>
