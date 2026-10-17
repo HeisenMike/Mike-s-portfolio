@@ -1,8 +1,8 @@
 import { HugeiconsIcon } from '@hugeicons/react'
 import { WorkflowSquare03Icon } from '@hugeicons/core-free-icons';
 
-// import React from 'react';
-// import { Braces, Database, Cpu, Webhook, Magnet, Users, Code2 } from 'lucide-react';
+import React from 'react';
+import { Braces, Database, Cpu, Webhook, Magnet, Users, Code2 } from 'lucide-react';
 
 
 const services = [
