@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, ExternalLink, ArrowUpRight, Wrench, BarChart2, Tag, ChevronLeft, ChevronRight } from 'lucide-react'; // Added icons here!
 import { motion, AnimatePresence } from 'framer-motion';
-import project1Image1 from '../assets/Project1Image1.png';
 import project2Image1 from '../assets/workflow-project-2.png';
 import project3Image1 from '../assets/workflow-project-3.png';
 
@@ -42,7 +41,6 @@ const projects = [
     // 4. Built with
     tools: ["n8n", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
 
-    // 5. Deep Dive / Architecture Paragraph
     // 5. Deep Dive / Architecture Paragraph (Updated to a clean Array)
     architecture: [
       "Phase 1 (Extraction): Fires 5 parallel sub-workflows to scrape global marketplace candidate listings simultaneously.",
@@ -50,12 +48,8 @@ const projects = [
       "Phase 3 (Intelligence): Routes verified matches into a bilingual review-mining loop to isolate high-frequency consumer patterns.",
       "Phase 4 (Copywriting): Generates price-dependent German copy and automated USPs, passing data through a formatting firewall back to Airtable."
     ],
-
-
-
-
     images: [
-      project1Image1,
+      '/project-screenshots/Project1Image1.png',
     ],
   },
 
