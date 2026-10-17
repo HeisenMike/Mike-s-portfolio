@@ -14,9 +14,8 @@ const projects = [
     shortDescription: "Turned scattered marketplace listing data and customer sentiment from Amazon, eBay, and Alibaba into structured, high-converting product pages at scale.",
 
     // 1. The Narrative Introduction
-    narrative: "Manually writing listings, hunting down specs, and digging through competitor reviews eats up a massive amount of time. To solve this, I built an n8n automation that lets the client manage catalog audits and SEO updates directly inside Airtable. With one click, the system triggers 5 parallel scraping workflows, scores product matches using a custom AI similarity matrix, and runs a consensus check to catch typos. It then mines German and English reviews for real competitor flaws, feeding those insights into an automated copywriting agent to push optimized, marketplace-ready descriptions straight back into Airtable.",
-
-
+    // 1. The Narrative Introduction
+    narrative: "Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable. With one click, the engine runs 5 parallel marketplace scraping workflows, cross-checks product matches using a custom weighted AI similarity matrix, and runs a consensus engine to filter out data errors. It then extracts high-frequency German and English consumer review patterns to pinpoint competitor flaws, passing optimized product copy and backend SEO strings straight back to Airtable.",
 
     // 2. What it does
     whatItDoes: [
@@ -44,8 +43,9 @@ const projects = [
     // 4. Built with
     tools: ["n8n", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
 
-    // 5. Deep Dive / Architecture Paragraph (UPDATED: Reflecting success metrics)
-    architecture: "The workflow initiates inside Airtable, where selecting a target product triggers Phase 1, splitting the pipeline into 5 parallel sub-workflows (Amazon EAN, Amazon ASIN, eBay, OTTO.de, and Alibaba) to harvest candidate data. In Phase 2, a central Technical Specification Consensus Engine aggregates these inputs to run a majority-vote verification. By ignoring marketplace metadata and standardizing all units, this core AI maps clean data profiles, flags conflicting splits, and ranks the 10 most significant specification outliers into a strict structural JSON schema. Phase 3 passes these records into a cross-border review-scraping loop to extract high-frequency praise and complaint patterns. In Phase 4, an E-Commerce Copywriting AI maps these raw insights to a strict data-driven conversion framework—dynamically adapting German tonality rules by price point and neutralizing rival weaknesses with an automated USP. Finally, a specialized Information Extractor serves as a structural formatting firewall, sanitizing the text dumps into valid comma-separated keywords and embedding specific HTML bold tags before updating Airtable for final client approval.",
+    // 5. Deep Dive / Architecture Paragraph
+    architecture: "A 4-phase n8n engine managed entirely within Airtable: Phase 1 fires 5 parallel sub-workflows to scrape global marketplace candidate listings. Phase 2 uses a Technical Specification Consensus Engine to filter outliers and standardize metadata into a structural JSON schema. Phase 3 routes verified matches into a bilingual review-mining loop to isolate high-frequency praise and complaint patterns. Phase 4 maps these insights to an E-commerce Copywriting AI that dynamically adjusts German tonality by price and builds an automated USP, passing through a final formatting firewall before syncing clean data back to Airtable.",
+
 
     images: [
       project1Image1,
