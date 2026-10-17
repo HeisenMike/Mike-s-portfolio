@@ -30,11 +30,11 @@ const projects = [
     // 3. Result (UPDATED: Concrete, high-converting metrics)
     // 3. Result
     result: [
-      "First live deployment parsed the entire active catalog of 342 products in 1 hour and 18 minutes.",
-      "Found exact match signals across competitor marketplaces for 312 of the SKUs; remaining 30 items with completely generic titles were automatically grouped and flagged for human mapping.",
-      "AI evaluation layer successfully filtered out 43 false-positive listings where a competitor used a similar title but a completely different brand or part number.",
-      "Flagged 24 existing catalog errors (including 11 incorrect weights that were messing up checkout shipping rules and 4 flat-out typos in dimensions).",
-      "Scraped 1,420 customer reviews across Amazon and eBay, using an LLM to extract the top 3 product complaints—giving the copywriting team the exact objections to answer on the Shopify pages.",
+      "First live deployment parsed the entire active catalog of 200+ products in 24 hours.",
+      "Found exact match signals across competitor marketplaces for 70+ listings (including EANs and ASINs); remaining 130+ items with completely generic titles were automatically grouped and flagged for human mapping.",
+      "AI evaluation layer successfully filtered out false-positive listings where a competitor used a similar title but a completely different brand or part number.",
+      "Flagged existing catalog errors (including incorrect weights that were messing up checkout shipping rules and flat-out typos in dimensions).",
+      "Scraped 10+ customer reviews across Amazon and eBay for each product, using an LLM to extract the top 3 product complaints—giving the copywriting team the exact objections to answer on the Shopify pages.",
       "Eliminated the manual weekly task of checking competitor prices and rewriting specs, saving the operations manager roughly 10 to 12 hours every week."
     ],
 
