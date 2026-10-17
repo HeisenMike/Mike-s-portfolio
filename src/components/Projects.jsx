@@ -44,7 +44,14 @@ const projects = [
     tools: ["n8n", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
 
     // 5. Deep Dive / Architecture Paragraph
-    architecture: "A 4-phase n8n engine managed entirely within Airtable: Phase 1 fires 5 parallel sub-workflows to scrape global marketplace candidate listings. Phase 2 uses a Technical Specification Consensus Engine to filter outliers and standardize metadata into a structural JSON schema. Phase 3 routes verified matches into a bilingual review-mining loop to isolate high-frequency praise and complaint patterns. Phase 4 maps these insights to an E-commerce Copywriting AI that dynamically adjusts German tonality by price and builds an automated USP, passing through a final formatting firewall before syncing clean data back to Airtable.",
+    // 5. Deep Dive / Architecture Paragraph (Formatted as a clean, sequential list)
+    architecture:
+      "System Architecture & Data Pipeline:\n\n" +
+      "• Phase 1 (Extraction): Fires 5 parallel sub-workflows to scrape global marketplace candidate listings simultaneously.\n" +
+      "• Phase 2 (Consensus): Filters specification outliers and normalizes metadata into a clean JSON schema via a majority-vote logic engine.\n" +
+      "• Phase 3 (Intelligence): Routes verified matches into a bilingual review-mining loop to isolate high-frequency consumer patterns.\n" +
+      "• Phase 4 (Copywriting): Generates price-dependent German copy and automated USPs, passing data through a formatting firewall back to Airtable.",
+
 
 
     images: [
