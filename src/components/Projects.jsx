@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, ExternalLink, ArrowUpRight, Wrench, BarChart2, Tag, ChevronLeft, ChevronRight } from 'lucide-react'; // Added icons here!
 import { motion, AnimatePresence } from 'framer-motion';
-import project1Image1 from '../assets/workflow-project-1.png';
+import project1Image1 from '../assets/Project1Image1.png';
 import project2Image1 from '../assets/workflow-project-2.png';
 import project3Image1 from '../assets/workflow-project-3.png';
 
