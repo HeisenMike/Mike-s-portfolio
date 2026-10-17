@@ -107,8 +107,21 @@ const ProjectModal = ({ project, onClose }) => {
 
         {/* LEFT COLUMN: Fixed Image Stage */}
         <div className="bg-black p-6 md:p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
-          <span className="text-zinc-500 text-sm">[Image column wrapper placeholder]</span>
+          {project.image ? (
+            <div className="w-full h-full max-h-[360px] bg-zinc-900/30 rounded-xl border border-zinc-800 p-4 flex items-center justify-center relative overflow-hidden group">
+              <img
+                src={project.image}
+                alt="Active flow screen display state"
+                className="max-w-full max-h-full object-contain rounded select-none shadow-md"
+              />
+            </div>
+          ) : (
+            <div className="text-zinc-600 text-sm font-light">
+              No image visualization provided
+            </div>
+          )}
         </div>
+
 
         {/* RIGHT COLUMN: Independent Scrolling Text Sheet */}
         <div className="p-6 md:p-10 space-y-6 overflow-y-auto text-left h-full relative bg-zinc-950">
