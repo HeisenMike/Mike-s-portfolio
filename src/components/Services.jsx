@@ -3,7 +3,7 @@
 import React from 'react';
 import { Braces, Database, Webhook, Magnet, Users, Code2 } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react'
-import { WorkflowSquare03Icon } from '@hugeicons/core-free-icons';
+import { WorkflowSquare03Icon, ArtificialIntelligence04Icon } from '@hugeicons/core-free-icons';
 
 
 const services = [
@@ -19,7 +19,11 @@ const services = [
   {
     title: "AI That Does the Busywork",
     description: "I build AI agents that do the boring stuff for you, like fixing your Shopify catalog, feeding Google Shopping, chasing leads or handling bad reviews. If it’s repetitive, chances are I can build an agent for it.",
-    icon: <Braces className="w-8 h-8 mb-2 text-fuchsia-400" />
+    icon: (
+      <HugeiconsIcon
+        icon={ArtificialIntelligence04Icon}
+        className="w-8 h-8 mb-2 text-fuchsia-400" />
+    )
   },
   {
     title: "We Don’t Have an Integration for That",
