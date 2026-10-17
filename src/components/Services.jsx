@@ -26,8 +26,8 @@ const services = [
     )
   },
   {
-    title: "We Don’t Have an Integration for That",
-    description: "Heard that from a vendor? I build the missing piece. Custom API work so your tools finally work together, even the ones that were never meant to.",
+    title: "Missing Integration?",
+    description: "Vendor said it can't be done? If the tool has an API, I can build the missing piece. No more exporting, re-uploading or retyping.",
     icon: <Webhook className="w-8 h-8 mb-2 text-[#ff6b57]" />
   },
   {
