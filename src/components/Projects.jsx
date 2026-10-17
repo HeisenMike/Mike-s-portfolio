@@ -14,7 +14,8 @@ const projects = [
     shortDescription: "Turned scattered marketplace listing data and customer sentiment from Amazon, eBay, and Alibaba into structured, high-converting product pages at scale.",
 
     // 1. The Narrative Introduction
-    narrative: "Manually managing product descriptions, tracking competitor specifications, and translating global marketplace reviews quietly eats hundreds of operational hours. For an e-commerce retail client, I built a multi-phase orchestration engine that automates catalog auditing and SEO enrichment directly from their Airtable interface. Instead of teams wasting days copying dimensions and guessing consumer search intent, the system dynamically spins up 5 platform-specific scraping sub-workflows, checks data parity using a weighted AI similarity matrix, and runs a majority-vote consensus engine to eliminate typos. The system then automatically mines bilingual customer reviews to uncover direct competitor vulnerabilities, passing clean data to a premium German copywriting agent that updates Airtable with marketplace-ready, algorithm-optimized listings.",
+    narrative: "Manually writing listings, hunting down specs, and digging through competitor reviews eats up a massive amount of time. To solve this, I built an n8n automation that lets the client manage catalog audits and SEO updates directly inside Airtable. With one click, the system triggers 5 parallel scraping workflows, scores product matches using a custom AI similarity matrix, and runs a consensus check to catch typos. It then mines German and English reviews for real competitor flaws, feeding those insights into an automated copywriting agent to push optimized, marketplace-ready descriptions straight back into Airtable.",
+
 
 
     // 2. What it does
