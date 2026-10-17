@@ -76,7 +76,7 @@ const Services = () => {
               key={index}
               className="bg-[#16161c] p-8 rounded-xl border border-zinc-800"
             >
-              <div className="mb-6 inline-block rounded-lg bg-zinc-900/80 border border-zinc-850">
+              <div className="mb-6 inline-block p-1 rounded-lg bg-zinc-900/80 border border-zinc-850">
                 {React.cloneElement(service.icon, { className: service.icon.props.className, strokeWidth: 1.5 })}
               </div>
               <h3 className="text-lg text-white font-semibold mb-3">{service.title}</h3>
