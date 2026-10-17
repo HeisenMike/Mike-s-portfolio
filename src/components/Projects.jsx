@@ -49,8 +49,6 @@ const projects = [
 
     images: [
       project1Image1,
-      project1Image2,
-      project1Image3
     ],
   },
 
@@ -67,8 +65,6 @@ const projects = [
     results: ["Scraped and filtered verified B2B leads from Apollo using industry, company size, location, and seniority signals via Apify.", "AI-scored every lead against a weighted Ideal Client Profile — only companies scoring 70+ across relevance, ICP match, and partnership value proceed to outreach.", "Auto-generated personalized cold emails per lead using Google Gemini, with thread tracking and daily campaign reporting logged back to Google Sheets."],
     images: [
       project2Image1,
-      project2Image2,
-      project2Image3,
     ],
   },
   {
@@ -84,8 +80,6 @@ const projects = [
     results: ["Scraped Amazon.de reviews across all five star ratings per ASIN on a recurring schedule, storing every review in MySQL for historical tracking and trend analysis.", "Ran 1★–3★ reviews through a two-stage AI audit (Google Gemini) that detects policy violations across 10 categories and assigns a removal likelihood score — Highly Likely, Likely, or Low.", "Automatically surfaced flagged reviews to the support team via an Action Required sheet, complete with the offending snippet, violation category, Amazon policy citation, and case status."],
     images: [
       project3Image1,
-      project3Image2,
-      project3Image3,
     ],
   },
 ];
@@ -142,10 +136,10 @@ const ProjectModal = ({ project, onClose }) => {
 
           {/* LEFT COLUMN: Fixed Image Stage */}
           <div className="bg-black p-6 md:p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
-            {project.image ? (
+            {project.images?.[0] ? (
               <div className="w-full h-full max-h-[360px] bg-zinc-900/30 rounded-xl border border-zinc-800 p-4 flex items-center justify-center relative overflow-hidden group">
                 <img
-                  src={project.image[0]}
+                  src={project.images[0]}
                   alt="Active flow screen display state"
                   className="max-w-full max-h-full object-contain rounded select-none shadow-md"
                 />
@@ -254,7 +248,7 @@ const ProjectModal = ({ project, onClose }) => {
       </motion.div>
 
       {/* LIGHTBOX OVERLAY WINDOW LAYER */}
-      {lightboxOpen && project.image && (
+      {lightboxOpen && project.images?.[0] && (
         <div
           className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-black p-4"
           onClick={() => setLightboxOpen(false)}
@@ -277,7 +271,7 @@ const ProjectModal = ({ project, onClose }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={project.image[0]}
+              src={project.images[0]}
               alt="High resolution diagram workflow full view"
               className="max-w-full max-h-[85vh] object-contain rounded border border-zinc-800"
             />
@@ -311,8 +305,8 @@ const Projects = () => {
               className="group cursor-pointer bg-zinc-900 border border-zinc-700 rounded-2xl overflow-hidden shadow-sm"
             >
               <div className="relative h-52 overflow-hidden bg-gray-100 flex items-center justify-center">
-                {project.image ? (
-                  <img src={project.image[0]} alt={project.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                {project.images?.[0] ? (
+                  <img src={project.images[0]} alt={project.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <span className="text-gray-400 text-sm">Project image goes here</span>
                 )}
