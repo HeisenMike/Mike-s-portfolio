@@ -91,6 +91,22 @@ const projects = [
 
 const ProjectModal = ({ project, onClose }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const images = project.images ?? [];
+  const activeImage = images[activeImageIndex];
+
+  const showPreviousImage = () => {
+    setActiveImageIndex((index) => (index - 1 + images.length) % images.length);
+  };
+
+  const showNextImage = () => {
+    setActiveImageIndex((index) => (index + 1) % images.length);
+  };
+
+  useEffect(() => {
+    setActiveImageIndex(0);
+    setLightboxOpen(false);
+  }, [project.id]);
 
   useEffect(() => {
     const scrollbarWidth =
@@ -141,13 +157,37 @@ const ProjectModal = ({ project, onClose }) => {
 
           {/* LEFT COLUMN: Fixed Image Stage */}
           <div className="bg-black p-2 md:p-3 flex flex-col justify-start items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
-            {project.images ? (
-              <div className="w-full h-full bg-zinc-900/30 rounded-xl border border-zinc-800 p-2 md:p-3 flex items-start justify-center relative overflow-hidden group">
+            {activeImage ? (
+              <div className="w-full flex-1 min-h-0 bg-zinc-900/30 rounded-xl border border-zinc-800 p-2 md:p-3 flex items-start justify-center relative overflow-hidden group">
                 <img
-                  src={project.images}
+                  src={activeImage}
                   alt="Active flow screen display state"
                   className="max-w-full max-h-full object-contain rounded select-none shadow-md"
                 />
+
+                {images.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={showPreviousImage}
+                      aria-label="Show previous image"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-zinc-700 bg-zinc-950/90 p-2 text-zinc-300 shadow-lg transition-colors hover:text-white"
+                    >
+                      <ChevronLeft size={18} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={showNextImage}
+                      aria-label="Show next image"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-zinc-700 bg-zinc-950/90 p-2 text-zinc-300 shadow-lg transition-colors hover:text-white"
+                    >
+                      <ChevronRight size={18} />
+                    </button>
+                    <span className="absolute right-3 top-3 rounded-md border border-zinc-800 bg-zinc-950/90 px-2 py-1 text-xs font-medium text-zinc-300">
+                      {activeImageIndex + 1} / {images.length}
+                    </span>
+                  </>
+                )}
 
                 <button
                   onClick={() => setLightboxOpen(true)}
@@ -285,7 +325,7 @@ const ProjectModal = ({ project, onClose }) => {
       </motion.div>
 
       {/* LIGHTBOX OVERLAY WINDOW LAYER */}
-      {lightboxOpen && project.images?.[0] && (
+      {lightboxOpen && activeImage && (
         <div
           className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-black p-4"
           onClick={() => setLightboxOpen(false)}
@@ -308,10 +348,37 @@ const ProjectModal = ({ project, onClose }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={project.images[0]}
+              src={activeImage}
               alt="High resolution diagram workflow full view"
               className="max-w-full max-h-[85vh] object-contain rounded border border-zinc-800"
             />
+
+            {images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showPreviousImage();
+                  }}
+                  aria-label="Show previous image"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-zinc-700 bg-zinc-950/90 p-3 text-zinc-300 shadow-lg transition-colors hover:text-white"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showNextImage();
+                  }}
+                  aria-label="Show next image"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-zinc-700 bg-zinc-950/90 p-3 text-zinc-300 shadow-lg transition-colors hover:text-white"
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}
