@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ExternalLink, Wrench, BarChart2, Tag } from 'lucide-react';
+import { X, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import workflowProjectImage from '../assets/workflow-project-1.png';
 import workflowProjectImage2 from '../assets/workflow-project-2.png';
