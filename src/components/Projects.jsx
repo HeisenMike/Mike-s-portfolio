@@ -242,43 +242,36 @@ const ProjectModal = ({ project, onClose }) => {
       </motion.div>
 
       {/* LIGHTBOX OVERLAY WINDOW LAYER */}
-      <AnimatePresence>
-        {lightboxOpen && project.image && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out"
-            onClick={() => setLightboxOpen(false)}
-          >
-            <div className="absolute top-4 right-4 flex items-center gap-3 z-10">
-              <span className="text-[10px] font-mono text-zinc-500 bg-zinc-950 px-2.5 py-1.5 rounded-md border border-zinc-800 uppercase tracking-wider">
-                Full-Size Workflow View
-              </span>
-              <button
-                onClick={() => setLightboxOpen(false)}
-                className="p-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <X size={18} />
-              </button>
-            </div>
+      {lightboxOpen && project.image && (
+        <div
+          className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-black p-4"
+          onClick={() => setLightboxOpen(false)}
+        >
+          <div className="absolute top-4 right-4 flex items-center gap-3 z-10">
+            <span className="text-[10px] font-mono text-zinc-500 bg-zinc-950 px-2.5 py-1.5 rounded-md border border-zinc-800 uppercase tracking-wider">
+              Full-Size Workflow View
+            </span>
 
-            <motion.div
-              initial={{ scale: 0.98 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.98 }}
-              className="max-w-full max-h-[90vh] flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="p-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
             >
-              <img
-                src={project.image}
-                alt="High resolution diagram workflow full view"
-                className="max-w-full max-h-[85vh] object-contain rounded border border-zinc-800"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <X size={18} />
+            </button>
+          </div>
+
+          <div
+            className="max-w-full max-h-[90vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={project.image}
+              alt="High resolution diagram workflow full view"
+              className="max-w-full max-h-[85vh] object-contain rounded border border-zinc-800"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 };
