@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { X, ExternalLink, ArrowUpRight, Wrench, BarChart2, Tag } from 'lucide-react'; // Added icons here!
+import { X, ExternalLink, ArrowUpRight, Wrench, BarChart2, Tag, ChevronLeft, ChevronRight } from 'lucide-react'; // Added icons here!
 import { motion, AnimatePresence } from 'framer-motion';
-import workflowProjectImage from '../assets/workflow-project-1.png';
-import workflowProjectImage2 from '../assets/workflow-project-2.png';
-import workflowProjectImage3 from '../assets/workflow-project-3.png';
+import project1Image1 from '../assets/workflow-project-1.png';
+import project2Image1 from '../assets/workflow-project-2.png';
+import project3Image1 from '../assets/workflow-project-3.png';
 
 const projects = [
   {
@@ -47,7 +47,11 @@ const projects = [
     // 5. Deep Dive / Architecture Paragraph (UPDATED: Reflecting success metrics)
     architecture: "The workflow initiates inside Airtable, where selecting a target product triggers Phase 1, splitting the pipeline into 5 parallel sub-workflows (Amazon EAN, Amazon ASIN, eBay, OTTO.de, and Alibaba) to harvest candidate data. In Phase 2, a central Technical Specification Consensus Engine aggregates these inputs to run a majority-vote verification. By ignoring marketplace metadata and standardizing all units, this core AI maps clean data profiles, flags conflicting splits, and ranks the 10 most significant specification outliers into a strict structural JSON schema. Phase 3 passes these records into a cross-border review-scraping loop to extract high-frequency praise and complaint patterns. In Phase 4, an E-Commerce Copywriting AI maps these raw insights to a strict data-driven conversion framework—dynamically adapting German tonality rules by price point and neutralizing rival weaknesses with an automated USP. Finally, a specialized Information Extractor serves as a structural formatting firewall, sanitizing the text dumps into valid comma-separated keywords and embedding specific HTML bold tags before updating Airtable for final client approval.",
 
-    image: workflowProjectImage,
+    images: [
+      project1Image1,
+      project1Image2,
+      project1Image3
+    ],
   },
 
   {
@@ -61,7 +65,11 @@ const projects = [
       "Qualified leads trigger a second AI agent that writes a personalized cold email referencing the company's industry, size, and pain points — with a low-friction CTA. Emails are sent via Gmail, thread IDs are captured for follow-up tracking, and all results are logged back to Google Sheets. A daily reporting sheet tracks messages sent, responses, and follow-up counts per campaign.",
     tools: ["n8n", "Apify", "Google Sheets", "Gmail"],
     results: ["Scraped and filtered verified B2B leads from Apollo using industry, company size, location, and seniority signals via Apify.", "AI-scored every lead against a weighted Ideal Client Profile — only companies scoring 70+ across relevance, ICP match, and partnership value proceed to outreach.", "Auto-generated personalized cold emails per lead using Google Gemini, with thread tracking and daily campaign reporting logged back to Google Sheets."],
-    image: workflowProjectImage2,
+    images: [
+      project2Image1,
+      project2Image2,
+      project2Image3,
+    ],
   },
   {
     id: 3,
@@ -74,7 +82,11 @@ const projects = [
       "Reviews that pass the violation check are flagged with a removal likelihood score — Highly Likely, Likely, or Low — and automatically logged to an Action Required sheet with all the context a support agent needs to open an Amazon case. All reviews across every star rating are simultaneously stored in a MySQL database for historical tracking and trend analysis. The result is a hands-off compliance monitor that catches policy-violating reviews faster than any manual process could.",
     tools: ["n8n", "Apify", "Google Sheets", "MySQL"],
     results: ["Scraped Amazon.de reviews across all five star ratings per ASIN on a recurring schedule, storing every review in MySQL for historical tracking and trend analysis.", "Ran 1★–3★ reviews through a two-stage AI audit (Google Gemini) that detects policy violations across 10 categories and assigns a removal likelihood score — Highly Likely, Likely, or Low.", "Automatically surfaced flagged reviews to the support team via an Action Required sheet, complete with the offending snippet, violation category, Amazon policy citation, and case status."],
-    image: workflowProjectImage3,
+    images: [
+      project3Image1,
+      project3Image2,
+      project3Image3,
+    ],
   },
 ];
 
@@ -133,7 +145,7 @@ const ProjectModal = ({ project, onClose }) => {
             {project.image ? (
               <div className="w-full h-full max-h-[360px] bg-zinc-900/30 rounded-xl border border-zinc-800 p-4 flex items-center justify-center relative overflow-hidden group">
                 <img
-                  src={project.image}
+                  src={project.image[0]}
                   alt="Active flow screen display state"
                   className="max-w-full max-h-full object-contain rounded select-none shadow-md"
                 />
@@ -265,7 +277,7 @@ const ProjectModal = ({ project, onClose }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={project.image}
+              src={project.image[0]}
               alt="High resolution diagram workflow full view"
               className="max-w-full max-h-[85vh] object-contain rounded border border-zinc-800"
             />
@@ -300,7 +312,7 @@ const Projects = () => {
             >
               <div className="relative h-52 overflow-hidden bg-gray-100 flex items-center justify-center">
                 {project.image ? (
-                  <img src={project.image} alt={project.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={project.image[0]} alt={project.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <span className="text-gray-400 text-sm">Project image goes here</span>
                 )}
