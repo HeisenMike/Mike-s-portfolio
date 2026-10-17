@@ -1,10 +1,7 @@
-
-
 import React from 'react';
 import { Braces, Database, Webhook, Magnet, Users, Code2 } from 'lucide-react';
-import { HugeiconsIcon } from '@hugeicons/react'
+import { HugeiconsIcon } from '@hugeicons/react';
 import { WorkflowSquare03Icon, ArtificialIntelligence04Icon, DashboardCircleEditIcon, WhatsappIcon } from '@hugeicons/core-free-icons';
-
 
 const services = [
   {
@@ -14,7 +11,8 @@ const services = [
       <HugeiconsIcon
         icon={WorkflowSquare03Icon}
         className="w-8 h-8 mb-2 text-violet-400" />
-    )
+    ),
+    tools: ["n8n", "GoHighLevel", "HubSpot"]
   },
   {
     title: "AI That Does the Busywork",
@@ -23,12 +21,14 @@ const services = [
       <HugeiconsIcon
         icon={ArtificialIntelligence04Icon}
         className="w-8 h-8 mb-2 text-fuchsia-400" />
-    )
+    ),
+    tools: ["OpenAI", "Claude", "Gemini"]
   },
   {
     title: "Missing Integration?",
     description: "Vendor said it can't be done? If the tool has an API, I can build the missing piece. No more exporting, re-uploading or retyping.",
-    icon: <Webhook className="w-8 h-8 mb-2 text-[#ff6b57]" />
+    icon: <Webhook className="w-8 h-8 mb-2 text-[#ff6b57]" />,
+    tools: ["REST APIs", "Webhooks", "Node.js"]
   },
   {
     title: "Reports and Dashboards",
@@ -37,7 +37,8 @@ const services = [
       <HugeiconsIcon
         icon={DashboardCircleEditIcon}
         className="w-8 h-8 mb-2 text-amber-400" />
-    )
+    ),
+    tools: ["Airtable", "Google Sheets", "Supabase"]
   },
   {
     title: "Stop Answering the Same Questions",
@@ -46,12 +47,14 @@ const services = [
       <HugeiconsIcon
         icon={WhatsappIcon}
         className="w-8 h-8 mb-2 text-emerald-400" />
-    )
+    ),
+    tools: ["WhatsApp Business", "Slack"]
   },
   {
     title: "Automations That Don’t Break",
     description: "A quiet failure is worse than no automation at all. I build in automatic retries and alerts, so you hear about real problems right away.",
-    icon: <Code2 className="w-8 h-8 mb-2 text-sky-400" />
+    icon: <Code2 className="w-8 h-8 mb-2 text-sky-400" />,
+    tools: ["Sentry", "Better Stack", "GitHub Actions"]
   }
 ];
 
@@ -74,13 +77,29 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[#16161c] p-8 rounded-xl border border-zinc-800"
+              className="bg-[#16161c] p-8 rounded-xl border border-zinc-800 flex flex-col justify-between"
             >
-              <div className="mb-6 inline-flex items-center justify-center p-1 rounded-lg bg-zinc-900/80 border border-zinc-850">
-                {React.cloneElement(service.icon, { className: service.icon.props.className, strokeWidth: 1.5 })}
+              <div>
+                <div className="mb-6 inline-flex items-center justify-center p-1 rounded-lg bg-zinc-900/80 border border-zinc-800">
+                  {React.cloneElement(service.icon, { className: service.icon.props.className, strokeWidth: 1.5 })}
+                </div>
+                <h3 className="text-lg text-white font-semibold mb-3">{service.title}</h3>
+                <p className="text-zinc-400 font-light leading-relaxed text-sm mb-6">{service.description}</p>
               </div>
-              <h3 className="text-lg text-white font-semibold mb-3">{service.title}</h3>
-              <p className="text-zinc-400 font-light leading-relaxed text-sm">{service.description}</p>
+
+              {/* Tools Badges (Now correctly placed inside the card container) */}
+              {service.tools && service.tools.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-zinc-800/50">
+                  {service.tools.map((tool, toolIndex) => (
+                    <span
+                      key={toolIndex}
+                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-zinc-900 text-zinc-400 border border-zinc-800"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
