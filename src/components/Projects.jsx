@@ -5,88 +5,13 @@ import workflowProjectImage from '../assets/workflow-project-1.png';
 import workflowProjectImage2 from '../assets/workflow-project-2.png';
 import workflowProjectImage3 from '../assets/workflow-project-3.png';
 
-const projects = [
-  {
-    id: 1,
-    client: "Goods+Gadgets GmbH",
-    title: "AI-Powered Shopify Product Enrichment Automation",
-    category: "Product Data Enrichment",
-    shortDescription: "Turned scattered marketplace listing data and customer sentiment from Amazon, eBay, and Alibaba into structured, high-converting product pages at scale.",
-
-    // 1. The Narrative Introduction
-    narrative: "Manually writing listings, hunting down specs, and digging through competitor reviews eats up a massive amount of time. To solve this, I built an n8n automation that lets the client manage catalog audits and SEO updates directly inside Airtable. With one click, the system triggers 5 parallel scraping workflows, scores product matches using a custom AI similarity matrix, and runs a consensus check to catch typos. It then mines German and English reviews for real competitor flaws, feeding those insights into an automated copywriting agent to push optimized, marketplace-ready descriptions straight back into Airtable.",
-
-
-
-    // 2. What it does
-    whatItDoes: [
-      "Triggers instantly when an operator selects a target product inside the Airtable user interface.",
-      "Spawns 5 parallel extraction sub-workflows targeting Amazon EAN, Amazon ASIN, eBay, OTTO.de, and Alibaba simultaneously.",
-      "Uses a weighted AI similarity matrix (40% image, 35% text meaning, 25% technical attributes) to output strict MATCH or REJECT verdicts.",
-      "Executes a central Technical Specification Consensus Engine to establish majority-backed data baselines and isolate up to 10 key outliers.",
-      "Harvests raw bilingual customer review arrays across German and English platforms, discarding single-mention noise.",
-      "Determines product copy tonality dynamically (Sie-Form vs. Du-Form) based on individual product price thresholds.",
-      "Formats final outputs into strict HTML block structures and sanitized comma-separated keyword fields before database delivery."
-    ],
-
-    // 3. Result (UPDATED: Concrete, high-converting metrics)
-
-    result: [
-      "First live deployment parsed the entire active catalog of 200+ products in 24 hours.",
-      "Found exact match signals across competitor marketplaces for 70+ listings (including EANs and ASINs); remaining 130+ items with completely generic titles were automatically grouped and flagged for human mapping.",
-      "AI evaluation layer successfully filtered out false-positive listings where a competitor used a similar title but a completely different brand or part number.",
-      "Flagged existing catalog errors (including incorrect weights that were messing up checkout shipping rules and flat-out typos in dimensions).",
-      "Scraped 10+ customer reviews across Amazon and eBay for each product, using an LLM to extract the top 3 product complaints—giving the copywriting team the exact objections to answer on the Shopify pages.",
-      "Cut 10 to 12 hours of manual labor per week for client, automating the entire competitor pricing and specification routine."
-    ],
-
-
-    // 4. Built with
-    tools: ["n8n", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
-
-    // 5. Deep Dive / Architecture Paragraph (UPDATED: Reflecting success metrics)
-    architecture: "The workflow initiates inside Airtable, where selecting a target product triggers Phase 1, splitting the pipeline into 5 parallel sub-workflows (Amazon EAN, Amazon ASIN, eBay, OTTO.de, and Alibaba) to harvest candidate data. In Phase 2, a central Technical Specification Consensus Engine aggregates these inputs to run a majority-vote verification. By ignoring marketplace metadata and standardizing all units, this core AI maps clean data profiles, flags conflicting splits, and ranks the 10 most significant specification outliers into a strict structural JSON schema. Phase 3 passes these records into a cross-border review-scraping loop to extract high-frequency praise and complaint patterns. In Phase 4, an E-Commerce Copywriting AI maps these raw insights to a strict data-driven conversion framework—dynamically adapting German tonality rules by price point and neutralizing rival weaknesses with an automated USP. Finally, a specialized Information Extractor serves as a structural formatting firewall, sanitizing the text dumps into valid comma-separated keywords and embedding specific HTML bold tags before updating Airtable for final client approval.",
-
-    image: workflowProjectImage,
-  },
-
-  {
-    id: 2,
-    client: "Justin Cook Talent Management",
-    role: "Apollo AI Lead Scoring & Cold Outreach Automation",
-    category: "Lead Generation Automation",
-    shortDescription: "AI workflow that finds verified B2B leads, scores them against an ideal client profile, and generates personalized cold outreach emails.",
-    fullDescription: "Built a fully automated B2B lead generation and outreach pipeline for a talent management client, designed to identify high-fit prospects and engage them with personalized cold emails at scale.\n\n" +
-      "The workflow starts by scraping verified leads from Apollo via Apify, filtered by industry, company size, location, and seniority. Each lead is then scored by an AI agent against a defined Ideal Client Profile across three weighted dimensions: company relevance, ICP match, and partnership value. Only leads scoring 70 or above are passed to the outreach stage.\n\n" +
-      "Qualified leads trigger a second AI agent that writes a personalized cold email referencing the company's industry, size, and pain points — with a low-friction CTA. Emails are sent via Gmail, thread IDs are captured for follow-up tracking, and all results are logged back to Google Sheets. A daily reporting sheet tracks messages sent, responses, and follow-up counts per campaign.",
-    tools: ["n8n", "Apify", "Google Sheets", "Gmail"],
-    results: ["Scraped and filtered verified B2B leads from Apollo using industry, company size, location, and seniority signals via Apify.", "AI-scored every lead against a weighted Ideal Client Profile — only companies scoring 70+ across relevance, ICP match, and partnership value proceed to outreach.", "Auto-generated personalized cold emails per lead using Google Gemini, with thread tracking and daily campaign reporting logged back to Google Sheets."],
-    image: workflowProjectImage2,
-  },
-  {
-    id: 3,
-    client: "Goods+Gadgets GmbH",
-    role: "Amazon Review Monitor & AI Policy Audit Automation",
-    category: "E-commerce Review Management",
-    shortDescription: "Built a scheduled automation that scrapes Amazon.de reviews by star rating, runs each low-star review through an AI policy audit, and surfaces removable violations directly to the support team.",
-    fullDescription: "Built an automated Amazon review monitoring and compliance pipeline for a German e-commerce client, designed to protect product ratings by identifying reviews that violate Amazon's Customer Reviews Policy.\n\n" +
-      "The workflow runs on a schedule and pulls the latest reviews across all five star ratings for every tracked ASIN on Amazon.de using the Apify review scraper. Low-star reviews (1★ to 3★) are routed through a two-stage AI audit powered by Google Gemini: the first stage detects potential violations across 10 policy categories, and the second stage classifies the strongest violation and extracts the exact offending snippet with a policy citation.\n\n" +
-      "Reviews that pass the violation check are flagged with a removal likelihood score — Highly Likely, Likely, or Low — and automatically logged to an Action Required sheet with all the context a support agent needs to open an Amazon case. All reviews across every star rating are simultaneously stored in a MySQL database for historical tracking and trend analysis. The result is a hands-off compliance monitor that catches policy-violating reviews faster than any manual process could.",
-    tools: ["n8n", "Apify", "Google Sheets", "MySQL"],
-    results: ["Scraped Amazon.de reviews across all five star ratings per ASIN on a recurring schedule, storing every review in MySQL for historical tracking and trend analysis.", "Ran 1★–3★ reviews through a two-stage AI audit (Google Gemini) that detects policy violations across 10 categories and assigns a removal likelihood score — Highly Likely, Likely, or Low.", "Automatically surfaced flagged reviews to the support team via an Action Required sheet, complete with the offending snippet, violation category, Amazon policy citation, and case status."],
-    image: workflowProjectImage3,
-  },
-];
-
 const ProjectModal = ({ project, onClose }) => {
-  // NEW STATE: Tracks if the full-resolution lightbox is currently active
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const handleKey = (e) => {
       if (e.key === 'Escape') {
-        // If the lightbox is open, pressing Escape closes ONLY the lightbox first
         if (lightboxOpen) setLightboxOpen(false);
         else onClose();
       }
@@ -125,7 +50,6 @@ const ProjectModal = ({ project, onClose }) => {
                   className="max-w-full max-h-full object-contain rounded select-none shadow-md"
                 />
 
-                {/* NEW BUTTON: Triggers the lightboxOpen state on click */}
                 <button
                   onClick={() => setLightboxOpen(true)}
                   className="absolute left-4 bottom-4 text-xs font-medium text-zinc-400 hover:text-white flex items-center gap-1 bg-zinc-950 border border-zinc-800 px-3 py-1.5 rounded-lg shadow-lg cursor-pointer transition-colors"
@@ -168,9 +92,51 @@ const ProjectModal = ({ project, onClose }) => {
 
         </motion.div>
       </motion.div>
+
+      {/* NEW: LIGHTBOX OVERLAY WINDOW (Renders completely on top of everything) */}
+      <AnimatePresence>
+        {lightboxOpen && project.image && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 z-[60] flex flex-col items-center justify-center p-4 cursor-zoom-out"
+            onClick={() => setLightboxOpen(false)} // Clicking backdrop closes full view
+          >
+            {/* Upper control overlay toolbar */}
+            <div className="absolute top-4 right-4 flex items-center gap-3 z-10">
+              <span className="text-[10px] font-mono text-zinc-500 bg-zinc-950 px-2.5 py-1.5 rounded-md border border-zinc-800 uppercase tracking-wider">
+                Full-Size Workflow View
+              </span>
+              <button
+                onClick={() => setLightboxOpen(false)}
+                className="p-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Maximized display viewport image wrapper */}
+            <motion.div
+              initial={{ scale: 0.98 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.98 }}
+              className="max-w-full max-h-[90vh] flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()} // Prevents accidental closing when clicking image directly
+            >
+              <img
+                src={project.image}
+                alt="High resolution diagram workflow full view"
+                className="max-w-full max-h-[85vh] object-contain rounded border border-zinc-800"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
+
 
 
 const Projects = () => {
