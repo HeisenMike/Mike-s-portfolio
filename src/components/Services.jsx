@@ -38,7 +38,7 @@ const services = [
         icon={DashboardCircleEditIcon}
         className="w-8 h-8 mb-2 text-amber-400" />
     ),
-    tools: ["Airtable", "Google Sheets", "Supabase"]
+    tools: ["Airtable", "Monday.com", "ClickUp"]
   },
   {
     title: "Stop Answering the Same Questions",
@@ -54,7 +54,8 @@ const services = [
     title: "Automations That Don’t Break",
     description: "A quiet failure is worse than no automation at all. I build in automatic retries and alerts, so you hear about real problems right away.",
     icon: <Code2 className="w-8 h-8 mb-2 text-sky-400" />,
-    tools: ["Sentry", "Better Stack", "GitHub Actions"]
+    tools: ["Smart Error Skipping", "Auto-Retry Triggers", "Built-in Backup Routes"]
+
   }
 ];
 
