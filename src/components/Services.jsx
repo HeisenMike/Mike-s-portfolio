@@ -3,7 +3,7 @@
 import React from 'react';
 import { Braces, Database, Webhook, Magnet, Users, Code2 } from 'lucide-react';
 import { HugeiconsIcon } from '@hugeicons/react'
-import { WorkflowSquare03Icon, ArtificialIntelligence04Icon } from '@hugeicons/core-free-icons';
+import { WorkflowSquare03Icon, ArtificialIntelligence04Icon, DashboardCircleEditIcon, WhatsappIcon } from '@hugeicons/core-free-icons';
 
 
 const services = [
@@ -33,16 +33,19 @@ const services = [
   {
     title: "Reports and Dashboards",
     description: "Sales, stock, ad spend and returns, all in one place and updated on their own. You open one dashboard instead of five tabs.",
-    icon: <Database className="w-8 h-8 mb-2 text-emerald-400" />
+    icon: (
+      <HugeiconsIcon
+        icon={DashboardCircleEditIcon}
+        className="w-8 h-8 mb-2 text-emerald-400" />
+    )
   },
   {
     title: "Stop Answering the Same Questions",
     description: "Same five questions, all day long. “What’s the price?” “Are you free Thursday?” “Where’s my project at?” My assistant answers them in WhatsApp, Slack, or wherever you chat.",
     icon: (
-      <div className="relative w-11 h-11 mb-1 text-amber-400">
-        <Magnet className="absolute left-0 bottom-0 w-6 h-6 -rotate-180 origin-center" />
-        <Users className="absolute right-1 top-1 w-5 h-5" />
-      </div>
+      <HugeiconsIcon
+        icon={WhatsappIcon}
+        className="w-8 h-8 mb-2 text-amber-400" />
     )
   },
   {
