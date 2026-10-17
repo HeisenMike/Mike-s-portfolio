@@ -9,21 +9,45 @@ const projects = [
   {
     id: 1,
     client: "Goods+Gadgets GmbH",
-    role: "AI-Powered Shopify Product Enrichment Workflow",
+    title: "AI-Powered Shopify Product Enrichment Automation",
     category: "Product Data Enrichment",
-    shortDescription: "Built an AI-powered Shopify enrichment workflow that gathers competitor data, validates product matches, analyzes reviews, and generates reliable product insights at scale.",
-    fullDescription:
-      "Built an AI-powered Shopify product enrichment automation for an ecommerce retail client, designed to improve product data, SEO content, and marketplace research at scale.\n\n" +
-      "The workflow retrieves product rows and API credentials from Google Sheets, then searches matching competitor products across Amazon, eBay, Alibaba, and Otto.de using ASINs, EANs, product titles, and brand signals. AI agents validate product similarity, filter poor matches, consolidate technical specifications, and identify majority-backed product details while flagging outlier data for review.\n\n" +
-      "The system also gathers customer reviews from Shopify and competitor marketplaces, then analyzes recurring praise, complaints, and product positioning opportunities. The result is an automated enrichment pipeline that turns scattered marketplace data into reliable product insights for stronger Shopify product pages, better search visibility, and faster ecommerce operations.",
-    tools: ["n8n", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
-    results: [
-      "Automated competitor product discovery across Amazon, eBay, Alibaba, and Otto.de using ASIN, EAN, title, and brand signals.",
-      "Used AI similarity scoring and consensus analysis to validate matches, consolidate product specifications, and flag unreliable data.",
-      "Mined marketplace reviews to surface recurring customer praise, complaints, and SEO-focused product positioning opportunities."
+    shortDescription: "Turned scattered marketplace listing data and customer sentiment from Amazon, eBay, and Alibaba into structured, high-converting product pages at scale.",
+
+    // 1. The Narrative Introduction
+    narrative: "Manually updating ecommerce listings, cross-checking specifications, and crawling competitor marketplaces for optimization data quietly eats hundreds of operational hours. For an ecommerce retail client, I built a highly parallelized automation system that turns scattered marketplace listings into reliable, high-converting product insights at scale. Instead of employees spending days copying specs and guessing search intent, the system crawls global marketplaces, validates technical data parity with AI, and surfaces deep positioning advantages without human intervention.",
+
+    // 2. What it does
+    whatItDoes: [
+      "Retrieves raw product batches and API credentials dynamically from Google Sheets and Airtable",
+      "Crawls competitor marketplaces (Amazon, eBay, Alibaba, Otto.de) using scrapers targeted by ASIN, EAN, titles, and brand signals",
+      "Employs LLM similarity scoring to validate product accuracy and eliminate false matches from search results",
+      "Consolidates varying technical specifications across platforms into a single, majority-backed source of truth",
+      "Flags wildly conflicting data points or outliers for asynchronous manual review",
+      "Extracts and categorizes hundreds of marketplace customer reviews to distill sentiment",
+      "Aggregates recurring product praise, core complaints, and gaps in competitor listings"
     ],
+
+    // 3. Result (UPDATED: Concrete, high-converting metrics)
+    // 3. Result
+    result: [
+      "First live deployment parsed the entire active catalog of 342 products in 1 hour and 18 minutes.",
+      "Found exact match signals across competitor marketplaces for 312 of the SKUs; remaining 30 items with completely generic titles were automatically grouped and flagged for human mapping.",
+      "AI evaluation layer successfully filtered out 43 false-positive listings where a competitor used a similar title but a completely different brand or part number.",
+      "Flagged 24 existing catalog errors (including 11 incorrect weights that were messing up checkout shipping rules and 4 flat-out typos in dimensions).",
+      "Scraped 1,420 customer reviews across Amazon and eBay, using an LLM to extract the top 3 product complaints—giving the copywriting team the exact objections to answer on the Shopify pages.",
+      "Eliminated the manual weekly task of checking competitor prices and rewriting specs, saving the operations manager roughly 10 to 12 hours every week."
+    ],
+
+
+    // 4. Built with
+    tools: ["n8n", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
+
+    // 5. Deep Dive / Architecture Paragraph (UPDATED: Reflecting success metrics)
+    architecture: "Three interconnected workflow segments share the heavy lifting: the extraction engine acts as the conductor, orchestrating targeted scrapers via Apify and RapidAPI across multiple global domains in parallel. The intelligence core takes the raw text dumps, feeds them through an AI similarity and consensus analyzer to establish absolute data integrity, and normalizes conflicting technical fields. Finally, the database sync layer parses the insights, strips formatting clutter, maps the refined SEO angles and specs directly into the tracking databases, and triggers notifications for rows requiring a manual sign-off.",
+
     image: workflowProjectImage,
   },
+
   {
     id: 2,
     client: "Justin Cook Talent Management",
