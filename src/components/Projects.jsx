@@ -14,21 +14,22 @@ const projects = [
     shortDescription: "Turned scattered marketplace listing data and customer sentiment from Amazon, eBay, and Alibaba into structured, high-converting product pages at scale.",
 
     // 1. The Narrative Introduction
-    narrative: "Manually updating ecommerce listings, cross-checking specifications, and crawling competitor marketplaces for optimization data quietly eats hundreds of operational hours. For an ecommerce retail client, I built a highly parallelized automation system that turns scattered marketplace listings into reliable, high-converting product insights at scale. Instead of employees spending days copying specs and guessing search intent, the system crawls global marketplaces, validates technical data parity with AI, and surfaces deep positioning advantages without human intervention.",
+    narrative: "Manually managing product descriptions, tracking competitor specifications, and translating global marketplace reviews quietly eats hundreds of operational hours. For an e-commerce retail client, I built a multi-phase orchestration engine that automates catalog auditing and SEO enrichment directly from their Airtable interface. Instead of teams wasting days copying dimensions and guessing consumer search intent, the system dynamically spins up 5 platform-specific scraping sub-workflows, checks data parity using a weighted AI similarity matrix, and runs a majority-vote consensus engine to eliminate typos. The system then automatically mines bilingual customer reviews to uncover direct competitor vulnerabilities, passing clean data to a premium German copywriting agent that updates Airtable with marketplace-ready, algorithm-optimized listings.",
+
 
     // 2. What it does
     whatItDoes: [
-      "Retrieves raw product batches and API credentials dynamically from Google Sheets and Airtable",
-      "Crawls competitor marketplaces (Amazon, eBay, Alibaba, Otto.de) using scrapers targeted by ASIN, EAN, titles, and brand signals",
-      "Employs LLM similarity scoring to validate product accuracy and eliminate false matches from search results",
-      "Consolidates varying technical specifications across platforms into a single, majority-backed source of truth",
-      "Flags wildly conflicting data points or outliers for asynchronous manual review",
-      "Extracts and categorizes hundreds of marketplace customer reviews to distill sentiment",
-      "Aggregates recurring product praise, core complaints, and gaps in competitor listings"
+      "Triggers instantly when an operator selects a target product inside the Airtable user interface.",
+      "Spawns 5 parallel extraction sub-workflows targeting Amazon EAN, Amazon ASIN, eBay, OTTO.de, and Alibaba simultaneously.",
+      "Uses a weighted AI similarity matrix (40% image, 35% text meaning, 25% technical attributes) to output strict MATCH or REJECT verdicts.",
+      "Executes a central Technical Specification Consensus Engine to establish majority-backed data baselines and isolate up to 10 key outliers.",
+      "Harvests raw bilingual customer review arrays across German and English platforms, discarding single-mention noise.",
+      "Determines product copy tonality dynamically (Sie-Form vs. Du-Form) based on individual product price thresholds.",
+      "Formats final outputs into strict HTML block structures and sanitized comma-separated keyword fields before database delivery."
     ],
 
     // 3. Result (UPDATED: Concrete, high-converting metrics)
-    // 3. Result
+
     result: [
       "First live deployment parsed the entire active catalog of 200+ products in 24 hours.",
       "Found exact match signals across competitor marketplaces for 70+ listings (including EANs and ASINs); remaining 130+ items with completely generic titles were automatically grouped and flagged for human mapping.",
