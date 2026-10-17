@@ -136,9 +136,9 @@ const ProjectModal = ({ project, onClose }) => {
         >
 
           {/* LEFT COLUMN: Fixed Image Stage */}
-          <div className="bg-black p-2 md:p-3 flex flex-col justify-center items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
+          <div className="bg-black p-2 md:p-3 flex flex-col justify-start items-center h-full border-b md:border-b-0 md:border-r border-zinc-800 relative min-h-[300px]">
             {project.images?.[0] ? (
-              <div className="w-full h-full bg-zinc-900/30 rounded-xl border border-zinc-800 p-2 md:p-3 flex items-center justify-center relative overflow-hidden group">
+              <div className="w-full h-full bg-zinc-900/30 rounded-xl border border-zinc-800 p-2 md:p-3 flex items-start justify-center relative overflow-hidden group">
                 <img
                   src={project.images[0]}
                   alt="Active flow screen display state"
