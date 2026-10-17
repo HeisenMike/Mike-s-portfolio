@@ -50,6 +50,10 @@ const projects = [
     ],
     images: [
       '/project-screenshots/Project1Image1.png',
+      '/project-screenshots/Project1Image2.png',
+      '/project-screenshots/Project1Image3.png',
+      '/project-screenshots/Project1Image4.png',
+      '/project-screenshots/Project1Image5.png',
     ],
   },
 
