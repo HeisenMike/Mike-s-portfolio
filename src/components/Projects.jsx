@@ -82,15 +82,21 @@ const ProjectModal = ({ project, onClose }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
-    // 1. Calculate how wide the browser scrollbar actually is
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
 
-    // 2. Lock scrolling, but inject a temporary right padding spacer to keep pages stable
     document.body.style.overflow = 'hidden';
+
     if (scrollbarWidth > 0) {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    };
+  }, []);
+  useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') {
         if (lightboxOpen) setLightboxOpen(false);
@@ -99,10 +105,8 @@ const ProjectModal = ({ project, onClose }) => {
     };
 
     window.addEventListener('keydown', handleKey);
+
     return () => {
-      // 3. Clear styling modifications cleanly upon closure exit transitions
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
       window.removeEventListener('keydown', handleKey);
     };
   }, [onClose, lightboxOpen]);
