@@ -11,9 +11,8 @@ const projects = [
     client: "Goods+Gadgets GmbH",
     title: "AI-Powered Shopify Product Enrichment Automation",
     category: "Product Data Enrichment",
-    shortDescription: "Turned scattered marketplace listing data and customer sentiment from Amazon, eBay, and Alibaba into structured, high-converting product pages at scale.",
+    shortDescription: "Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable.",
 
-    // 1. The Narrative Introduction
     // 1. The Narrative Introduction
     narrative: "Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable. With one click, the engine runs 5 parallel marketplace scraping workflows, cross-checks product matches using a custom weighted AI similarity matrix, and runs a consensus engine to filter out data errors. It then extracts high-frequency German and English consumer review patterns to pinpoint competitor flaws, passing optimized product copy and backend SEO strings straight back to Airtable.",
 
@@ -44,13 +43,14 @@ const projects = [
     tools: ["n8n", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
 
     // 5. Deep Dive / Architecture Paragraph
-    // 5. Deep Dive / Architecture Paragraph (Formatted as a clean, sequential list)
-    architecture:
-      "System Architecture & Data Pipeline:\n\n" +
-      "• Phase 1 (Extraction): Fires 5 parallel sub-workflows to scrape global marketplace candidate listings simultaneously.\n" +
-      "• Phase 2 (Consensus): Filters specification outliers and normalizes metadata into a clean JSON schema via a majority-vote logic engine.\n" +
-      "• Phase 3 (Intelligence): Routes verified matches into a bilingual review-mining loop to isolate high-frequency consumer patterns.\n" +
-      "• Phase 4 (Copywriting): Generates price-dependent German copy and automated USPs, passing data through a formatting firewall back to Airtable.",
+    // 5. Deep Dive / Architecture Paragraph (Updated to a clean Array)
+    architecture: [
+      "Phase 1 (Extraction): Fires 5 parallel sub-workflows to scrape global marketplace candidate listings simultaneously.",
+      "Phase 2 (Consensus): Filters specification outliers and normalizes metadata into a clean JSON schema via a majority-vote logic engine.",
+      "Phase 3 (Intelligence): Routes verified matches into a bilingual review-mining loop to isolate high-frequency consumer patterns.",
+      "Phase 4 (Copywriting): Generates price-dependent German copy and automated USPs, passing data through a formatting firewall back to Airtable."
+    ],
+
 
 
 
@@ -242,10 +242,38 @@ const ProjectModal = ({ project, onClose }) => {
                 </div>
               )}
 
-              {/* 5. Concluding deep architecture narrative block details */}
-              {project.architecture && (
-                <div className="pt-4 border-t border-zinc-900 text-xs font-light text-zinc-400 leading-relaxed italic bg-zinc-900/20 p-4 rounded-xl border border-zinc-900/60">
-                  {project.architecture}
+              {/* 5. System Architecture / Flow Deep-dive (Now with a clean intro sentence) */}
+              {project.architecture && project.architecture.length > 0 && (
+                <div className="pt-6 border-t border-zinc-900 space-y-4">
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
+                      System Architecture & Data Pipeline
+                    </h4>
+                    <p className="text-sm font-light text-zinc-400 leading-relaxed">
+                      The core automation operates as a four-stage backend processing engine that structures raw web-scraped data into clean assets:
+                    </p>
+                  </div>
+
+                  <ul className="space-y-3 pl-1">
+                    {project.architecture.map((step, idx) => {
+                      // Safely splits the string at the first colon to isolate the phase label
+                      const parts = step.split(':');
+                      const label = parts[0];
+                      const description = parts.slice(1).join(':'); // Glues back anything after the first colon
+
+                      return (
+                        <li key={idx} className="text-sm font-light text-zinc-400 leading-relaxed flex items-start gap-2.5">
+                          <span className="text-violet-400 mt-2 block h-1 w-1 shrink-0 rounded-full bg-violet-400" />
+                          <div>
+                            <strong className="text-zinc-200 font-medium">
+                              {label}:
+                            </strong>
+                            {description}
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
               )}
             </div>
