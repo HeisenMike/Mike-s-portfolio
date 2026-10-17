@@ -102,20 +102,29 @@ const ProjectModal = ({ project, onClose }) => {
         className="bg-[#121216] border border-zinc-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Cover Image */}
-        <div className="relative h-48 md:h-64 bg-zinc-900 border-b border-zinc-800">
+        {/* Cover Image / Close Header */}
+        <div className="relative w-full bg-zinc-950/60 border-b border-zinc-800 p-6 md:p-8 flex items-center justify-center min-h-[200px]">
           {project.image ? (
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-40" />
+            <img
+              src={project.image}
+              alt={project.title}
+              className="max-w-full max-h-[320px] object-contain rounded-lg shadow-2xl border border-zinc-800/80"
+              style={{ filter: 'drop-shadow(0 25px 50px rgb(0 0 0 / 0.5))' }}
+            />
           ) : (
-            <div className="w-full h-full bg-zinc-900 flex items-center justify-center text-zinc-600 text-sm">
+            <div className="text-zinc-600 text-sm font-light">
               Case Study Asset Visualization
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#121216] to-transparent" />
-          <button onClick={onClose} className="absolute top-6 right-6 p-2 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors">
+
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 p-2 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors z-10"
+          >
             <X className="w-5 h-5" />
           </button>
         </div>
+
 
         {/* Content */}
         <div className="p-6 md:p-10 space-y-8 text-left">
