@@ -69,7 +69,11 @@ const projects = [
     tools: ["n8n", "Apify", "Google Sheets", "Gmail"],
     results: ["Scraped and filtered verified B2B leads from Apollo using industry, company size, location, and seniority signals via Apify.", "AI-scored every lead against a weighted Ideal Client Profile — only companies scoring 70+ across relevance, ICP match, and partnership value proceed to outreach.", "Auto-generated personalized cold emails per lead using Google Gemini, with thread tracking and daily campaign reporting logged back to Google Sheets."],
     images: [
-      project2Image1,
+      '/project-screenshots/Project2Image1.png',
+      '/project-screenshots/Project2Image2.png',
+      '/project-screenshots/Project2Image3.png',
+      '/project-screenshots/Project2Image4.png',
+      '/project-screenshots/Project2Image5.png'
     ],
   },
   {
@@ -106,6 +110,13 @@ const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
     setActiveImageIndex(0);
     setLightboxOpen(false);
+  }, [project.id]);
+
+  useEffect(() => {
+    images.forEach((image) => {
+      const preload = new Image();
+      preload.src = image;
+    });
   }, [project.id]);
 
   useEffect(() => {
@@ -162,6 +173,7 @@ const ProjectModal = ({ project, onClose }) => {
                 <img
                   src={activeImage}
                   alt="Active flow screen display state"
+                  decoding="async"
                   className="max-w-full max-h-full object-contain rounded select-none shadow-md"
                 />
 
@@ -350,6 +362,7 @@ const ProjectModal = ({ project, onClose }) => {
             <img
               src={activeImage}
               alt="High resolution diagram workflow full view"
+              decoding="async"
               className="max-w-full max-h-[85vh] object-contain rounded border border-zinc-800"
             />
 
