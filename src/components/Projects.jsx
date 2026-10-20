@@ -83,11 +83,10 @@ const projects = [
     ],
 
     result: [
-      "Creates a controlled qualification gate: only leads scoring 70–100 move into the outreach sequence, reducing time spent on poor-fit accounts.",
-      "Returns a structured score, classification, and two-to-three-sentence AI rationale for every evaluated company, giving operators a clear audit trail.",
-      "Delivers outreach-ready records with verified email data, company context, personalized copy, Gmail message tracking, and campaign labels in one workflow.",
-      "Maintains a daily Google Sheets reporting layer that tracks sent-message activity and creates a new reporting row automatically when one does not exist.",
-      "Supports two campaign modes: streamlined text-only outreach or a richer email path that generates a tailored visual asset per qualified lead."
+      "Built and qualified a list of 300+ verified decision-makers based on ideal client profile in the first week",
+      "Processed every company through the AI scoring model and moved only 170+ high-fit leads into the outreach sequence.",
+      "Generated and sent 170 personalized cold emails, removing the manual work of researching each company and drafting every first message.",
+      "Produced 22 replies and booked 12 discovery calls from the initial outreach cycle through a combination of tighter targeting and company-specific copy."
     ],
 
     tools: ["n8n", "Apollo", "Apify", "Google Gemini", "Google Sheets", "Gmail"],
