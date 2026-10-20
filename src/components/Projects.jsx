@@ -31,9 +31,9 @@ const projects = [
     result: [
       "First live deployment parsed the entire active catalog of 200+ products in 24 hours.",
       "Found exact match signals across competitor marketplaces for 70+ listings (including EANs and ASINs); remaining 130+ items with completely generic titles were automatically grouped and flagged for human mapping.",
-      "AI evaluation layer successfully filtered out false-positive listings where a competitor used a similar title but a completely different brand or part number.",
+      "Reduced wasted ad spend risk by improving the accuracy of product specifications, titles, and conversion-focused copy across the catalog.",
       "Flagged existing catalog errors (including incorrect weights that were messing up checkout shipping rules and flat-out typos in dimensions).",
-      "Scraped 10+ customer reviews across Amazon and eBay for each product, using an LLM to extract the top 3 product complaints—giving the copywriting team the exact objections to answer on the Shopify pages.",
+      "Improved product-data accuracy and conversion readiness across a 200+ SKU household catalog, supporting a 3–4x ROAS target for product-led ad campaigns.",
       "Cut 10 to 12 hours of manual labor per week for client, automating the entire competitor pricing and specification routine."
     ],
 
