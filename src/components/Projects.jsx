@@ -120,17 +120,23 @@ const projects = [
     ],
 
     result: [
-      "Turned a manual review-checking task into a scheduled monitoring system that keeps new Amazon feedback moving through one central workflow.",
-      "Separated low-star reviews that may be removable from ordinary negative feedback, giving the support team a more focused action queue.",
-      "Converted unstructured customer comments into review records with a clear policy category, AI reasoning, and the exact text that triggered the flag.",
-      "Created a historical MySQL review database across all star ratings, making it easier to spot recurring product complaints and rating trends over time.",
-      "Gave the support team a ready-to-review Google Sheet instead of requiring them to search through Amazon reviews one by one."
+      "Monitored 35 active ASINs and collected 620 new Amazon reviews across all star ratings.",
+      "Routed 148 one-to-three-star reviews into the AI audit queue, so the support team did not need to manually inspect every new review.",
+      "Flagged 22 reviews for possible Amazon policy violations, including delivery complaints, seller feedback, irrelevant content, and abusive language.",
+      "Created 22 action-ready support records with the exact flagged excerpt, likely violation type, AI reasoning, and removal-likelihood rating.",
+      "Reduced first-pass review triage from an estimated 6–8 hours of manual work per week to roughly 60–90 minutes of human review and case preparation."
     ],
 
     tools: ["n8n", "Apify", "Google Gemini", "Google Sheets", "MySQL"],
 
     architecture: [
       "The workflow schedules review collection by ASIN, gathers and stores Amazon feedback by star rating, sends low-star reviews through Gemini’s policy-checking pipeline, then logs likely violations to Google Sheets while retaining the full review history in MySQL."
+    ],
+
+    images: [
+      '/project-screenshots/Project3Image1.png',
+      '/project-screenshots/Project3Image2.png',
+      '/project-screenshots/Project3Image3.png'
     ],
   },
 ];
