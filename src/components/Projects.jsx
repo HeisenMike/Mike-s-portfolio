@@ -102,15 +102,35 @@ const projects = [
     id: 3,
     client: "Goods+Gadgets GmbH",
     role: "Amazon Review Monitor & AI Policy Audit Automation",
+
     category: "E-commerce Review Management",
-    shortDescription: "Built a scheduled automation that scrapes Amazon.de reviews by star rating, runs each low-star review through an AI policy audit, and surfaces removable violations directly to the support team.",
-    fullDescription: "Built an automated Amazon review monitoring and compliance pipeline for a German e-commerce client, designed to protect product ratings by identifying reviews that violate Amazon's Customer Reviews Policy.\n\n" +
-      "The workflow runs on a schedule and pulls the latest reviews across all five star ratings for every tracked ASIN on Amazon.de using the Apify review scraper. Low-star reviews (1★ to 3★) are routed through a two-stage AI audit powered by Google Gemini: the first stage detects potential violations across 10 policy categories, and the second stage classifies the strongest violation and extracts the exact offending snippet with a policy citation.\n\n" +
-      "Reviews that pass the violation check are flagged with a removal likelihood score — Highly Likely, Likely, or Low — and automatically logged to an Action Required sheet with all the context a support agent needs to open an Amazon case. All reviews across every star rating are simultaneously stored in a MySQL database for historical tracking and trend analysis. The result is a hands-off compliance monitor that catches policy-violating reviews faster than any manual process could.",
-    tools: ["n8n", "Apollo", "Apify", "Google Sheets", "MySQL"],
-    results: ["Scraped Amazon.de reviews across all five star ratings per ASIN on a recurring schedule, storing every review in MySQL for historical tracking and trend analysis.", "Ran 1★–3★ reviews through a two-stage AI audit (Google Gemini) that detects policy violations across 10 categories and assigns a removal likelihood score — Highly Likely, Likely, or Low.", "Automatically surfaced flagged reviews to the support team via an Action Required sheet, complete with the offending snippet, violation category, Amazon policy citation, and case status."],
-    images: [
-      project3Image1,
+
+    shortDescription:
+      "Monitors Amazon reviews across tracked products, uses AI to spot policy violations in low-star feedback, and sends the support team an action-ready removal queue.",
+
+    narrative:
+      "Built a scheduled review-monitoring system for an e-commerce client selling on Amazon.de. The workflow pulls reviews across all star ratings for each tracked ASIN, stores the data for historical analysis, and routes 1–3-star reviews through a two-stage Gemini policy audit. Instead of manually reading every negative review, the support team receives only the reviews that may qualify for removal—complete with the likely policy violation, the exact problematic excerpt, and the context needed to open an Amazon case.",
+
+    whatItDoes: [
+      "Runs on a schedule and pulls recent Amazon reviews for every tracked ASIN.",
+      "Collects reviews across 1–5-star ratings and stores the review data in MySQL for historical tracking.",
+      "Routes 1–3-star reviews through a two-stage AI audit based on Amazon’s Customer Reviews Policy.",
+      "Checks for policy issues such as product-condition complaints, seller feedback, irrelevant content, abusive language, and external links.",
+      "Logs likely violations to an Action Required Google Sheet with the review, policy category, offending excerpt, and removal likelihood."
+    ],
+
+    result: [
+      "Turned a manual review-checking task into a scheduled monitoring system that keeps new Amazon feedback moving through one central workflow.",
+      "Separated low-star reviews that may be removable from ordinary negative feedback, giving the support team a more focused action queue.",
+      "Converted unstructured customer comments into review records with a clear policy category, AI reasoning, and the exact text that triggered the flag.",
+      "Created a historical MySQL review database across all star ratings, making it easier to spot recurring product complaints and rating trends over time.",
+      "Gave the support team a ready-to-review Google Sheet instead of requiring them to search through Amazon reviews one by one."
+    ],
+
+    tools: ["n8n", "Apify", "Google Gemini", "Google Sheets", "MySQL"],
+
+    architecture: [
+      "The workflow schedules review collection by ASIN, gathers and stores Amazon feedback by star rating, sends low-star reviews through Gemini’s policy-checking pipeline, then logs likely violations to Google Sheets while retaining the full review history in MySQL."
     ],
   },
 ];
