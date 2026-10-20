@@ -324,7 +324,7 @@ const ProjectModal = ({ project, onClose }) => {
                     ))}
                   </ul>
                 </div>
-              )},
+              )}
 
 
               {/* 4. System Architecture / Flow Deep-dive (Now with a clean intro sentence) */}
