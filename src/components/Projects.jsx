@@ -313,7 +313,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.result && (
                 <div className="space-y-3">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 flex items-center gap-2">
-                    <BarChart2 className="w-3.5 h-3.5 text-emerald-400" /> Production Outcomes
+                    <BarChart2 className="w-3.5 h-3.5 text-emerald-400" /> Results
                   </h4>
                   <ul className="space-y-2">
                     {project.result.map((item, idx) => (
