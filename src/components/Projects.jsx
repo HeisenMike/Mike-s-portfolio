@@ -8,7 +8,7 @@ const projects = [
   {
     id: 1,
     client: "Goods+Gadgets GmbH",
-    title: "AI-Powered Shopify Product Enrichment Automation",
+    role: "AI-Powered Shopify Product Enrichment Automation",
     category: "Product Data Enrichment",
     shortDescription: "Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable.",
 
@@ -39,7 +39,7 @@ const projects = [
 
 
     // 4. Built with
-    tools: ["n8n", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
+    tools: ["n8n", "Shopify", "OpenAI", "Apify", "RapidAPI", "Google Sheets", "Airtable"],
 
     // 5. Deep Dive / Architecture Paragraph (Updated to a clean Array)
     architecture: [
