@@ -287,7 +287,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.whatItDoes && (
                 <div className="space-y-3">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 flex items-center gap-2">
-                    <Wrench className="w-3.5 h-3.5 text-violet-400" /> System Mechanics
+                    <Wrench className="w-3.5 h-3.5 text-violet-400" /> What It Does
                   </h4>
                   <ul className="space-y-2">
                     {project.whatItDoes.map((item, idx) => (
@@ -323,11 +323,14 @@ const ProjectModal = ({ project, onClose }) => {
                 <div className="pt-6 border-t border-zinc-900 space-y-4">
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
-                      System Architecture & Data Pipeline
+                      How It All Works
                     </h4>
-                    <p className="text-sm font-light text-zinc-400 leading-relaxed">
-                      The core automation operates as a four-stage backend processing engine that structures raw web-scraped data into clean assets:
-                    </p>
+
+                    {project.architectureIntro && (
+                      <p className="text-sm font-light text-zinc-400 leading-relaxed">
+                        {project.architectureIntro}
+                      </p>
+                    )}
                   </div>
 
                   <ul className="space-y-3 pl-1">
