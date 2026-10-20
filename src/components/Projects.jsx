@@ -370,10 +370,16 @@ const ProjectModal = ({ project, onClose }) => {
                         <li key={idx} className="text-sm font-light text-zinc-400 leading-relaxed flex items-start gap-2.5">
                           <span className="text-violet-400 mt-2 block h-1 w-1 shrink-0 rounded-full bg-violet-400" />
                           <div>
-                            <strong className="text-zinc-200 font-medium">
-                              {label}:
-                            </strong>
-                            {description}
+                            {description ? (
+                              <>
+                                <strong className="text-zinc-200 font-medium">
+                                  {label}:
+                                </strong>
+                                {description}
+                              </>
+                            ) : (
+                              step
+                            )}
                           </div>
                         </li>
                       );
