@@ -60,14 +60,45 @@ const projects = [
   {
     id: 2,
     client: "Justin Cook Talent Management",
-    role: "Apollo AI Lead Scoring & Cold Outreach Automation",
+    role: "AI Lead Qualification & Personalized Outreach Automation",
+
     category: "Lead Generation Automation",
-    shortDescription: "AI workflow that finds verified B2B leads, scores them against an ideal client profile, and generates personalized cold outreach emails.",
-    fullDescription: "Built a fully automated B2B lead generation and outreach pipeline for a talent management client, designed to identify high-fit prospects and engage them with personalized cold emails at scale.\n\n" +
-      "The workflow starts by scraping verified leads from Apollo via Apify, filtered by industry, company size, location, and seniority. Each lead is then scored by an AI agent against a defined Ideal Client Profile across three weighted dimensions: company relevance, ICP match, and partnership value. Only leads scoring 70 or above are passed to the outreach stage.\n\n" +
-      "Qualified leads trigger a second AI agent that writes a personalized cold email referencing the company's industry, size, and pain points — with a low-friction CTA. Emails are sent via Gmail, thread IDs are captured for follow-up tracking, and all results are logged back to Google Sheets. A daily reporting sheet tracks messages sent, responses, and follow-up counts per campaign.",
-    tools: ["n8n", "Shopify", "Apify", "Google Sheets", "Gmail"],
-    results: ["Scraped and filtered verified B2B leads from Apollo using industry, company size, location, and seniority signals via Apify.", "AI-scored every lead against a weighted Ideal Client Profile — only companies scoring 70+ across relevance, ICP match, and partnership value proceed to outreach.", "Auto-generated personalized cold emails per lead using Google Gemini, with thread tracking and daily campaign reporting logged back to Google Sheets."],
+
+    shortDescription:
+      "Finds verified decision-maker contacts, scores each company against an ideal client profile, and sends personalized AI-written outreach only to strong-fit leads.",
+
+    narrative:
+      "Built an n8n lead-generation and cold-outreach engine for a talent management client. The workflow uses configurable ideal-client-profile criteria to source verified decision-maker contacts through Apollo via Apify, then evaluates every company with Gemini before outreach begins. Only companies that meet the qualification threshold receive a tailored email; the workflow records the decision, reasoning, delivery data, and daily campaign activity in Google Sheets.",
+
+    whatItDoes: [
+      "Sets the campaign’s Ideal Client Profile using industry, employee count, and geographic targeting criteria.",
+      "Queries Apollo through Apify for up to 15 verified-email contacts per run, filtered by company attributes, seniority, and decision-maker titles.",
+      "Stores captured company and contact data in Google Sheets for a central, reviewable campaign database.",
+      "Uses Gemini to score each company from 0–100 across company relevance (40%), ICP match (30%), and partnership value (30%).",
+      "Classifies leads as QUALIFIED, REVIEW, or DISQUALIFIED and writes the score plus concise reasoning back to the matching company record.",
+      "Routes only QUALIFIED leads—those scoring 70 or higher—to a second AI agent for personalized outreach generation.",
+      "Produces a short, company-specific cold email with a personalized subject line and low-friction call to action.",
+      "Optionally generates a 600×300 industry-relevant email creative, then combines it with the email copy before sending through Gmail.",
+      "Labels sent Gmail messages, saves the associated message ID in the tracking sheet, and updates or creates daily campaign-report rows."
+    ],
+
+    result: [
+      "Creates a controlled qualification gate: only leads scoring 70–100 move into the outreach sequence, reducing time spent on poor-fit accounts.",
+      "Returns a structured score, classification, and two-to-three-sentence AI rationale for every evaluated company, giving operators a clear audit trail.",
+      "Delivers outreach-ready records with verified email data, company context, personalized copy, Gmail message tracking, and campaign labels in one workflow.",
+      "Maintains a daily Google Sheets reporting layer that tracks sent-message activity and creates a new reporting row automatically when one does not exist.",
+      "Supports two campaign modes: streamlined text-only outreach or a richer email path that generates a tailored visual asset per qualified lead."
+    ],
+
+    tools: ["n8n", "Apollo", "Apify", "Google Gemini", "Google Sheets", "Gmail"],
+
+    architecture: [
+      "Campaign Control Layer: The operator sets the target industry, company-size range, and location once. Those rules become the campaign’s reusable Ideal Client Profile and control every downstream decision.",
+      "Verified Lead Pipeline: Apollo, accessed through Apify, returns decision-makers with verified emails and relevant company data. Each record is written to Google Sheets, creating a searchable working database before any outreach is sent.",
+      "AI Decision Engine: Gemini evaluates each company against the ICP using weighted relevance, fit, and partnership-value criteria. The workflow stores a 0–100 score, qualification status, and concise reasoning directly on the lead record.",
+      "Outreach Activation Layer: Only QUALIFIED companies enter the outreach path. A second AI agent writes a company-specific subject line and short email; the optional creative branch generates a matching banner image for richer campaigns.",
+      "Tracking & Reporting Layer: Gmail sends and labels the message, the workflow saves the message ID to the company record, and a daily Google Sheets report updates sent-message activity automatically."
+    ],
     images: [
       '/project-screenshots/Project2Image1.png',
       '/project-screenshots/Project2Image2.png',
