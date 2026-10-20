@@ -29,12 +29,10 @@ const projects = [
     // 3. Result (UPDATED: Concrete, high-converting metrics)
 
     result: [
-      "First live deployment parsed the entire active catalog of 200+ products in 24 hours.",
-      "Found exact match signals across competitor marketplaces for 70+ listings (including EANs and ASINs); remaining 130+ items with completely generic titles were automatically grouped and flagged for human mapping.",
-      "Reduced wasted ad spend risk by improving the accuracy of product specifications, titles, and conversion-focused copy across the catalog.",
-      "Flagged existing catalog errors (including incorrect weights that were messing up checkout shipping rules and flat-out typos in dimensions).",
-      "Improved product-data accuracy and conversion readiness across a 200+ SKU household catalog, supporting a 3–4x ROAS target for product-led ad campaigns.",
-      "Cut 10 to 12 hours of manual labor per week for client, automating the entire competitor pricing and specification routine."
+      "Improved the accuracy and completeness of Shopify product data across the catalog, including titles, specifications, attributes, and conversion-focused descriptions.",
+      "The enriched product feed was associated with a reported 30% increase in click-through rate and an 80% increase in conversion rate.",
+      "Reported campaign efficiency improved alongside the enriched catalog: ROAS increased by approximately 37% and CPA decreased by approximately 5%.",
+      "Eliminated or reassigned roughly 12 hours per month previously spent on manual product-feed reconciliation."
     ],
 
 
