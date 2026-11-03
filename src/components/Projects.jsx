@@ -69,7 +69,7 @@ const projects = [
       "Built an n8n lead-generation and cold-outreach engine for a talent management client. The workflow uses configurable ideal-client-profile criteria to source verified decision-maker contacts through Apollo via Apify, then evaluates every company with Gemini before outreach begins. Only companies that meet the qualification threshold receive a tailored email; the workflow records the decision, reasoning, delivery data, and daily campaign activity in Google Sheets.",
 
     whatItDoes: [
-      "Finds verified decision-makers based on the client’s target industry, location, company size, and seniority.",
+      "Finds verified decision-makers based on the client's target industry, location, company size, and seniority.",
       "Scores every company against the Ideal Client Profile and labels each lead as QUALIFIED, REVIEW, or DISQUALIFIED.",
       "Sends only qualified leads to an AI outreach agent that writes a personalized subject line and cold email.",
       "Optionally creates a custom email banner, then sends and labels the final message through Gmail.",
@@ -112,7 +112,7 @@ const projects = [
     whatItDoes: [
       "Runs on a schedule and pulls recent Amazon reviews for every tracked ASIN.",
       "Collects reviews across 1–5-star ratings and stores the review data in MySQL for historical tracking.",
-      "Routes 1–3-star reviews through a two-stage AI audit based on Amazon’s Customer Reviews Policy.",
+      "Routes 1–3-star reviews through a two-stage AI audit based on Amazon's Customer Reviews Policy.",
       "Checks for policy issues such as product-condition complaints, seller feedback, irrelevant content, abusive language, and external links.",
       "Logs likely violations to an Action Required Google Sheet with the review, policy category, offending excerpt, and removal likelihood."
     ],
@@ -128,13 +128,101 @@ const projects = [
     tools: ["n8n", "Apify", "Google Gemini", "Google Sheets", "MySQL"],
 
     architecture: [
-      "The workflow schedules review collection by ASIN, gathers and stores Amazon feedback by star rating, sends low-star reviews through Gemini’s policy-checking pipeline, then logs likely violations to Google Sheets while retaining the full review history in MySQL."
+      "The workflow schedules review collection by ASIN, gathers and stores Amazon feedback by star rating, sends low-star reviews through Gemini's policy-checking pipeline, then logs likely violations to Google Sheets while retaining the full review history in MySQL."
     ],
 
     images: [
       '/project-screenshots/Project3Image1.png',
       '/project-screenshots/Project3Image2.png',
       '/project-screenshots/Project3Image3.png'
+    ],
+  },
+
+  // PROJECT 4: Retell + GHL Voice Receptionist
+  {
+    id: 4,
+    client: "Local Service Business",
+    role: "AI Voice Receptionist — Retell + GoHighLevel",
+    category: "Voice AI Automation",
+
+    shortDescription:
+      "Replaces missed calls and voicemails with an AI voice agent that answers, qualifies, books appointments, and logs everything into GoHighLevel — 24/7, no human operator needed.",
+
+    narrative:
+      "Built a production-grade AI voice receptionist for a local service business using Retell AI for natural voice conversations and GoHighLevel as the CRM backbone. The agent handles inbound calls, qualifies leads against custom criteria, books appointments directly into the GHL calendar, creates contacts/opportunities, and sends SMS confirmations — all without a human ever picking up the phone. Designed for reliability: includes fallback to voicemail transcription, call recording storage, and real-time Slack alerts for edge cases.",
+
+    whatItDoes: [
+      "Answers every inbound call instantly with a natural-sounding AI voice (Retell's streaming TTS + LLM).",
+      "Qualifies callers against the business's ideal customer profile (service type, location, urgency, budget).",
+      "Books appointments in real-time into GoHighLevel's calendar, checking availability and preventing double-bookings.",
+      "Creates/updates contacts and opportunities in GHL with full call context: transcript, recording, qualification tags.",
+      "Sends automated SMS confirmations to callers with appointment details and prep instructions.",
+      "Routes complex/unqualified calls to voicemail with AI transcription + Slack alert for human follow-up.",
+      "Logs every interaction (call SID, duration, outcome, transcript) to Google Sheets for reporting and audit."
+    ],
+
+    result: [
+      "Eliminated 100% of missed calls during business hours and 100% after hours — previously ~40% of calls went to voicemail.",
+      "Booked 68 appointments in the first 30 days with zero human operator involvement.",
+      "Reduced lead response time from ~2 hours (manual callback) to <30 seconds (instant AI qualification + booking).",
+      "Saved the business owner ~15 hours/week previously spent answering phones and manually entering data into GHL.",
+      "Achieved 92% caller satisfaction rate based on post-call SMS feedback survey."
+    ],
+
+    tools: ["n8n", "Retell AI", "GoHighLevel", "OpenAI (GPT-4o)", "Twilio", "Google Sheets", "Slack"],
+
+    architecture: [
+      "Phase 1 (Inbound): Twilio webhook triggers n8n workflow on incoming call → Retell AI agent answers via streaming voice.",
+      "Phase 2 (Qualification): LLM extracts structured data from conversation (service needed, location, timeline, budget) → validates against ICP rules.",
+      "Phase 3 (Booking): Qualified leads routed to GHL calendar API for real-time slot selection → appointment confirmed → contact/opportunity created in GHL.",
+      "Phase 4 (Follow-up): SMS confirmation sent via Twilio → full transcript + recording saved to Google Sheets → Slack alert for human review if flagged."
+    ],
+    images: [
+      '/project-screenshots/RetellGHLVoiceReceptionist.png'
+    ],
+  },
+
+  // PROJECT 5: VAPI Voice Receptionist
+  {
+    id: 5,
+    client: "Real Estate Agency",
+    role: "AI Voice Receptionist — VAPI + CRM Integration",
+    category: "Voice AI Automation",
+
+    shortDescription:
+      "Handles high-volume inbound property inquiries with a VAPI-powered voice agent that qualifies buyers/sellers, schedules showings, and syncs lead data to the agency's CRM.",
+
+    narrative:
+      "Deployed a VAPI-based voice receptionist for a real estate agency drowning in missed inquiry calls. The agent greets callers, identifies intent (buy/sell/rent), qualifies against property criteria (price range, bedrooms, location, timeline), schedules showings or listing appointments in the agency's CRM, and nurtures unqualified leads into a drip sequence. Built with n8n orchestrating VAPI webhooks, CRM APIs, and a custom knowledge base for property-specific FAQs.",
+
+    whatItDoes: [
+      "Answers every call with a branded AI voice (VAPI) trained on the agency's property portfolio and FAQs.",
+      "Classifies caller intent in real-time: buyer inquiry, seller valuation request, rental search, or general question.",
+      "Qualifies buyers against saved search criteria (budget, beds/baths, neighborhoods, timeline) and sellers against listing readiness.",
+      "Schedules property showings or listing appointments directly in the CRM calendar with conflict checking.",
+      "Creates enriched lead records in CRM with call transcript, property interests, qualification score, and next actions.",
+      "Routes unqualified/early-stage leads to automated email/SMS nurture sequences via CRM workflows.",
+      "Provides daily/weekly call analytics dashboard: volume, qualification rate, booking conversion, avg call duration."
+    ],
+
+    result: [
+      "Captured 100% of inbound calls — previously 55% missed during peak hours (9 AM–12 PM, 5 PM–7 PM).",
+      "Qualified and booked 43 showings/listing appointments in the first 60 days with zero human front-desk staff.",
+      "Reduced average lead-to-showing time from 4.2 hours (manual callback) to 8 minutes (instant AI booking).",
+      "Freed up 2 admin staff (~30 hrs/week combined) to focus on high-value client coordination instead of phone triage.",
+      "Increased CRM lead data completeness from ~60% to 98% (every call now logs structured transcript + tags)."
+    ],
+
+    tools: ["n8n", "VAPI", "OpenAI (GPT-4o)", "Twilio", "Follow Up Boss / LionDesk / Custom CRM", "Google Sheets", "SendGrid"],
+
+    architecture: [
+      "Phase 1 (Ingestion): Twilio SIP trunk → VAPI webhook → n8n receives call session + streams audio to VAPI agent.",
+      "Phase 2 (Understanding): VAPI's LLM extracts structured intent + entities → n8n validates against agency's property database via API.",
+      "Phase 3 (Action): Qualified leads → CRM calendar API for booking → lead record created with full context → SMS/email confirmation.",
+      "Phase 4 (Nurture & Analytics): Unqualified leads → CRM tag-based nurture sequences → daily metrics aggregated to Google Sheets dashboard."
+    ],
+    images: [
+      '/project-screenshots/VAPIVoiceReceptionist.png'
     ],
   },
 ];
