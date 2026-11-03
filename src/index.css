@@ -29,6 +29,44 @@
 :root {
   --font-heading: 'SuisseIntl', 'Verdana', sans-serif;
   --font-body: 'SuisseIntl', 'Plus Jakarta Sans', sans-serif;
+
+  /* Dark theme (default) */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #0E0E12;
+  --bg-tertiary: #16161C;
+  --bg-card: #16161C;
+  --bg-card-hover: #1C1C24;
+  --border-primary: #27272A;
+  --border-secondary: #3F3F46;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --accent-violet: #A855F7;
+  --accent-fuchsia: #D946EF;
+  --accent-orange: #FF6B57;
+  --accent-emerald: #34D399;
+  --accent-sky: #38BDF8;
+  --accent-amber: #FBBF24;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F4F4F5;
+  --bg-tertiary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F4F4F5;
+  --border-primary: #E4E4E7;
+  --border-secondary: #D4D4D8;
+  --text-primary: #09090B;
+  --text-secondary: #3F3F46;
+  --text-muted: #71717A;
+  --accent-violet: #7C3AED;
+  --accent-fuchsia: #C026D3;
+  --accent-orange: #EA580C;
+  --accent-emerald: #059669;
+  --accent-sky: #0284C7;
+  --accent-amber: #D97706;
 }
 
 /* Custom Base Styles */
@@ -38,21 +76,27 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: #1a1a1a;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* Utility/Component Classes that might not be fully covered by Tailwind or specific overrides */
+/* Utility/Component Classes */
 .btn {
   @apply inline-flex items-center gap-2 px-6 py-3 rounded font-medium transition-all duration-200;
 }
 
+.btn-primary {
+  @apply bg-white text-black hover:bg-zinc-200 dark:bg-white dark:text-black dark:hover:bg-zinc-200;
+}
+
 .btn-secondary {
-  @apply bg-white text-gray-900 border border-gray-200 hover:bg-gray-50;
+  @apply bg-zinc-900 text-white border border-zinc-800 hover:bg-zinc-800 dark:bg-zinc-200 dark:text-black dark:border-zinc-300 dark:hover:bg-zinc-300;
 }
 
 .icon-1x1-medium {
@@ -66,14 +110,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: var(--border-secondary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: var(--text-muted);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent-violet);
+  color: white;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-violet);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

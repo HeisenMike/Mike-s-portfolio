@@ -1,36 +1,45 @@
 import React, { useState } from 'react';
 import { config } from '../config';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav className="static top-0 z-50 bg-[#0A0A0A]/90 backdrop-blur-sm border-b border-zinc-900">
+    <nav className="static top-0 z-50 bg-[var(--bg-primary)]/90 backdrop-blur-sm border-b border-[var(--border-primary)]">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" className="text-[32px] text-white font-heading font-bold uppercase text-left tracking-tight">
+        <a href="/" className="text-[32px] text-[var(--text-primary)] font-heading font-bold uppercase text-left tracking-tight">
           {config.name}
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {config.navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium transition-colors ${link.name === 'CV' ? 'text-zinc-500 hover:text-white' : 'text-zinc-400 hover:text-white'}`}
+              className={`text-sm font-medium transition-colors ${link.name === 'CV' ? 'text-[var(--text-muted)] hover:text-[var(--text-primary)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
             >
               {link.name}
             </a>
           ))}
-          <a href={config.bookingUrl} className="btn bg-white text-black px-5 py-2 rounded-md text-sm font-semibold hover:bg-zinc-200 transition-colors">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg bg-[var(--bg-tertiary)] border border-[var(--border-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] transition-colors"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <a href={config.bookingUrl} className="btn btn-primary px-5 py-2 rounded-md text-sm font-semibold">
             Book Now
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-zinc-400 hover:text-white"
+          className="md:hidden text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -39,21 +48,28 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#0A0A0A] border-t border-zinc-900 absolute w-full">
+        <div className="md:hidden bg-[var(--bg-primary)] border-t border-[var(--border-primary)] absolute w-full left-0 top-full">
           <div className="flex flex-col p-6 gap-4">
             {config.navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-zinc-400 hover:text-white"
+                className="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center gap-2 p-3 rounded-lg bg-[var(--bg-tertiary)] border border-[var(--border-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] transition-colors"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+            </button>
             <a
               href={config.bookingUrl}
-              className="btn bg-white text-black px-5 py-3 rounded-md text-center font-semibold hover:bg-zinc-200"
+              className="btn btn-primary px-5 py-3 rounded-md text-center font-semibold"
               onClick={() => setIsOpen(false)}
             >
               Contact Me
