@@ -18,7 +18,7 @@ const services = [
   {
     title: "AI That Does the Busywork",
     description: "I build AI agents that do the boring stuff for you, like fixing your Shopify catalog, feeding Google Shopping, chasing leads or handling bad reviews. If it's repetitive, chances are I can build an agent for it.",
-    icon: <Robot weight="regular" size={32} className="text-[var(--accent-fuchsia)]" />,
+    icon: <Robot weight="regular" size={32} className="text-[var(--accent-silver)]" />,
     tools: ["OpenAI", "Claude", "Gemini"]
   },
   {
