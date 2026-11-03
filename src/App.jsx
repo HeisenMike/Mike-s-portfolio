@@ -7,7 +7,7 @@ import Testimonial from './components/Testimonial';
 import About from './components/About';
 import Footer from './components/Footer';
 import { config } from './config';
-import { ArrowRight, Clock, CheckCircle, Users } from 'lucide-react';
+import { Clock, CheckCircle, Users } from 'lucide-react';
 
 function App() {
   return (
@@ -21,17 +21,6 @@ function App() {
         <About />
       </main>
       <Footer />
-
-      {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-[var(--bg-card)] border-t border-[var(--border-primary)] px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.3)]">
-        <a
-          href={config.bookingUrl}
-          className="btn btn-primary w-full justify-center py-3 text-base"
-        >
-          Book Free Discovery Call
-          <ArrowRight size={18} />
-        </a>
-      </div>
 
       {/* Trust Bar - Desktop only, subtle */}
       <div className="hidden md:block fixed bottom-0 left-0 right-0 z-40 px-6 pb-4 pointer-events-none">
