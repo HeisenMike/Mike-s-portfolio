@@ -7,13 +7,13 @@ import { motion } from 'framer-motion';
  * Pure CSS/Canvas animation, no external dependencies
  */
 
-const NODES = [
-  { id: 'webhook', label: 'Webhook', x: 80, y: 80, type: 'trigger', color: 'var(--accent-violet)' },
-  { id: 'api', label: 'API Call', x: 280, y: 40, type: 'action', color: 'var(--accent-sky)' },
-  { id: 'ai', label: 'AI Agent', x: 280, y: 160, type: 'ai', color: 'var(--accent-fuchsia)' },
-  { id: 'db', label: 'Database', x: 480, y: 80, type: 'data', color: 'var(--accent-emerald)' },
-  { id: 'crm', label: 'CRM', x: 680, y: 40, type: 'action', color: 'var(--accent-amber)' },
-  { id: 'notify', label: 'Notify', x: 680, y: 160, type: 'action', color: 'var(--accent-orange)' },
+const NODE_CONFIG = [
+  { id: 'webhook', label: 'Webhook', x: 80, y: 80, type: 'trigger', colorVar: '--accent-violet' },
+  { id: 'api', label: 'API Call', x: 280, y: 40, type: 'action', colorVar: '--accent-sky' },
+  { id: 'ai', label: 'AI Agent', x: 280, y: 160, type: 'ai', colorVar: '--accent-fuchsia' },
+  { id: 'db', label: 'Database', x: 480, y: 80, type: 'data', colorVar: '--accent-emerald' },
+  { id: 'crm', label: 'CRM', x: 680, y: 40, type: 'action', colorVar: '--accent-amber' },
+  { id: 'notify', label: 'Notify', x: 680, y: 160, type: 'action', colorVar: '--accent-orange' },
 ];
 
 const CONNECTIONS = [
@@ -29,17 +29,34 @@ const PARTICLE_COUNT = 12;
 
 function AutomationFlow({ className = '' }) {
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
   const animationRef = useRef(null);
   const particlesRef = useRef([]);
+  const colorsRef = useRef({});
+
+  // Resolve CSS variables to actual color values
+  const resolveColors = (container) => {
+    const style = getComputedStyle(container);
+    const resolved = {};
+    NODE_CONFIG.forEach(node => {
+      resolved[node.id] = style.getPropertyValue(node.colorVar).trim() || '#888';
+    });
+    // Also resolve border and bg colors
+    resolved.border = style.getPropertyValue('--border-primary').trim() || '#333';
+    resolved.bgCard = style.getPropertyValue('--bg-card').trim() || '#1a1a1a';
+    resolved.textSecondary = style.getPropertyValue('--text-secondary').trim() || '#aaa';
+    return resolved;
+  };
 
   // Initialize particles
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
 
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.parentElement.getBoundingClientRect();
+    const rect = container.getBoundingClientRect();
 
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
@@ -47,18 +64,21 @@ function AutomationFlow({ className = '' }) {
     canvas.style.height = `${rect.height}px`;
     ctx.scale(dpr, dpr);
 
+    // Resolve colors once
+    colorsRef.current = resolveColors(container);
+
     // Create particles on each connection
     particlesRef.current = CONNECTIONS.flatMap((conn, connIdx) => {
-      const fromNode = NODES.find(n => n.id === conn.from);
-      const toNode = NODES.find(n => n.id === conn.to);
+      const fromNode = NODE_CONFIG.find(n => n.id === conn.from);
+      const toNode = NODE_CONFIG.find(n => n.id === conn.to);
       if (!fromNode || !toNode) return [];
 
-      return Array.from({ length: PARTICLE_COUNT / CONNECTIONS.length }, (_, i) => ({
+      return Array.from({ length: Math.ceil(PARTICLE_COUNT / CONNECTIONS.length) }, (_, i) => ({
         connIdx,
-        progress: (i / (PARTICLE_COUNT / CONNECTIONS.length)) * 100,
+        progress: (i / Math.ceil(PARTICLE_COUNT / CONNECTIONS.length)) * 100,
         speed: 0.15 + Math.random() * 0.1,
         size: 3 + Math.random() * 2,
-        color: toNode.color,
+        color: colorsRef.current[toNode.id],
         fromNode,
         toNode,
       }));
@@ -71,8 +91,8 @@ function AutomationFlow({ className = '' }) {
       ctx.lineWidth = 1.5;
       ctx.setLineDash([8, 6]);
       CONNECTIONS.forEach(conn => {
-        const from = NODES.find(n => n.id === conn.from);
-        const to = NODES.find(n => n.id === conn.to);
+        const from = NODE_CONFIG.find(n => n.id === conn.from);
+        const to = NODE_CONFIG.find(n => n.id === conn.to);
         if (!from || !to) return;
 
         ctx.beginPath();
@@ -81,7 +101,7 @@ function AutomationFlow({ className = '' }) {
         const midX = (from.x + to.x) / 2;
         const midY = (from.y + to.y) / 2 - 30;
         ctx.quadraticCurveTo(midX, midY, to.x, to.y);
-        ctx.strokeStyle = 'var(--border-primary)';
+        ctx.strokeStyle = colorsRef.current.border;
         ctx.stroke();
       });
       ctx.setLineDash([]);
@@ -120,36 +140,38 @@ function AutomationFlow({ className = '' }) {
       });
 
       // Draw nodes
-      NODES.forEach(node => {
+      NODE_CONFIG.forEach(node => {
+        const color = colorsRef.current[node.id];
+        const border = colorsRef.current.border;
+        const bgCard = colorsRef.current.bgCard;
+
         // Node glow
-        const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, 28);
-        gradient.addColorStop(0, `${node.color}33`);
-        gradient.addColorStop(1, 'transparent');
+        const glowGradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, 28);
+        glowGradient.addColorStop(0, color + '33');
+        glowGradient.addColorStop(1, 'transparent');
         ctx.beginPath();
         ctx.arc(node.x, node.y, 28, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
+        ctx.fillStyle = glowGradient;
         ctx.fill();
 
         // Node ring
         ctx.beginPath();
         ctx.arc(node.x, node.y, 22, 0, Math.PI * 2);
-        ctx.strokeStyle = node.color;
+        ctx.strokeStyle = color;
         ctx.lineWidth = 2;
         ctx.stroke();
 
         // Node background
         ctx.beginPath();
         ctx.arc(node.x, node.y, 18, 0, Math.PI * 2);
-        ctx.fillStyle = 'var(--bg-card)';
+        ctx.fillStyle = bgCard;
         ctx.fill();
 
         // Inner accent
         ctx.beginPath();
         ctx.arc(node.x, node.y, 10, 0, Math.PI * 2);
-        ctx.fillStyle = node.color;
+        ctx.fillStyle = color;
         ctx.fill();
-
-        // Node label (draw via DOM overlay instead for crisp text)
       });
 
       animationRef.current = requestAnimationFrame(animate);
@@ -159,32 +181,45 @@ function AutomationFlow({ className = '' }) {
     return () => cancelAnimationFrame(animationRef.current);
   }, []);
 
-  // Resize handler
+  // Resize handler - re-resolve colors on theme change
   useEffect(() => {
     const handleResize = () => {
       const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.parentElement.getBoundingClientRect();
+      const container = containerRef.current;
+      if (!canvas || !container) return;
+      const rect = container.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
+      // Re-resolve colors in case theme changed
+      colorsRef.current = resolveColors(container);
+      // Update particle colors
+      particlesRef.current.forEach(p => {
+        p.color = colorsRef.current[p.toNode.id];
+      });
     };
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    // Also listen for theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      mediaQuery.removeEventListener('change', handleResize);
+    };
   }, []);
 
   return (
-    <div className={`relative w-full aspect-[4/3] max-w-[700px] mx-auto ${className}`}>
+    <div ref={containerRef} className={`relative w-full aspect-[4/3] max-w-[700px] mx-auto ${className}`}>
       <canvas ref={canvasRef} className="w-full h-full" aria-hidden="true" />
 
       {/* Node Labels — DOM overlay for crisp text */}
       <div className="absolute inset-0 pointer-events-none">
-        {NODES.map(node => (
+        {NODE_CONFIG.map(node => (
           <motion.div
             key={node.id}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 + NODES.indexOf(node) * 0.1, duration: 0.5 }}
+            transition={{ delay: 0.3 + NODE_CONFIG.indexOf(node) * 0.1, duration: 0.5 }}
             className="absolute pointer-events-none"
             style={{
               left: `${node.x}px`,
