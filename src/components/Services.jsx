@@ -49,8 +49,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-primary)] relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)] to-[var(--bg-secondary)] pointer-events-none" />
+    <section id="services" className="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-primary)] relative">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mb-16">
