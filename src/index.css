@@ -145,3 +145,182 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Workflow Visualization Animations — pikpik parity */
+@keyframes dashMove {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 17; }
+}
+
+/* pikpik uses lowercase + negative offset */
+@keyframes dashmove {
+  to { stroke-dashoffset: -17px; }
+}
+
+@keyframes corePulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { opacity: 0.2; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* pikpik uses lowercase + different timing */
+@keyframes corepulse {
+  0% { opacity: 0.85; transform: scale(0.88); }
+  100% { opacity: 0; transform: scale(1.28); }
+}
+
+@keyframes gearRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Workflow Visualization Component Styles */
+.wf-container {
+  position: relative;
+  width: 100%;
+}
+
+.wf-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.wf-base-path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wf-flow-path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: dashMove 1.15s linear infinite;
+}
+
+.wf-node {
+  position: absolute;
+}
+
+.wf-node-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.75rem;
+  height: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3), 0 4px 16px -4px rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+
+.wf-node-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.wf-port {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--bg-card);
+  z-index: 3;
+  box-shadow: 0 0 0 4px transparent;
+  transition: box-shadow 0.3s, background 0.3s, border-color 0.3s;
+}
+
+.wf-core {
+  position: absolute;
+  z-index: 4;
+}
+
+.wf-core-ring {
+  position: absolute;
+  border-radius: 50%;
+  animation: corePulse 2.8s ease-out infinite;
+}
+
+.wf-core-box {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-sky), var(--accent-emerald));
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.25), 0 0 60px rgba(56, 189, 248, 0.15);
+  transition: transform 0.4s cubic-bezier(0.3, 0.8, 0.3, 1.2);
+}
+
+.wf-gear-wrapper {
+  animation: gearRotate 4s linear infinite;
+  display: inline-block;
+}
+
+.wf-core-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.wf-core-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-sky), var(--accent-emerald));
+  border: 1px solid var(--border-primary);
+  color: white;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.wf-core-pip {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+}
+
+.wf-cap {
+  position: absolute;
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-size: 10px;
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.wf-cap--l {
+  top: 0;
+  left: 0.5%;
+  transform: translateY(-50%);
+}
+
+.wf-cap--c {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wf-cap--r {
+  top: 0;
+  right: 0.5%;
+  transform: translateY(-50%);
+}
