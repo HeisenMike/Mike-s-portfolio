@@ -40,8 +40,8 @@ const Hero = () => {
               I fix business problems.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-violet)] via-[var(--accent-fuchsia)] to-[var(--accent-orange)]">
                 Automation
-              </span>{' '}
-              is just how.
+              </span><br />
+              <span className="whitespace-nowrap">is just how.</span>
             </motion.h1>
 
             {/* Description */}
