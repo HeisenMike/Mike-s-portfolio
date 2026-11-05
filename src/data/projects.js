@@ -313,6 +313,73 @@ export const projects = [
       '/project-screenshots/VAPIVoiceReceptionist.png'
     ],
   },
+
+  // PROJECT 6: Invoice Processing Automation
+  {
+    id: 6,
+    slug: 'invoice-processing-automation',
+    client: "Internal Operations",
+    role: "End-to-End Invoice Processing & Approval Automation",
+    category: "Finance Operations Automation",
+
+    shortDescription:
+      "Automates the full invoice lifecycle: email ingestion → OCR extraction → AI data parsing → validation → duplicate detection → approval routing → multi-system logging. Eliminates manual data entry and prevents duplicate payments.",
+
+    narrative:
+      "Built a production-grade invoice processing pipeline that handles incoming invoice emails end-to-end. The workflow triggers on Gmail, saves attachments to Google Drive, detects file types, runs OCR on images/PDFs via OCR.space, uses an OpenAI agent with structured output parsing to extract vendor, line items, and payment details, validates required fields, checks for duplicates in Supabase, routes invoices over $3,000 through a Slack approval workflow, and logs everything to Google Sheets and Supabase. Includes email confirmations and status tracking at every stage.",
+
+    whatItDoes: [
+      "Triggers instantly on incoming invoice emails via Gmail webhook and saves attachments to organized Google Drive folders.",
+      "Detects file type (PDF, images, documents) and routes images/PDFs through OCR.space for text extraction.",
+      "Uses an OpenAI agent with a strict JSON schema to parse vendor info, invoice numbers, dates, line items, and totals from messy OCR text.",
+      "Validates all required fields (vendor, invoice number, dates, currency, amounts) and flags incomplete extractions for review via Slack.",
+      "Checks Supabase for duplicate vendor + invoice number combinations to prevent double-payment.",
+      "Routes invoices over $3,000 through a Slack approval workflow (approve/reject with audit trail); auto-approves smaller amounts.",
+      "Logs approved invoices to Google Sheets (Invoice Manager) with status 'Pending' → 'Payable', sends email confirmation, and creates Supabase records.",
+      "Logs rejected/duplicate invoices to a separate Google Sheet with 'Rejected' status for audit trail."
+    ],
+
+    result: [
+      "Eliminated 100% of manual invoice data entry — previously 15–20 min per invoice for extraction, validation, and logging.",
+      "Prevented duplicate payments via Supabase duplicate check on vendor + invoice number before any processing.",
+      "Reduced invoice-to-payable time from ~2 hours (manual) to <3 minutes (automated) for invoices under $3,000.",
+      "Added financial control: 100% of invoices over $3,000 require explicit Slack approval with full context before processing.",
+      "Achieved complete audit trail: every invoice logged to Google Sheets (2 workbooks) + Supabase with status, timestamps, and source links."
+    ],
+
+    tools: ["n8n", "Gmail", "Google Drive", "OCR.space", "OpenAI (GPT-5.4-mini)", "Supabase", "Slack", "Google Sheets", "Google Docs"],
+
+    architecture: [
+      "Phase 1 (Ingestion): Gmail trigger → Google Drive file save → File type detection (Code node) routes by MIME type.",
+      "Phase 2 (Extraction): Images/PDFs → OCR.space API → OpenAI Agent with Structured Output Parser (strict JSON schema) → validated invoice object.",
+      "Phase 3 (Validation): Code node checks all required fields present → if missing, Slack alert with 'Needs Review' status.",
+      "Phase 4 (Deduplication): Supabase query on vendor_name + invoice_number → if duplicate, log to 'Rejected' sheet + Slack alert.",
+      "Phase 5 (Approval & Logging): Amount > $3,000 → Slack approval workflow (sendAndWait) → on approve: append to 'Processed' sheet, update status to 'Payable', email confirmation, Supabase insert; on reject: append to 'Rejected' sheet. Amount ≤ $3,000 → auto-approve path."
+    ],
+
+    errorHandling: [
+      "Retry logic: OCR, AI Agent, and Slack approval nodes have retryOnFail enabled (default 3 retries).",
+      "OCR resilience: File type detection ensures only supported formats reach OCR; unsupported types skip to manual review path.",
+      "AI output safety: Structured Output Parser enforces strict JSON schema; invalid output fails validation → 'Needs Review' path.",
+      "Duplicate prevention: Supabase composite key (vendor_name + invoice_number) with alwaysOutputData ensures check runs even on empty results.",
+      "Approval audit: Slack sendAndWait with approvalOptions creates immutable approve/reject record; workflow pauses until response.",
+      "Idempotency: Gmail trigger uses message ID; Google Sheets append uses invoice_number as matching column for updates.",
+      "Monitoring: Slack alerts on missing fields, duplicates, and approval timeouts; Google Sheets provide real-time status dashboard."
+    ],
+
+    demo: {
+      loomUrl: null,
+      n8nTemplateUrl: null,
+      liveDemoUrl: null
+    },
+
+    images: [
+      '/project-screenshots/InvoiceProcessingImage1.png',
+      '/project-screenshots/InvoiceProcessingImage2.png',
+      '/project-screenshots/InvoiceProcessingImage3.png',
+      '/project-screenshots/InvoiceProcessingImage4.png'
+    ],
+  },
 ];
 
 /**
