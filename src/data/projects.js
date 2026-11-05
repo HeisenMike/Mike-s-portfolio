@@ -200,7 +200,7 @@ export const projects = [
       "Replaces missed calls and voicemails with an AI voice agent that answers, qualifies, books appointments, and logs everything into GoHighLevel — 24/7, no human operator needed.",
 
     narrative:
-      "Built a production-grade AI voice receptionist for a local service business using Retell AI for natural voice conversations and GoHighLevel as the CRM backbone. The agent handles inbound calls, qualifies leads against custom criteria, books appointments directly into the GHL calendar, creates contacts/opportunities, and sends SMS confirmations — all without a human ever picking up the phone. Designed for reliability: includes fallback to voicemail transcription, call recording storage, and real-time Slack alerts for edge cases.",
+      "Built a production-grade AI voice receptionist for Strategy Clinic using Retell AI for natural voice conversations and GoHighLevel as the CRM backbone. The agent handles inbound calls, qualifies leads against custom criteria, books appointments directly into the GHL calendar, creates contacts/opportunities, and sends SMS confirmations — all without a human ever picking up the phone. Designed for reliability: includes fallback to voicemail transcription and call recording storage.",
 
     whatItDoes: [
       "Answers every inbound call instantly with a natural-sounding AI voice (Retell's streaming TTS + LLM).",
@@ -208,8 +208,8 @@ export const projects = [
       "Books appointments in real-time into GoHighLevel's calendar, checking availability and preventing double-bookings.",
       "Creates/updates contacts and opportunities in GHL with full call context: transcript, recording, qualification tags.",
       "Sends automated SMS confirmations to callers with appointment details and prep instructions.",
-      "Routes complex/unqualified calls to voicemail with AI transcription + Slack alert for human follow-up.",
-      "Logs every interaction (call SID, duration, outcome, transcript) to Google Sheets for reporting and audit."
+      "Routes complex/unqualified calls to voicemail with AI transcription for human follow-up.",
+      "Logs every interaction (call SID, duration, outcome, transcript) in GoHighLevel for reporting and audit."
     ],
 
     result: [
@@ -223,16 +223,16 @@ export const projects = [
     tools: ["n8n", "Retell AI", "GoHighLevel"],
 
     architecture: [
-      "Twilio webhook receives inbound calls → n8n triggers Retell AI voice agent → LLM qualifies caller in real-time → qualified leads booked into GoHighLevel calendar → contact/opportunity created in GHL → SMS confirmation sent → full transcript and recording logged to Google Sheets."
+      "Retell AI webhook receives inbound calls → n8n triggers Retell voice agent → LLM qualifies caller in real-time → qualified leads booked into GoHighLevel calendar → contact/opportunity created in GHL → SMS confirmation sent → full transcript and recording stored in GHL."
     ],
 
     errorHandling: [
-      "Retry logic: Twilio webhook retries 3x on n8n timeout; Retell session re-established on connection drop.",
+      "Retry logic: Retell webhook retries 3x on n8n timeout; Retell session re-established on connection drop.",
       "GHL API resilience: Calendar booking retries 3x with 10s backoff; on failure, logs to 'Pending' tab for manual booking.",
-      "Transcription fallback: If Retell transcript delayed >30s, uses Twilio recording + Whisper API as backup.",
-      "Voicemail handling: Unanswered calls → Twilio voicemail → Whisper transcription → Slack alert with transcript + audio link.",
+      "Transcription fallback: If Retell transcript delayed >30s, uses Retell recording as backup.",
+      "Voicemail handling: Unanswered calls → Retell voicemail → transcription stored in GHL for follow-up.",
       "Concurrency: n8n workflow set to 'Run Once' mode per call SID; prevents duplicate processing on webhook retries.",
-      "Monitoring: Real-time Slack alerts on failed bookings, API errors, or caller sentiment <3/5; daily call volume dashboard in Google Sheets."
+      "Monitoring: Real-time GHL alerts on failed bookings, API errors, or caller sentiment <3/5; daily call volume dashboard in GHL."
     ],
 
     demo: {
