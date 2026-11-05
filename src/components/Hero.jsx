@@ -50,9 +50,8 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mb-12 font-light"
-            >
-              {config.description}
-            </motion.p>
+              dangerouslySetInnerHTML={{ __html: config.description }}
+            />
 
             {/* Call to Actions */}
             <motion.div
