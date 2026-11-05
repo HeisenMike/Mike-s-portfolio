@@ -107,7 +107,7 @@ export const projects = [
     tools: ["n8n", "Apollo", "Apify", "Google Gemini", "Google Sheets", "Gmail"],
 
     architecture: [
-      "Apollo and Apify supply verified contacts, Gemini qualifies and personalizes each lead, Gmail delivers the outreach, and Google Sheets keeps the campaign data, message tracking, and daily reporting in one place."
+      "Uses Apollo via Apify to source verified contacts, Google Gemini to qualify and personalize each lead, Gmail to deliver outreach, and Google Sheets to track campaign data, message delivery, and daily reporting in one place."
     ],
 
     errorHandling: [
@@ -164,7 +164,7 @@ export const projects = [
     tools: ["n8n", "Apify", "Google Gemini", "Google Sheets", "MySQL"],
 
     architecture: [
-      "The workflow schedules review collection by ASIN, gathers and stores Amazon feedback by star rating, sends low-star reviews through Gemini's policy-checking pipeline, then logs likely violations to Google Sheets while retaining the full review history in MySQL."
+      "Scheduled workflow pulls Amazon reviews by ASIN, stores full review history in MySQL, routes 1–3-star reviews through a two-stage Gemini policy audit, and logs flagged violations to Google Sheets for the support team to action."
     ],
 
     errorHandling: [
@@ -223,10 +223,7 @@ export const projects = [
     tools: ["n8n", "Retell AI", "GoHighLevel", "OpenAI (GPT-4o)", "Twilio", "Google Sheets", "Slack"],
 
     architecture: [
-      "Phase 1 (Inbound): Twilio webhook triggers n8n workflow on incoming call → Retell AI agent answers via streaming voice.",
-      "Phase 2 (Qualification): LLM extracts structured data from conversation (service needed, location, timeline, budget) → validates against ICP rules.",
-      "Phase 3 (Booking): Qualified leads routed to GHL calendar API for real-time slot selection → appointment confirmed → contact/opportunity created in GHL.",
-      "Phase 4 (Follow-up): SMS confirmation sent via Twilio → full transcript + recording saved to Google Sheets → Slack alert for human review if flagged."
+      "Twilio webhook receives inbound calls → n8n triggers Retell AI voice agent → LLM qualifies caller in real-time → qualified leads booked into GoHighLevel calendar → contact/opportunity created in GHL → SMS confirmation sent → full transcript and recording logged to Google Sheets."
     ],
 
     errorHandling: [
@@ -283,10 +280,7 @@ export const projects = [
     tools: ["n8n", "VAPI", "OpenAI (GPT-4o)", "Twilio", "Follow Up Boss / LionDesk / Custom CRM", "Google Sheets", "SendGrid"],
 
     architecture: [
-      "Phase 1 (Ingestion): Twilio SIP trunk → VAPI webhook → n8n receives call session + streams audio to VAPI agent.",
-      "Phase 2 (Understanding): VAPI's LLM extracts structured intent + entities → n8n validates against agency's property database via API.",
-      "Phase 3 (Action): Qualified leads → CRM calendar API for booking → lead record created with full context → SMS/email confirmation.",
-      "Phase 4 (Nurture & Analytics): Unqualified leads → CRM tag-based nurture sequences → daily metrics aggregated to Google Sheets dashboard."
+      "Twilio SIP trunk routes calls to VAPI webhook → n8n receives session and streams audio to VAPI agent → LLM extracts intent and qualifies against property database → qualified leads booked in CRM calendar → lead record created with transcript → unqualified leads enter nurture sequences → daily metrics aggregated to Google Sheets dashboard."
     ],
 
     errorHandling: [
@@ -344,11 +338,7 @@ export const projects = [
     tools: ["n8n", "Gmail", "Google Drive", "OCR.space", "OpenAI (GPT-5.4-mini)", "Supabase", "Slack", "Google Sheets", "Google Docs"],
 
     architecture: [
-      "Phase 1 (Ingestion): Gmail trigger → Google Drive file save → File type detection (Code node) routes by MIME type.",
-      "Phase 2 (Extraction): Images/PDFs → OCR.space API → OpenAI Agent with Structured Output Parser (strict JSON schema) → validated invoice object.",
-      "Phase 3 (Validation): Code node checks all required fields present → if missing, Slack alert with 'Needs Review' status.",
-      "Phase 4 (Deduplication): Supabase query on vendor_name + invoice_number → if duplicate, log to 'Rejected' sheet + Slack alert.",
-      "Phase 5 (Approval & Logging): Amount > $3,000 → Slack approval workflow (sendAndWait) → on approve: append to 'Processed' sheet, update status to 'Payable', email confirmation, Supabase insert; on reject: append to 'Rejected' sheet. Amount ≤ $3,000 → auto-approve path."
+      "Gmail trigger saves invoice attachments to Google Drive → file type detection routes images/PDFs to OCR.space → OpenAI agent with structured JSON schema extracts vendor, line items, totals → validation checks all required fields → Supabase duplicate check on vendor + invoice number → amounts over $3,000 route to Slack approval (approve/reject) → approved invoices logged to Google Sheets with status tracking, email confirmation sent, Supabase record created → rejected/duplicate invoices logged to separate audit sheet."
     ],
 
     errorHandling: [
