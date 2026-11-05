@@ -16,7 +16,6 @@ export const projects = [
     slug: 'shopify-product-enrichment',
     client: "Goods+Gadgets GmbH",
     role: "AI-Powered Shopify Product Enrichment Automation",
-    category: "Product Data Enrichment",
     shortDescription: "Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable.",
 
     // 1. The Narrative Introduction
@@ -83,7 +82,6 @@ export const projects = [
     slug: 'lead-qualification-outreach',
     client: "Justin Cook Talent Management",
     role: "AI Lead Qualification & Personalized Outreach Automation",
-    category: "Lead Generation Automation",
 
     shortDescription:
       "Finds verified decision-maker contacts, scores each company against an ideal client profile, and sends personalized AI-written outreach only to strong-fit leads.",
@@ -140,7 +138,6 @@ export const projects = [
     slug: 'amazon-review-monitor',
     client: "Goods+Gadgets GmbH",
     role: "Amazon Review Monitor & AI Policy Audit Automation",
-    category: "E-commerce Review Management",
 
     shortDescription:
       "Monitors Amazon reviews across tracked products, uses AI to spot policy violations in low-star feedback, and sends the support team an action-ready removal queue.",
@@ -198,7 +195,6 @@ export const projects = [
     slug: 'voice-receptionist-retell',
     client: "Local Service Business",
     role: "AI Voice Receptionist — Retell + GoHighLevel",
-    category: "Voice AI Automation",
 
     shortDescription:
       "Replaces missed calls and voicemails with an AI voice agent that answers, qualifies, books appointments, and logs everything into GoHighLevel — 24/7, no human operator needed.",
@@ -259,7 +255,6 @@ export const projects = [
     slug: 'voice-receptionist-vapi',
     client: "Real Estate Agency",
     role: "AI Voice Receptionist — VAPI + CRM Integration",
-    category: "Voice AI Automation",
 
     shortDescription:
       "Handles high-volume inbound property inquiries with a VAPI-powered voice agent that qualifies buyers/sellers, schedules showings, and syncs lead data to the agency's CRM.",
@@ -320,7 +315,6 @@ export const projects = [
     slug: 'invoice-processing-automation',
     client: "Internal Operations",
     role: "End-to-End Invoice Processing & Approval Automation",
-    category: "Finance Operations Automation",
 
     shortDescription:
       "Automates the full invoice lifecycle: email ingestion → OCR extraction → AI data parsing → validation → duplicate detection → approval routing → multi-system logging. Eliminates manual data entry and prevents duplicate payments.",
