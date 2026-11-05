@@ -1,7 +1,7 @@
 export const config = {
   name: "Michael Estrella",
   role: "Business Automation",
-  description: "Most businesses don’t need another tool.<br />They need someone to find what’s slowing them down and make it go away.<br />That’s what I do.",
+  description: "Most businesses don’t need another tool.<br />They need someone who finds the bottleneck and removes it.<br />That’s what I do.",
   socials: {
     linkedin: "https://www.linkedin.com/in/janmichaelestrella",
     whatsapp: "https://wa.me/639150078054",
