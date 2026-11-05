@@ -242,7 +242,10 @@ export const projects = [
     },
 
     images: [
-      '/project-screenshots/RetellGHLVoiceReceptionist.png'
+      '/project-screenshots/RetellGHLVoiceReceptionist.png',
+      '/project-screenshots/RetellGHLImage2.png',
+      '/project-screenshots/RetellGHLImage3.png',
+      '/project-screenshots/RetellGHLImage4.png'
     ],
   },
 
