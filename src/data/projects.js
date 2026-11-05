@@ -193,7 +193,7 @@ export const projects = [
   {
     id: 4,
     slug: 'voice-receptionist-retell',
-    client: "Local Service Business",
+    client: "Strategy Clinic",
     role: "AI Voice Receptionist — Retell + GoHighLevel",
 
     shortDescription:
@@ -220,7 +220,7 @@ export const projects = [
       "Achieved 92% caller satisfaction rate based on post-call SMS feedback survey."
     ],
 
-    tools: ["n8n", "Retell AI", "GoHighLevel", "OpenAI (GPT-4o)", "Twilio", "Google Sheets", "Slack"],
+    tools: ["n8n", "Retell AI", "GoHighLevel"],
 
     architecture: [
       "Twilio webhook receives inbound calls → n8n triggers Retell AI voice agent → LLM qualifies caller in real-time → qualified leads booked into GoHighLevel calendar → contact/opportunity created in GHL → SMS confirmation sent → full transcript and recording logged to Google Sheets."
@@ -253,7 +253,7 @@ export const projects = [
   {
     id: 5,
     slug: 'voice-receptionist-vapi',
-    client: "Real Estate Agency",
+    client: "Strategy Clinic",
     role: "AI Voice Receptionist — VAPI + CRM Integration",
 
     shortDescription:
