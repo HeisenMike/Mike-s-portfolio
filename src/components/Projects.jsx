@@ -334,7 +334,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {projects.map((project) => (
             <motion.div
               key={project.id}
@@ -343,7 +343,7 @@ const Projects = () => {
               onClick={() => setSelectedProject(project)}
               className="group cursor-pointer bg-[var(--bg-card)] border border-[var(--border-primary)] rounded-2xl overflow-hidden shadow-sm hover:border-[var(--accent-violet)]/50 hover:shadow-lg transition-all duration-300"
             >
-              <div className="relative h-52 overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center">
+              <div className="relative h-48 sm:h-52 overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center">
                 {project.images?.[0] ? (
                   <img src={project.images[0]} alt={project.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
@@ -354,11 +354,11 @@ const Projects = () => {
                 </span>
               </div>
 
-              <div className="p-5">
+              <div className="p-4 sm:p-5">
                 <span className="text-xs text-[var(--text-muted)] uppercase tracking-widest font-medium">{project.client}</span>
-                <h3 className="text-lg font-heading font-bold text-[var(--text-primary)] mt-1 mb-2 leading-snug">{project.role}</h3>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-2">{project.shortDescription}</p>
-                <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-[var(--text-primary)] group-hover:gap-2 transition-all">
+                <h3 className="text-base sm:text-lg font-heading font-bold text-[var(--text-primary)] mt-1 mb-2 leading-snug line-clamp-2">{project.role}</h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-3">{project.shortDescription}</p>
+                <div className="mt-3 sm:mt-4 flex items-center gap-1 text-sm font-semibold text-[var(--text-primary)] group-hover:gap-2 transition-all">
                   View Details
                   <ExternalLink size={14} />
                 </div>
