@@ -1,0 +1,201 @@
+- generic [ref=f5e3]:
+  - navigation [ref=f5e4]:
+    - generic [ref=f5e5]:
+      - link "Michael Estrella" [ref=f5e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f5e7]:
+        - link "Home" [ref=f5e8] [cursor=pointer]:
+          - /url: "#hero"
+        - link "Services" [ref=f5e9] [cursor=pointer]:
+          - /url: "#services"
+        - link "Projects" [ref=f5e10] [cursor=pointer]:
+          - /url: "#projects"
+        - link "About" [ref=f5e11] [cursor=pointer]:
+          - /url: "#about"
+        - button "Switch to light mode" [ref=f5e12] [cursor=pointer]
+        - link "Book Now" [ref=f5e19] [cursor=pointer]:
+          - /url: https://calendly.com/jmestrella012/30min?background_color=1a1a1a&text_color=ffffff
+  - main [ref=f5e20]:
+    - generic [ref=f5e23]:
+      - generic [ref=f5e24]:
+        - generic [ref=f5e25]: Business Automation
+        - heading "I fix business problems. Automation is just how." [level=1] [ref=f5e30]: I fix business problems.Automationis just how.
+        - paragraph [ref=f5e31]: Most businesses don’t need another tool.They need someone who finds the bottleneck and removes it.That’s what I do.
+        - link "Explore My Work" [ref=f5e33] [cursor=pointer]:
+          - /url: "#projects"
+      - generic [ref=f5e38]:
+        - generic [ref=f5e47]:
+          - generic [ref=f5e48]: Source
+          - generic [ref=f5e49]: CRM & Sales
+        - generic [ref=f5e57]:
+          - generic [ref=f5e58]: Source
+          - generic [ref=f5e59]: Docs & Data
+        - generic [ref=f5e68]:
+          - generic [ref=f5e69]: Source
+          - generic [ref=f5e70]: E-commerce
+        - generic [ref=f5e79]:
+          - generic [ref=f5e80]: Automation Engine
+          - generic [ref=f5e81]: AI Agents
+        - generic [ref=f5e91]:
+          - generic [ref=f5e92]: You Get
+          - generic [ref=f5e93]: 80% Time Saved
+        - generic [ref=f5e100]:
+          - generic [ref=f5e101]: You Get
+          - generic [ref=f5e102]: 50% Cost Cut
+        - generic [ref=f5e110]:
+          - generic [ref=f5e111]: You Get
+          - generic [ref=f5e112]: 24/7 Output
+    - generic [ref=f5e114]:
+      - generic [ref=f5e115]:
+        - heading "Business Automation" [level=2] [ref=f5e116]
+        - paragraph [ref=f5e117]: Custom workflows built around how your business actually runs. Set up once, then they just do their job.
+      - generic [ref=f5e118]:
+        - generic [ref=f5e119]:
+          - generic [ref=f5e120]:
+            - heading "Workflow Automation" [level=3] [ref=f5e124]
+            - paragraph [ref=f5e125]: Leads get followed up, your pipeline stays current, and the boring daily stuff just happens. GoHighLevel or whatever CRM you're on.
+          - generic [ref=f5e126]:
+            - generic [ref=f5e127]: n8n
+            - generic [ref=f5e128]: GoHighLevel
+            - generic [ref=f5e129]: HubSpot
+        - generic [ref=f5e130]:
+          - generic [ref=f5e131]:
+            - heading "AI That Does the Busywork" [level=3] [ref=f5e135]
+            - paragraph [ref=f5e136]: I build AI agents that do the boring stuff for you, like fixing your Shopify catalog, feeding Google Shopping, chasing leads or handling bad reviews. If it's repetitive, chances are I can build an agent for it.
+          - generic [ref=f5e137]:
+            - generic [ref=f5e138]: OpenAI
+            - generic [ref=f5e139]: Claude
+            - generic [ref=f5e140]: Gemini
+        - generic [ref=f5e141]:
+          - generic [ref=f5e142]:
+            - heading "Missing Integration?" [level=3] [ref=f5e146]
+            - paragraph [ref=f5e147]: Vendor said it can't be done? If the tool has an API, I can build the missing piece. No more exporting, re-uploading or retyping.
+          - generic [ref=f5e148]:
+            - generic [ref=f5e149]: REST APIs
+            - generic [ref=f5e150]: Webhooks
+            - generic [ref=f5e151]: Node.js
+        - generic [ref=f5e152]:
+          - generic [ref=f5e153]:
+            - heading "Reports and Dashboards" [level=3] [ref=f5e157]
+            - paragraph [ref=f5e158]: Sales, stock, ad spend and returns, all in one place and updated on their own. You open one dashboard instead of five tabs.
+          - generic [ref=f5e159]:
+            - generic [ref=f5e160]: Airtable
+            - generic [ref=f5e161]: Monday.com
+            - generic [ref=f5e162]: ClickUp
+        - generic [ref=f5e163]:
+          - generic [ref=f5e164]:
+            - heading "Stop Answering the Same Questions" [level=3] [ref=f5e168]
+            - paragraph [ref=f5e169]: Same five questions, all day long. What's the price? Are you free Thursday? Where's my project at? My assistant answers them in WhatsApp, Slack, or wherever you chat.
+          - generic [ref=f5e170]:
+            - generic [ref=f5e171]: WhatsApp Business
+            - generic [ref=f5e172]: Slack
+        - generic [ref=f5e173]:
+          - generic [ref=f5e174]:
+            - heading "Automations That Don't Break" [level=3] [ref=f5e178]
+            - paragraph [ref=f5e179]: A quiet failure is worse than no automation at all. I build in automatic retries and alerts, so you hear about real problems right away.
+          - generic [ref=f5e180]:
+            - generic [ref=f5e181]: Smart Error Skipping
+            - generic [ref=f5e182]: Auto-Retry Triggers
+            - generic [ref=f5e183]: Built-in Backup Routes
+    - generic [ref=f5e185]:
+      - generic [ref=f5e186]:
+        - heading "Projects" [level=2] [ref=f5e187]
+        - paragraph [ref=f5e188]: Click any project to see full details.
+      - generic [ref=f5e189]:
+        - generic [ref=f5e190] [cursor=pointer]:
+          - img "Goods+Gadgets GmbH" [ref=f5e192]
+          - generic [ref=f5e194]:
+            - generic [ref=f5e195]: Goods+Gadgets GmbH
+            - heading "AI-Powered Shopify Product Enrichment Automation" [level=3] [ref=f5e196]
+            - paragraph [ref=f5e197]: Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable.
+            - generic [ref=f5e198]: View Details
+        - generic [ref=f5e203] [cursor=pointer]:
+          - img "Justin Cook Talent Management" [ref=f5e205]
+          - generic [ref=f5e207]:
+            - generic [ref=f5e208]: Justin Cook Talent Management
+            - heading "AI Lead Qualification & Personalized Outreach Automation" [level=3] [ref=f5e209]
+            - paragraph [ref=f5e210]: Finds verified decision-maker contacts, scores each company against an ideal client profile, and sends personalized AI-written outreach only to strong-fit leads.
+            - generic [ref=f5e211]: View Details
+        - generic [ref=f5e216] [cursor=pointer]:
+          - img "Goods+Gadgets GmbH" [ref=f5e218]
+          - generic [ref=f5e220]:
+            - generic [ref=f5e221]: Goods+Gadgets GmbH
+            - heading "Amazon Review Monitor & AI Policy Audit Automation" [level=3] [ref=f5e222]
+            - paragraph [ref=f5e223]: Monitors Amazon reviews across tracked products, uses AI to spot policy violations in low-star feedback, and sends the support team an action-ready removal queue.
+            - generic [ref=f5e224]: View Details
+        - generic [ref=f5e229] [cursor=pointer]:
+          - img "Strategy Clinic" [ref=f5e231]
+          - generic [ref=f5e233]:
+            - generic [ref=f5e234]: Strategy Clinic
+            - heading "AI Voice Receptionist — Retell + GoHighLevel" [level=3] [ref=f5e235]
+            - paragraph [ref=f5e236]: Replaces missed calls and voicemails with an AI voice agent that answers, qualifies, books appointments, and logs everything into GoHighLevel — 24/7, no human operator needed.
+            - generic [ref=f5e237]: View Details
+        - generic [ref=f5e242] [cursor=pointer]:
+          - img "Strategy Clinic" [ref=f5e244]
+          - generic [ref=f5e246]:
+            - generic [ref=f5e247]: Strategy Clinic
+            - heading "AI Voice Receptionist — VAPI + CRM Integration" [level=3] [ref=f5e248]
+            - paragraph [ref=f5e249]: Handles high-volume inbound property inquiries with a VAPI-powered voice agent that qualifies buyers/sellers, schedules showings, and syncs lead data to the agency's CRM.
+            - generic [ref=f5e250]: View Details
+        - generic [ref=f5e255] [cursor=pointer]:
+          - img "Internal Operations" [ref=f5e257]
+          - generic [ref=f5e259]:
+            - generic [ref=f5e260]: Internal Operations
+            - heading "End-to-End Invoice Processing & Approval Automation" [level=3] [ref=f5e261]
+            - paragraph [ref=f5e262]: "Automates the full invoice lifecycle: email ingestion → OCR extraction → AI data parsing → validation → duplicate detection → approval routing → multi-system logging. Eliminates manual data entry and prevents duplicate payments."
+            - generic [ref=f5e263]: View Details
+        - generic [ref=f5e268] [cursor=pointer]:
+          - img "Real Estate Transaction Coordination" [ref=f5e270]
+          - generic [ref=f5e272]:
+            - generic [ref=f5e273]: Real Estate Transaction Coordination
+            - heading "Real Estate Transaction Automation — n8n Workflows" [level=3] [ref=f5e274]
+            - paragraph: "Two production n8n workflows automating contract-to-close coordination: DocuSeal webhook triggers deal creation with 8 calculated milestones, Google Drive folder structure, and multi-sheet pipeline; daily morning sweep routes urgent deadlines via Slack/Email by urgency tier."
+            - generic [ref=f5e275]: View Details
+    - generic [ref=f5e281]:
+      - paragraph [ref=f5e282]: Client feedback
+      - heading "What clients say" [level=2] [ref=f5e283]
+      - generic [ref=f5e284]:
+        - generic [ref=f5e285]:
+          - paragraph [ref=f5e297]: "\"Wonderful to work with. Looking forward to working with them again.\""
+          - generic [ref=f5e298]:
+            - generic [ref=f5e299]: JC
+            - generic [ref=f5e300]:
+              - paragraph [ref=f5e301]: Jason Cook Mgmt
+              - paragraph [ref=f5e302]: Talent Management
+        - generic [ref=f5e303]:
+          - paragraph [ref=f5e315]: "\"Great experience and superb professionalism. Gone above and beyond to fix small bugs and even adjusted features that weren't clearly communicated. Will surely and happily come back again and again. Highly recommended!\""
+          - generic [ref=f5e316]:
+            - generic [ref=f5e317]: GG
+            - generic [ref=f5e318]:
+              - paragraph [ref=f5e319]: Goods+Gadgets
+              - paragraph [ref=f5e320]: E-commerce
+    - generic [ref=f5e323]:
+      - img "About me" [ref=f5e325]
+      - generic [ref=f5e326]:
+        - heading "About Me" [level=2] [ref=f5e327]
+        - paragraph [ref=f5e328]: "I spent over a decade in high-pressure operations where broken processes meant lost revenue and manual tasks pulled focus from what mattered: serving clients and scaling growth.I saw businesses losing efficiency simply because their software didn't talk to each other. So I started building custom systems to handle the repetitive work, freeing teams to focus on performance.That shift ignited my passion for automation. Now, as an n8n & AI Automation Specialist, I help businesses design production-grade backend workflows, orchestrate complex APIs, and build automations that make life easier for company owners. Using n8n, I build secure, scalable pipelines that run on autopilot.If you are losing revenue to process bottlenecks or feel buried in daily operational tasks, let's fix that. I build resilient workflows that work around the clock so you don't have to."
+  - contentinfo [ref=f5e329]:
+    - generic [ref=f5e330]:
+      - generic [ref=f5e331]:
+        - generic [ref=f5e332]:
+          - generic [ref=f5e333]: Michael Estrella
+          - generic [ref=f5e334]:
+            - link "Book a Call" [ref=f5e335] [cursor=pointer]:
+              - /url: https://calendly.com/jmestrella012/30min?background_color=1a1a1a&text_color=ffffff
+            - link "Send Email" [ref=f5e336] [cursor=pointer]:
+              - /url: mailto:jmestrella012@gmail.com
+        - generic [ref=f5e337]:
+          - generic [ref=f5e338]:
+            - heading "Location" [level=3] [ref=f5e339]
+            - paragraph [ref=f5e340]: Remote Work Worldwide
+            - paragraph [ref=f5e341]: Based in the Philippines
+          - generic [ref=f5e342]:
+            - heading "Socials" [level=3] [ref=f5e343]
+            - generic [ref=f5e344]:
+              - link "LinkedIn" [ref=f5e345] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/janmichaelestrella
+              - link "WhatsApp" [ref=f5e350] [cursor=pointer]:
+                - /url: https://wa.me/639150078054
+              - link "Email" [ref=f5e353] [cursor=pointer]:
+                - /url: mailto:jmestrella012@gmail.com
+      - generic [ref=f5e357]: © 2026 Michael Estrella. Business Automation. All rights reserved.

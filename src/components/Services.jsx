@@ -65,7 +65,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[var(--bg-card)] p-6 sm:p-8 rounded-xl border border-[var(--border-primary)] flex flex-col hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
+              className="bg-[var(--bg-card)] p-6 sm:p-8 rounded-xl border border-[var(--border-primary)] flex flex-col h-[280px] sm:h-[300px] hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
             >
               <div className="flex-1 flex flex-col min-h-0">
                 <div className="mb-4 sm:mb-6 inline-flex items-center justify-center p-2 rounded-xl bg-[var(--bg-tertiary)] border border-[var(--border-primary)]">
