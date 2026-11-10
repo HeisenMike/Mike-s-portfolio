@@ -341,9 +341,9 @@ const Projects = () => {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
               onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer bg-[var(--bg-card)] border border-[var(--border-primary)] rounded-2xl overflow-hidden shadow-sm hover:border-[var(--accent-violet)]/50 hover:shadow-lg transition-all duration-300"
+              className="group cursor-pointer bg-[var(--bg-card)] border border-[var(--border-primary)] rounded-2xl overflow-hidden shadow-sm hover:border-[var(--accent-violet)]/50 hover:shadow-lg transition-all duration-300 h-[380px] flex flex-col"
             >
-              <div className="relative h-52 overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center">
+              <div className="relative h-44 overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center flex-shrink-0">
                 {project.images?.[0] ? (
                   <img src={project.images[0]} alt={project.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
@@ -354,11 +354,11 @@ const Projects = () => {
                 </span>
               </div>
 
-              <div className="p-5">
+              <div className="p-5 flex flex-col flex-1 min-h-0">
                 <span className="text-xs text-[var(--text-muted)] uppercase tracking-widest font-medium">{project.client}</span>
-                <h3 className="text-lg font-heading font-bold text-[var(--text-primary)] mt-1 mb-2 leading-snug">{project.role}</h3>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-2">{project.shortDescription}</p>
-                <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-[var(--text-primary)] group-hover:gap-2 transition-all">
+                <h3 className="text-lg font-heading font-bold text-[var(--text-primary)] mt-1 mb-2 leading-snug line-clamp-2">{project.role}</h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-3 flex-1">{project.shortDescription}</p>
+                <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-[var(--text-primary)] group-hover:gap-2 transition-all mt-auto">
                   View Details
                   <ExternalLink size={14} />
                 </div>

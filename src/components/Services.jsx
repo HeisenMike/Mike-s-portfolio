@@ -65,19 +65,19 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[var(--bg-card)] p-8 rounded-xl border border-[var(--border-primary)] flex flex-col hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
+              className="bg-[var(--bg-card)] p-6 rounded-xl border border-[var(--border-primary)] flex flex-col h-[280px] hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
             >
-              <div>
-                <div className="mb-6 inline-flex items-center justify-center p-2 rounded-xl bg-[var(--bg-tertiary)] border border-[var(--border-primary)]">
+              <div className="flex-1 flex flex-col">
+                <div className="mb-4 inline-flex items-center justify-center p-2 rounded-xl bg-[var(--bg-tertiary)] border border-[var(--border-primary)]">
                   {service.icon}
                 </div>
-                <h3 className="text-lg text-[var(--text-primary)] font-semibold mb-3">{service.title}</h3>
-                <p className="text-[var(--text-secondary)] font-light leading-relaxed text-sm mb-6">{service.description}</p>
+                <h3 className="text-lg text-[var(--text-primary)] font-semibold mb-2">{service.title}</h3>
+                <p className="text-[var(--text-secondary)] font-light leading-relaxed text-sm line-clamp-3 flex-1">{service.description}</p>
               </div>
 
               {/* Tools Badges */}
               {service.tools && service.tools.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-[var(--border-primary)]/50">
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-[var(--border-primary)]/50 mt-auto">
                   {service.tools.map((tool, toolIndex) => (
                     <span
                       key={toolIndex}
