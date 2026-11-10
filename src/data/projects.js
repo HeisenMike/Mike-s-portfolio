@@ -19,7 +19,7 @@ export const projects = [
     shortDescription: "Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable.",
 
     // 1. The Narrative Introduction
-    narrative: "Manually writing listings, hunting down specs, and digging through competitor reviews is a massive operational bottleneck. To fix this, I built an n8n automation managed entirely inside Airtable. With one click, the engine runs 5 parallel marketplace scraping workflows, cross-checks product matches using a custom weighted AI similarity matrix, and runs a consensus engine to filter out data errors. It then extracts high-frequency German and English consumer review patterns to pinpoint competitor flaws, passing optimized product copy and backend SEO strings straight back to Airtable.",
+    narrative: "Manual product data entry was eating 12+ hours/month. Built an n8n + Airtable automation that scrapes 5 marketplaces in parallel, matches products with a weighted AI similarity matrix, mines bilingual reviews for competitor gaps, and writes conversion-optimized copy back to Shopify — all with one click.",
 
     // 2. What it does
     whatItDoes: [
@@ -86,8 +86,7 @@ export const projects = [
     shortDescription:
       "Finds verified decision-maker contacts, scores each company against an ideal client profile, and sends personalized AI-written outreach only to strong-fit leads.",
 
-    narrative:
-      "Built an n8n lead-generation and cold-outreach engine for a talent management client. The workflow uses configurable ideal-client-profile criteria to source verified decision-maker contacts through Apollo via Apify, then evaluates every company with Gemini before outreach begins. Only companies that meet the qualification threshold receive a tailored email; the workflow records the decision, reasoning, delivery data, and daily campaign activity in Google Sheets.",
+    narrative: "Built an n8n lead-gen engine that pulls verified contacts via Apollo/Apify, scores every company with Gemini against an Ideal Client Profile, and only emails the qualified ones. Personalized cold emails + Gmail delivery + full tracking in Sheets. Zero manual research per lead.",
 
     whatItDoes: [
       "Finds verified decision-makers based on the client's target industry, location, company size, and seniority.",
@@ -142,8 +141,7 @@ export const projects = [
     shortDescription:
       "Monitors Amazon reviews across tracked products, uses AI to spot policy violations in low-star feedback, and sends the support team an action-ready removal queue.",
 
-    narrative:
-      "Built a scheduled review-monitoring system for an e-commerce client selling on Amazon.de. The workflow pulls reviews across all star ratings for each tracked ASIN, stores the data for historical analysis, and routes 1–3-star reviews through a two-stage Gemini policy audit. Instead of manually reading every negative review, the support team receives only the reviews that may qualify for removal—complete with the likely policy violation, the exact problematic excerpt, and the context needed to open an Amazon case.",
+    narrative: "Scheduled n8n workflow pulls Amazon reviews by ASIN, stores history in MySQL, and runs a two-stage Gemini audit on 1–3 star reviews against Amazon's policy. Support team gets only flagged violations with exact excerpts and removal likelihood — cutting triage from 8hrs/week to 90min.",
 
     whatItDoes: [
       "Runs on a schedule and pulls recent Amazon reviews for every tracked ASIN.",
@@ -199,8 +197,7 @@ export const projects = [
     shortDescription:
       "Replaces missed calls and voicemails with an AI voice agent that answers, qualifies, books appointments, and logs everything into GoHighLevel — 24/7, no human operator needed.",
 
-    narrative:
-      "Built a production-grade AI voice receptionist for Strategy Clinic using Retell AI for natural voice conversations and GoHighLevel as the CRM backbone. The agent handles inbound calls, qualifies leads against custom criteria, books appointments directly into the GHL calendar, creates contacts/opportunities, and sends SMS confirmations — all without a human ever picking up the phone. Designed for reliability: includes fallback to voicemail transcription and call recording storage.",
+    narrative: "Deployed a Retell AI voice agent for Strategy Clinic that answers every call, qualifies leads, books into GoHighLevel calendar, creates contacts with full transcripts, and sends SMS confirmations — 24/7 with zero human operator. Falls back to voicemail transcription if needed.",
 
     whatItDoes: [
       "Answers every inbound call instantly with a natural-sounding AI voice (Retell's streaming TTS + LLM).",
@@ -259,8 +256,7 @@ export const projects = [
     shortDescription:
       "Handles high-volume inbound property inquiries with a VAPI-powered voice agent that qualifies buyers/sellers, schedules showings, and syncs lead data to the agency's CRM.",
 
-    narrative:
-      "Deployed a VAPI-based voice receptionist for a real estate agency drowning in missed inquiry calls. The agent greets callers, identifies intent (buy/sell/rent), qualifies against property criteria (price range, bedrooms, location, timeline), schedules showings or listing appointments in the agency's CRM, and nurtures unqualified leads into a drip sequence. Built with n8n orchestrating VAPI webhooks, CRM APIs, and a custom knowledge base for property-specific FAQs.",
+    narrative: "VAPI voice agent for a real estate agency — greets callers, identifies buy/sell/rent intent, qualifies against property criteria, books showings in CRM, and drops unqualified leads into nurture sequences. n8n orchestrates Twilio → VAPI → CRM with a knowledge base for property FAQs.",
 
     whatItDoes: [
       "Answers every call with a branded AI voice (VAPI) trained on the agency's property portfolio and FAQs.",
@@ -316,8 +312,7 @@ export const projects = [
     shortDescription:
       "Automates the full invoice lifecycle: email ingestion → OCR extraction → AI data parsing → validation → duplicate detection → approval routing → multi-system logging. Eliminates manual data entry and prevents duplicate payments.",
 
-    narrative:
-      "Built a production-grade invoice processing pipeline that handles incoming invoice emails end-to-end. The workflow triggers on Gmail, saves attachments to Google Drive, detects file types, runs OCR on images/PDFs via OCR.space, uses an OpenAI agent with structured output parsing to extract vendor, line items, and payment details, validates required fields, checks for duplicates in Supabase, routes invoices over $3,000 through a Slack approval workflow, and logs everything to Google Sheets and Supabase. Includes email confirmations and status tracking at every stage.",
+    narrative: "End-to-end invoice pipeline: Gmail trigger → Drive storage → OCR.space extraction → OpenAI structured parsing → Supabase duplicate check → Slack approval for $3K+ → Sheets + Supabase logging. Zero manual entry, duplicate-proof, full audit trail.",
 
     whatItDoes: [
       "Triggers instantly on incoming invoice emails via Gmail webhook and saves attachments to organized Google Drive folders.",
@@ -378,8 +373,7 @@ export const projects = [
     shortDescription:
       "Two production n8n workflows automating contract-to-close coordination: DocuSeal webhook triggers deal creation with 8 calculated milestones, Google Drive folder structure, and multi-sheet pipeline; daily morning sweep routes urgent deadlines via Slack/Email by urgency tier.",
 
-    narrative:
-      "Two n8n workflows automate contract-to-close for real estate. Flow 1 (DocuSeal webhook): final signature → normalizes deal data → calculates 8 milestones with 2-day reminders → builds 3-sheet pipeline + Drive folder hierarchy → notifies all parties. Flow 2 (8 AM daily sweep): reads active deadlines → tags urgency (OVERDUE/DUE TODAY/DUE IN 3 DAYS) → routes via Slack DM, single Gmail, or batched Gmail digest with tailored psychology. Production-ready: retries, idempotency, graceful degradation built in.",
+    narrative: "Two n8n workflows automate contract-to-close. Flow 1: DocuSeal webhook on final signature → normalizes deal → calculates 8 milestones with reminders → builds 3-sheet pipeline + Drive folders → notifies all parties. Flow 2: 8 AM daily sweep reads deadlines, tags urgency (OVERDUE/DUE TODAY/DUE IN 3 DAYS), routes via Slack DM, single Gmail, or batched digest. Production-ready with retries and idempotency.",
 
     whatItDoes: [
       "Flow 1: DocuSeal webhook fires on final signature → normalizes deal data (parties, dates, property, IDs) → calculates 8 milestone dates from Acceptance + Close dates with 2-day reminders → appends to 3 Google Sheets (Pipeline, Key Dates, Deadlines) → creates Drive folder /Deals/{Deal_ID}/ with 4 subfolders → sends kickoff Gmail to all parties → posts deal summary to Slack #transactions.",
@@ -446,8 +440,7 @@ export const projects = [
     shortDescription:
       "Automates shared inbox triage: Gmail trigger → AI classifies messages into 6 categories with confidence scoring → routes risky/low-confidence to human via Slack form → AI drafts replies → saves as Gmail drafts (never auto-sent) → logs to Google Sheets with idempotency key.",
 
-    narrative:
-      "Built a production-grade support inbox automation that classifies every incoming customer message into one of six categories (Billing, Access, Scheduling, Technical Support, General Question, Refund Request) with a confidence score. Messages below 80% confidence or flagged for human review (legal threats, fraud, multi-topic, angry tone) route to the owner via a Slack form with two options: 'Let AI draft it' or 'I'll write it myself.' Clean-path messages go straight to an AI drafter that writes context-aware, placeholder-safe replies. All replies save as Gmail drafts — never auto-sent — so the owner reviews before sending. Every message is logged to Google Sheets keyed on Gmail message ID for duplicate protection.",
+    narrative: "Gmail trigger → AI classifies messages into 6 categories with confidence scoring → risky/low-confidence routes to owner via Slack form (\"Let AI draft\" or \"I'll write it\") → AI writes placeholder-safe replies → saves as Gmail drafts (never auto-sent) → logs to Sheets with message_id idempotency key. Human approves every draft before send.",
 
     whatItDoes: [
       "Gmail Trigger fires on new message (simplify off for full body) → AI Classifier Agent with Structured Output Parser returns category, confidence (0–100), needs_human_review flag, review_reason, and summary.",
