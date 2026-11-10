@@ -373,7 +373,7 @@ export const projects = [
     shortDescription:
       "Two production n8n workflows automating contract-to-close coordination: DocuSeal webhook triggers deal creation with 8 calculated milestones, Google Drive folder structure, and multi-sheet pipeline; daily morning sweep routes urgent deadlines via Slack/Email by urgency tier.",
 
-    narrative: "Two n8n workflows automate contract-to-close.\n Workflow 1: DocuSeal webhook on final signature → normalizes deal → calculates 8 milestones with reminders → builds 3-sheet pipeline + Drive folders → notifies all parties.\n Workflow 2: 8 AM daily sweep reads deadlines, tags urgency (OVERDUE/DUE TODAY/DUE IN 3 DAYS), routes via Slack DM, single Gmail, or batched digest. Production-ready with retries and idempotency.",
+    narrative: "Two n8n workflows automate contract-to-close.\n\n Workflow 1: DocuSeal webhook on final signature → normalizes deal → calculates 8 milestones with reminders → builds 3-sheet pipeline + Drive folders → notifies all parties.\n\n Workflow 2: 8 AM daily sweep reads deadlines, tags urgency (OVERDUE/DUE TODAY/DUE IN 3 DAYS), routes via Slack DM, single Gmail, or batched digest. Production-ready with retries and idempotency.",
 
     whatItDoes: [
       "Workflow 1: DocuSeal webhook fires on final signature → normalizes deal data (parties, dates, property, IDs) → calculates 8 milestone dates from Acceptance + Close dates with 2-day reminders → appends to 3 Google Sheets (Pipeline, Key Dates, Deadlines) → creates Drive folder /Deals/{Deal_ID}/ with 4 subfolders → sends kickoff Gmail to all parties → posts deal summary to Slack #transactions.",
