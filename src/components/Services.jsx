@@ -77,11 +77,11 @@ const Services = () => {
 
               {/* Tools Badges */}
               {service.tools && service.tools.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-3 sm:pt-4 border-t border-[var(--border-primary)]/50 mt-auto">
+                <div className="flex flex-nowrap gap-2 overflow-x-auto pt-3 sm:pt-4 border-t border-[var(--border-primary)]/50 mt-auto pb-1">
                   {service.tools.map((tool, toolIndex) => (
                     <span
                       key={toolIndex}
-                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border-primary)]"
+                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border-primary)] whitespace-nowrap shrink-0"
                     >
                       {tool}
                     </span>
