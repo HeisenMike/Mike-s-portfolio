@@ -368,7 +368,7 @@ export const projects = [
     ],
   },
 
-  // PROJECT 7: Real Estate Transaction Automation (DocuSeal)
+  // PROJECT 7: Real Estate Transaction Coordination (DocuSeal)
   {
     id: 7,
     slug: 'real-estate-transaction-automation',
@@ -433,6 +433,74 @@ export const projects = [
       '/project-screenshots/DocusealTC4.png',
       '/project-screenshots/DocusealTC5.png',
       '/project-screenshots/DocusealTC6.png'
+    ],
+  },
+
+  // PROJECT 8: Support Inbox Triage & Reply Assistant
+  {
+    id: 8,
+    slug: 'support-inbox-triage-reply-assistant',
+    client: "Shared Inbox Operations",
+    role: "Support Inbox Triage & AI Reply Assistant — n8n Workflow",
+
+    shortDescription:
+      "Automates shared inbox triage: Gmail trigger → AI classifies messages into 6 categories with confidence scoring → routes risky/low-confidence to human via Slack form → AI drafts replies → saves as Gmail drafts (never auto-sent) → logs to Google Sheets with idempotency key.",
+
+    narrative:
+      "Built a production-grade support inbox automation that classifies every incoming customer message into one of six categories (Billing, Access, Scheduling, Technical Support, General Question, Refund Request) with a confidence score. Messages below 80% confidence or flagged for human review (legal threats, fraud, multi-topic, angry tone) route to the owner via a Slack form with two options: 'Let AI draft it' or 'I'll write it myself.' Clean-path messages go straight to an AI drafter that writes context-aware, placeholder-safe replies. All replies save as Gmail drafts — never auto-sent — so the owner reviews before sending. Every message is logged to Google Sheets keyed on Gmail message ID for duplicate protection.",
+
+    whatItDoes: [
+      "Gmail Trigger fires on new message (simplify off for full body) → AI Classifier Agent with Structured Output Parser returns category, confidence (0–100), needs_human_review flag, review_reason, and summary.",
+      "Edit Fields merges email data with classifier output for downstream nodes.",
+      "IF node routes: confidence < 80 OR needs_human_review = true → Slack Send-and-Wait with custom form (Decision dropdown + textarea); else → clean path to AI Drafter Agent.",
+      "Slack form: owner picks 'Let AI draft it' (continues to Drafter) or 'I'll write it myself' (creates draft with owner's text).",
+      "Drafter Agent writes warm, professional replies (≤120 words) with category-specific guidance; never promises refunds/outcomes; uses [PLACEHOLDERS] for unknown facts; adds internal_note for reviewer.",
+      "Gmail Create Draft saves reply in correct thread (AI path or owner path) — never sends automatically.",
+      "Google Sheets logs message_id (idempotency key), received_at, from, body, category, confidence, draft_response, status — Append or Update Row prevents duplicate rows on retries.",
+      "Optional early logging: writes 'Pending review' row after classification so record exists even if owner doesn't respond.",
+    ],
+
+    result: [
+      "Eliminates manual triage of every shared inbox message — AI handles classification and draft generation end-to-end.",
+      "Human stays in control: owner approves every draft in Gmail before sending; risky messages (legal, fraud, anger) always escalate regardless of confidence.",
+      "Zero auto-sent replies — all outputs are Gmail drafts, eliminating brand risk from hallucinated promises or prompt injection.",
+      "Duplicate-proof: Gmail message ID as idempotency key ensures retries/reruns update the same Sheets row, never create duplicates.",
+      "Complete audit trail: every message logged with category, confidence, draft content, and status in Google Sheets.",
+    ],
+
+    tools: ["n8n", "Gmail", "OpenAI / Anthropic", "Slack", "Google Sheets", "Structured Output Parser"],
+
+    architecture: [
+      "Trigger: Gmail Trigger (Message Received, poll 1 min, simplify off).",
+      "Classify: AI Agent + Structured Output Parser (enum: 6 categories) → category, confidence, needs_human_review, review_reason, summary.",
+      "Route: IF (confidence < 80 OR needs_human_review) → Slack form with Decision + reply textarea.",
+      "Draft: Drafter Agent (separate prompt with category guidance, placeholders, internal_note) → Gmail Create Draft.",
+      "Log: Google Sheets Append/Update on message_id → idempotent, auditable.",
+    ],
+
+    errorHandling: [
+      "Retry logic: Gmail, Slack, Sheets nodes use n8n built-in retry (3 attempts, exponential backoff).",
+      "Classifier resilience: Auto-fix Output Parser retries once on malformed JSON; Structured Output Parser enforces enum schema.",
+      "Idempotency: Gmail message_id as unique key in Sheets; Append or Update Row prevents duplicates on reruns.",
+      "Prompt injection defense: customer message wrapped in tags, treated as data only in both agent prompts.",
+      "Sensitive-case guardrails: legal threats, fraud, data exposure, angry tone force human review regardless of confidence score.",
+      "Draft safety: drafter forbidden from promising refunds/credits/deadlines; unknown facts become [PLACEHOLDERS] for human verification.",
+      "Slack timeout: Limit Wait Time on Send-and-Wait prevents hung executions if owner doesn't respond.",
+      "Early logging: optional Sheets write after classification captures 'Pending review' state before human decision.",
+    ],
+
+    demo: {
+      loomUrl: null,
+      n8nTemplateUrl: null,
+      liveDemoUrl: null
+    },
+
+    images: [
+      '/project-screenshots/InboxTriage1.png',
+      '/project-screenshots/InboxTriage2.png',
+      '/project-screenshots/InboxTriage3.png',
+      '/project-screenshots/InboxTriage4.png',
+      '/project-screenshots/InboxTriage5.png'
     ],
   },
 ];
