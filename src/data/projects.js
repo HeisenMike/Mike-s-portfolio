@@ -368,7 +368,7 @@ export const projects = [
     id: 7,
     slug: 'real-estate-transaction-automation',
     client: "Real Estate Transaction Coordination",
-    role: "Real Estate Transaction Automation — n8n Workflows",
+    role: "Docuseal Real Estate Transaction Automation",
 
     shortDescription:
       "Two production n8n workflows automating contract-to-close coordination: DocuSeal webhook triggers deal creation with 8 calculated milestones, Google Drive folder structure, and multi-sheet pipeline; daily morning sweep routes urgent deadlines via Slack/Email by urgency tier.",
@@ -435,7 +435,7 @@ export const projects = [
     id: 8,
     slug: 'support-inbox-triage-reply-assistant',
     client: "Shared Inbox Operations",
-    role: "Support Inbox Triage & AI Reply Assistant — n8n Workflow",
+    role: "Support Inbox Triage & AI Reply Assistant",
 
     shortDescription:
       "Automates shared inbox triage: Gmail trigger → AI classifies messages into 6 categories with confidence scoring → routes risky/low-confidence to human via Slack form → AI drafts replies → saves as Gmail drafts (never auto-sent) → logs to Google Sheets with idempotency key.",
