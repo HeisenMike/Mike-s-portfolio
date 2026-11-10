@@ -65,14 +65,14 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[var(--bg-card)] p-6 sm:p-8 rounded-xl border border-[var(--border-primary)] flex flex-col h-[280px] sm:h-[300px] hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
+              className="bg-[var(--bg-card)] p-6 sm:p-8 rounded-xl border border-[var(--border-primary)] flex flex-col h-[300px] sm:h-[330px] hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
             >
               <div className="flex-1 flex flex-col min-h-0">
                 <div className="mb-4 sm:mb-6">
                   {service.icon}
                 </div>
                 <h3 className="text-base sm:text-lg text-[var(--text-primary)] font-semibold mb-2 sm:mb-3 line-clamp-1">{service.title}</h3>
-                <p className="text-[var(--text-secondary)] font-light leading-relaxed text-sm sm:text-base line-clamp-3 flex-1">{service.description}</p>
+                <p className="text-[var(--text-secondary)] font-light leading-relaxed text-sm sm:text-base line-clamp-6 flex-1">{service.description}</p>
               </div>
 
               {/* Tools Badges */}
