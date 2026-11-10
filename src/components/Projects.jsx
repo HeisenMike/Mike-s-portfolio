@@ -341,7 +341,7 @@ const Projects = () => {
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
               onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer bg-[var(--bg-card)] border border-[var(--border-primary)] rounded-2xl overflow-hidden shadow-sm hover:border-[var(--accent-violet)]/50 hover:shadow-lg transition-all duration-300 h-[320px] sm:h-[330px] flex flex-col"
+              className="group cursor-pointer bg-[var(--bg-card)] border border-[var(--border-primary)] rounded-2xl overflow-hidden shadow-sm hover:border-[var(--accent-violet)]/50 hover:shadow-lg transition-all duration-300 h-[340px] sm:h-[360px] flex flex-col"
             >
               <div className="relative h-36 sm:h-40 overflow-hidden bg-[var(--bg-tertiary)] flex items-center justify-center flex-shrink-0">
                 {project.images?.[0] ? (
