@@ -43,7 +43,7 @@ const services = [
     title: "Automations That Don't Break",
     description: "A quiet failure is worse than no automation at all. I build in automatic retries and alerts, so you hear about real problems right away.",
     icon: <ShieldCheck weight="regular" size={32} className="text-[var(--accent-sky)]" />,
-    tools: ["Smart Error Skipping", "Auto-Retry Triggers", "Built-in Backup Routes"]
+    tools: ["Auto-Retry Triggers", "Built-in Backup Routes"]
   }
 ];
 
@@ -68,7 +68,7 @@ const Services = () => {
               className="bg-[var(--bg-card)] p-6 sm:p-8 rounded-xl border border-[var(--border-primary)] flex flex-col h-[280px] sm:h-[300px] hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
             >
               <div className="flex-1 flex flex-col min-h-0">
-                <div className="mb-4 sm:mb-6 inline-flex items-center justify-center p-2 rounded-xl bg-[var(--bg-tertiary)] border border-[var(--border-primary)]">
+                <div className="mb-4 sm:mb-6">
                   {service.icon}
                 </div>
                 <h3 className="text-base sm:text-lg text-[var(--text-primary)] font-semibold mb-2 sm:mb-3 line-clamp-1">{service.title}</h3>
@@ -77,11 +77,11 @@ const Services = () => {
 
               {/* Tools Badges */}
               {service.tools && service.tools.length > 0 && (
-                <div className="flex flex-nowrap gap-2 overflow-x-auto pt-3 sm:pt-4 border-t border-[var(--border-primary)]/50 mt-auto pb-1">
+                <div className="flex flex-wrap gap-2 pt-3 sm:pt-4 border-t border-[var(--border-primary)]/50 mt-auto">
                   {service.tools.map((tool, toolIndex) => (
                     <span
                       key={toolIndex}
-                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border-primary)] whitespace-nowrap shrink-0"
+                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border-primary)]"
                     >
                       {tool}
                     </span>
