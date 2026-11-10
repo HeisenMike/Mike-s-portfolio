@@ -15,7 +15,7 @@ const testimonials = [
 
 export default function SocialProof() {
   return (
-    <section className="bg-[var(--bg-primary)] px-8 py-20 border-t border-[var(--border-primary)] border-b border-[var(--border-primary)]">
+    <section className="bg-[var(--bg-primary)] px-8 py-12 border-t border-[var(--border-primary)] border-b border-[var(--border-primary)]">
       <div className="max-w-4xl mx-auto">
         <p className="text-xs font-medium tracking-widest uppercase text-[var(--text-muted)] mb-4">
           Client feedback

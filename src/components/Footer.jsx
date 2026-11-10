@@ -4,7 +4,7 @@ import { Linkedin, Mail, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="py-16 bg-[var(--bg-primary)] border-t border-[var(--border-primary)]">
+    <footer className="py-12 bg-[var(--bg-primary)] border-t border-[var(--border-primary)]">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>

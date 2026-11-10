@@ -3,7 +3,7 @@ import aboutPhoto from '../assets/About-photo.png';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-[var(--bg-primary)] relative">
+    <section id="about" className="py-16 bg-[var(--bg-primary)] relative">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-[40%_60%] gap-12 items-stretch">
           <div className="md:order-2 order-2 h-full rounded-2xl overflow-hidden">

@@ -6,7 +6,7 @@ import WorkflowVisualization from './WorkflowVisualization';
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-[var(--bg-primary)] text-[var(--text-primary)] overflow-hidden">
+    <section id="hero" className="relative pt-24 pb-16 md:pt-32 md:pb-20 bg-[var(--bg-primary)] text-[var(--text-primary)] overflow-hidden">
       {/* Background ambient glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#1C0C30]/40 via-violet-900/10 to-transparent rounded-full blur-[140px] pointer-events-none dark:block hidden" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-fuchsia-900/10 rounded-full blur-[100px] pointer-events-none dark:block hidden" />

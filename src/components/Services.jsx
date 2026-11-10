@@ -49,7 +49,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-primary)] relative">
+    <section id="services" className="py-16 bg-[var(--bg-primary)] border-t border-[var(--border-primary)] relative">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mb-16">
@@ -65,7 +65,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[var(--bg-card)] p-8 rounded-xl border border-[var(--border-primary)] flex flex-col justify-between hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
+              className="bg-[var(--bg-card)] p-8 rounded-xl border border-[var(--border-primary)] flex flex-col hover:border-[var(--accent-violet)]/50 hover:bg-[var(--bg-card-hover)] transition-all duration-300"
             >
               <div>
                 <div className="mb-6 inline-flex items-center justify-center p-2 rounded-xl bg-[var(--bg-tertiary)] border border-[var(--border-primary)]">

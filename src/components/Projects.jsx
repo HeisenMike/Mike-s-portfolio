@@ -325,7 +325,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-primary)]">
+    <section id="projects" className="py-16 bg-[var(--bg-primary)] border-t border-[var(--border-primary)]">
       <div className="container mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-[48px] text-[var(--text-primary)] font-heading font-bold mb-4">Projects</h2>
