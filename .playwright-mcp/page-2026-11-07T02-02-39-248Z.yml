@@ -1,0 +1,372 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#top"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "PikPik home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "PikPik" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Services" [ref=e8] [cursor=pointer]:
+          - /url: /#services
+        - link "Solutions" [ref=e9] [cursor=pointer]:
+          - /url: /#solutions
+        - link "Pricing" [ref=e10] [cursor=pointer]:
+          - /url: /#pricing
+      - generic [ref=e11]:
+        - generic [ref=e12]: First automation free
+        - link "Book a call" [ref=e15] [cursor=pointer]:
+          - /url: /#book
+  - main [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: Your AI Automation Partner
+        - heading "Get your time back. Put the busywork on autopilot." [level=1] [ref=e22]: Get your time back.Put the busywork on autopilot.
+        - paragraph [ref=e23]: I wire your apps into one automated engine. Data flows in, AI does the work, results flow out. Your business runs itself, around the clock.
+        - generic [ref=e24]:
+          - link "Start Automating" [ref=e25] [cursor=pointer]:
+            - /url: /#book
+          - link "See what I build" [ref=e29] [cursor=pointer]:
+            - /url: "#services"
+        - generic [ref=e30]:
+          - generic [ref=e31]: Save Time
+          - generic [ref=e35]: Save Money
+          - generic [ref=e39]: Grow
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: pikpik · automation engine
+          - generic [ref=e51]:
+            - generic [ref=e52]: any integration
+            - generic [ref=e53]: running
+        - generic [ref=e56]:
+          - generic [ref=e57]: Your tools
+          - generic [ref=e58]: PikPik builds
+          - generic [ref=e59]: You get
+          - generic [ref=e80]:
+            - generic [ref=e81]: Source
+            - text: CRM & Sales
+          - generic [ref=e88]:
+            - generic [ref=e89]: Source
+            - text: Docs & Data
+          - generic [ref=e97]:
+            - generic [ref=e98]: Source
+            - text: E-commerce
+          - generic [ref=e109]:
+            - generic [ref=e110]: Automation engine
+            - generic [ref=e111]: AI Agents
+          - generic [ref=e120]:
+            - generic [ref=e121]: You get
+            - text: 80% time saved
+          - generic [ref=e127]:
+            - generic [ref=e128]: You get
+            - text: 50% cost cut
+          - generic [ref=e135]:
+            - generic [ref=e136]: You get
+            - text: 24/7 output
+    - generic [ref=e137]:
+      - generic [ref=e138]: Works with your stack · any tool, no limits
+      - generic [ref=e144]:
+        - img "shopify" [ref=e146]
+        - img "clickup" [ref=e148]
+        - img "hubspot" [ref=e150]
+        - img "gmail" [ref=e152]
+        - img "zapier" [ref=e154]
+        - img "zendesk" [ref=e156]
+        - img "trello" [ref=e158]
+        - img "calendly" [ref=e160]
+        - img "mongodb" [ref=e162]
+        - img "telegram" [ref=e164]
+        - img "airtable" [ref=e166]
+        - img "github" [ref=e168]
+        - img "slack" [ref=e170]
+        - img "notion" [ref=e172]
+        - img "figma" [ref=e174]
+        - img "pipedrive" [ref=e176]
+        - img "reddit" [ref=e178]
+        - img "paypal" [ref=e180]
+        - img "salesforce" [ref=e182]
+        - img "zoom" [ref=e184]
+        - img "dropbox" [ref=e186]
+        - img "openai" [ref=e188]
+        - img "asana" [ref=e190]
+        - img "webflow" [ref=e192]
+        - img "whatsapp" [ref=e194]
+        - img "spotify" [ref=e196]
+        - img "googledrive" [ref=e198]
+    - generic [ref=e228]:
+      - generic [ref=e229]:
+        - generic [ref=e230]:
+          - generic [ref=e231]: "01"
+          - text: / What I do
+        - heading "I build automated systems that run your business" [level=2] [ref=e232]
+      - generic [ref=e233]:
+        - generic [ref=e234]:
+          - text: Automate repetitive tasks
+          - heading "No more copy & paste" [level=3] [ref=e240]
+          - paragraph [ref=e241]: No more boring busywork. AI does it for you. Accurately, every time, without being asked twice.
+          - generic [ref=e242]:
+            - generic [ref=e244]:
+              - generic [ref=e245]: Manual today
+              - generic [ref=e246]: 40h / week
+            - generic [ref=e249]:
+              - generic [ref=e250]: With PikPik
+              - generic [ref=e251]: 4h / week
+            - generic [ref=e253]: 90% less manual work
+          - generic [ref=e256]:
+            - generic [ref=e257]:
+              - generic [ref=e258]: 85%
+              - generic [ref=e259]: Tasks completed
+            - generic [ref=e260]:
+              - generic [ref=e261]: 23+
+              - generic [ref=e262]: Tasks added
+            - generic [ref=e263]:
+              - generic [ref=e264]: "08"
+              - generic [ref=e265]: Active now
+        - generic [ref=e266]:
+          - text: Connect your tools
+          - heading "Your apps, talking" [level=3] [ref=e271]
+          - paragraph [ref=e272]: I make your apps work together so nothing falls through the cracks, without you lifting a finger.
+          - generic [ref=e273]:
+            - img "shopify" [ref=e275]
+            - img "clickup" [ref=e277]
+            - img "hubspot" [ref=e279]
+            - img "gmail" [ref=e281]
+            - img "zapier" [ref=e283]
+            - img "zendesk" [ref=e285]
+            - img "trello" [ref=e287]
+            - img "calendly" [ref=e289]
+          - paragraph [ref=e290]: Any tool you already use, no limits
+        - generic [ref=e291]:
+          - heading "No breaks" [level=3] [ref=e296]
+          - paragraph [ref=e297]: AI doesn't sleep or eat. It works all the time.
+          - generic [ref=e298]:
+            - generic [ref=e300]:
+              - generic [ref=e301]: 24/7
+              - generic [ref=e302]: Always running
+            - generic [ref=e310]:
+              - generic [ref=e311]: Operations
+              - generic [ref=e313]: HR
+              - generic [ref=e315]: Sales
+              - generic [ref=e317]: Marketing
+        - generic [ref=e319]:
+          - heading "No mistakes" [level=3] [ref=e324]
+          - paragraph [ref=e325]: AI doesn't forget. It always does things right.
+          - generic [ref=e326]:
+            - generic [ref=e328]:
+              - generic [ref=e329]: 99.9%
+              - generic [ref=e330]: Accuracy rate
+            - generic [ref=e334]:
+              - generic [ref=e336]:
+                - generic [ref=e337]: No typos
+                - generic [ref=e338]: 100%
+              - generic [ref=e341]:
+                - generic [ref=e342]: No skipped steps
+                - generic [ref=e343]: 100%
+              - generic [ref=e346]:
+                - generic [ref=e347]: Always correct
+                - generic [ref=e348]: 100%
+        - generic [ref=e350]:
+          - heading "No limits" [level=3] [ref=e357]
+          - paragraph [ref=e358]: I set it up once. It keeps working every day.
+          - generic [ref=e360]:
+            - generic [ref=e366]:
+              - generic [ref=e367]: Solution design
+              - generic [ref=e368]: Done
+            - generic [ref=e374]:
+              - generic [ref=e375]: Development
+              - generic [ref=e376]: Done
+            - generic [ref=e382]:
+              - generic [ref=e383]: Ongoing support
+              - generic [ref=e384]: Active
+    - generic [ref=e386]:
+      - generic [ref=e387]:
+        - generic [ref=e388]: "02"
+        - text: / The approach
+      - paragraph [ref=e389]: I deliver AI solutions, from chatbots to workflow automation. I connect your tools and make everything work smoothly together, so the busywork runs without you.
+    - generic [ref=e391]:
+      - generic [ref=e392]:
+        - generic [ref=e393]:
+          - generic [ref=e394]: "03"
+          - text: / Where AI helps
+        - heading "Time is money. Save both." [level=2] [ref=e395]: Time is money.Save both.
+        - paragraph [ref=e396]: Point automation at any corner of your business. Here's where it pays off fastest.
+      - generic [ref=e397]:
+        - generic [ref=e398]:
+          - generic [ref=e399]: "01"
+          - heading "Customer Support" [level=3] [ref=e405]
+          - paragraph [ref=e406]: Answer messages, send updates & solve problems without anyone waiting.
+        - generic [ref=e407]:
+          - generic [ref=e408]: "02"
+          - heading "Sales" [level=3] [ref=e414]
+          - paragraph [ref=e415]: Follow up with leads, send offers & track deals automatically.
+        - generic [ref=e416]:
+          - generic [ref=e417]: "03"
+          - heading "Marketing" [level=3] [ref=e423]
+          - paragraph [ref=e424]: Social posts, newsletters & viral videos, all on autopilot.
+        - generic [ref=e425]:
+          - generic [ref=e426]: "04"
+          - heading "Admin & Operations" [level=3] [ref=e432]
+          - paragraph [ref=e433]: Move data between tools, build reports & manage tasks automatically.
+        - generic [ref=e434]:
+          - generic [ref=e435]: "05"
+          - heading "HR & Onboarding" [level=3] [ref=e441]
+          - paragraph [ref=e442]: Screen candidates, schedule interviews & run onboarding checklists without the admin.
+        - generic [ref=e443]:
+          - generic [ref=e444]: "06"
+          - heading "Finance & Accounting" [level=3] [ref=e449]
+          - paragraph [ref=e450]:
+            - text: Send invoices,
+            - link "chase the unpaid ones" [ref=e451] [cursor=pointer]:
+              - /url: /automate-invoice-chasing
+            - text: "& update sheets without manual input."
+    - generic [ref=e455]:
+      - generic [ref=e456]:
+        - generic [ref=e457]:
+          - generic [ref=e458]: ∞
+          - generic [ref=e459]: Integrations
+        - generic [ref=e460]:
+          - generic [ref=e461]: 24/7
+          - generic [ref=e462]: Always running
+        - generic [ref=e463]:
+          - generic [ref=e464]: 0%
+          - generic [ref=e466]: Accuracy
+        - generic [ref=e467]:
+          - generic [ref=e468]: 0%
+          - generic [ref=e470]: Time saved
+      - paragraph [ref=e471]: Targets I design for. Your numbers depend on what I automate.
+      - link "Book your discovery call" [ref=e473] [cursor=pointer]:
+        - /url: /#book
+    - generic [ref=e478]:
+      - generic [ref=e479]:
+        - generic [ref=e480]:
+          - generic [ref=e481]: "04"
+          - text: / Pricing
+        - heading "Ready to automate your business?" [level=2] [ref=e482]
+        - paragraph [ref=e483]: No public price tags. Start with one automation built free, then keep me on monthly if it earns its place.
+      - generic [ref=e484]:
+        - generic [ref=e485]:
+          - generic [ref=e486]: Start here
+          - generic [ref=e487]: First automation
+          - paragraph [ref=e488]: One task you pick. Built free.
+          - generic [ref=e489]: Save Time
+          - link "Book a discovery call" [ref=e494] [cursor=pointer]:
+            - /url: /#book
+          - generic [ref=e495]:
+            - generic [ref=e496]: You pick the task on the call
+            - generic [ref=e499]: I build it and show it to you working
+            - generic [ref=e502]: No card, no contract
+            - generic [ref=e505]: No obligation to continue
+          - paragraph [ref=e508]: Best for seeing it work before you commit.
+        - generic [ref=e509]:
+          - generic [ref=e510]: Most popular
+          - generic [ref=e513]: Monthly partner
+          - paragraph [ref=e514]: Your AI automation partner, built and run by me.
+          - generic [ref=e515]:
+            - generic [ref=e516]: Save Time
+            - generic [ref=e520]: Save Money
+            - generic [ref=e524]: Grow
+          - link "Book a discovery call" [ref=e528] [cursor=pointer]:
+            - /url: /#book
+          - generic [ref=e529]:
+            - generic [ref=e530]: New automations every month
+            - generic [ref=e534]: I monitor everything and fix issues the same day
+            - generic [ref=e538]: Slack access to me + Notion dashboard
+            - generic [ref=e542]: Weekly calls
+            - generic [ref=e546]: Pause or cancel anytime
+          - paragraph [ref=e550]: Best for teams that want the work done instead of hiring for it.
+    - generic [ref=e553]:
+      - generic [ref=e554]:
+        - generic [ref=e555]:
+          - generic [ref=e556]: "05"
+          - text: / Questions
+        - heading "Before you book a call." [level=2] [ref=e557]: Before youbook a call.
+        - paragraph [ref=e558]: The things owners ask me most, answered straight. No jargon, no fine print.
+        - generic [ref=e561]:
+          - text: Still not sure?
+          - link "Just ask Florian" [ref=e562] [cursor=pointer]:
+            - /url: /#book
+      - generic [ref=e563]:
+        - generic [ref=e564]:
+          - button "How fast can you get something live?" [expanded] [ref=e565] [cursor=pointer]
+          - region "How fast can you get something live?" [ref=e568]:
+            - paragraph [ref=e570]: Days, not months. I scope it on the call, start building, and show you working output inside the first 48 hours. Most first automations are running the same week.
+        - generic [ref=e571]:
+          - button "Do I need to be technical?" [ref=e572] [cursor=pointer]
+          - paragraph: Not at all. You tell me the busywork you want gone. I handle the wiring, the AI, and the upkeep. You just approve the result.
+        - generic [ref=e575]:
+          - button "Will it work with the tools I already use?" [ref=e576] [cursor=pointer]
+          - paragraph: "Almost certainly. There's no limit on what I connect: CRMs, inboxes, spreadsheets, HR tools, chat. I make them talk to each other. If it has an API, I can plug into it."
+        - generic [ref=e579]:
+          - button "What happens if something breaks?" [ref=e580] [cursor=pointer]
+          - paragraph: I watch it and I fix it. I monitor every automation and fix issues the same day, so your automations keep running without you babysitting them.
+        - generic [ref=e583]:
+          - button "Is my data safe?" [ref=e584] [cursor=pointer]
+          - paragraph: Yes. I work inside your own tools and accounts, use access on a need-to-know basis, and never train public models on your data. It stays yours.
+        - generic [ref=e587]:
+          - button "Why you instead of a hire or a freelancer?" [ref=e588] [cursor=pointer]
+          - paragraph:
+            - text: You work with me directly. I design, build and run your automations myself, with no handoffs, and without the months of hiring and ramp-up an in-house role takes. Everything lives in your own accounts and is documented, so you own it and it keeps running. If you want the honest breakdown, I compared
+            - link:
+              - /url: /blog/ai-automation-agency-vs-freelancer-vs-in-house
+              - text: all three options side by side
+            - text: .
+        - generic [ref=e591]:
+          - button "How much does it cost?" [ref=e592] [cursor=pointer]
+          - paragraph: The first automation is free, so you see it working before any number matters. After that it is a monthly retainer, scoped on a call so you get a clear number before anything starts. Pause or cancel anytime, no lock-in.
+    - generic [ref=e596]:
+      - heading "Automation begins, and your time comes back to you" [level=2] [ref=e600]
+      - generic [ref=e602]:
+        - generic [ref=e603]: Free · 15 min
+        - generic [ref=e605]: No commitment
+        - generic [ref=e606]: First automation free
+      - generic [aria-hidden] [ref=e608]:
+        - generic [ref=e609]: pikpik · discovery call
+        - generic [ref=e610]: calendar live
+  - contentinfo [ref=e613]:
+    - generic [ref=e614]:
+      - generic [ref=e615]:
+        - generic [ref=e616]:
+          - img "PikPik" [ref=e617]
+          - paragraph [ref=e618]: I replace your busywork with AI automation.
+          - link "Get started" [ref=e619] [cursor=pointer]:
+            - /url: /#book
+        - generic [ref=e623]:
+          - heading "Automations" [level=2] [ref=e624]
+          - link "n8n Agency" [ref=e625] [cursor=pointer]:
+            - /url: /n8n-agency
+          - link "Automate Lead Follow-Up" [ref=e626] [cursor=pointer]:
+            - /url: /automate-lead-follow-up
+          - link "Automate Invoice Chasing" [ref=e627] [cursor=pointer]:
+            - /url: /automate-invoice-chasing
+        - generic [ref=e628]:
+          - heading "Navigate" [level=2] [ref=e629]
+          - link "Services" [ref=e630] [cursor=pointer]:
+            - /url: /#services
+          - link "Solutions" [ref=e631] [cursor=pointer]:
+            - /url: /#solutions
+          - link "Pricing" [ref=e632] [cursor=pointer]:
+            - /url: /#pricing
+          - link "Free templates" [ref=e633] [cursor=pointer]:
+            - /url: /templates
+          - link "ROI calculator" [ref=e634] [cursor=pointer]:
+            - /url: /roi-calculator
+          - link "Blog" [ref=e635] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=e636]:
+          - heading "Contact" [level=2] [ref=e637]
+          - link "Book a call" [ref=e638] [cursor=pointer]:
+            - /url: /#book
+          - link "florian@pikpik.app" [ref=e639] [cursor=pointer]:
+            - /url: mailto:florian@pikpik.app
+          - link "pikpik.app" [ref=e640] [cursor=pointer]:
+            - /url: https://pikpik.app
+      - generic [ref=e641]:
+        - paragraph [ref=e642]:
+          - text: © 2026 PikPik App LLC. All rights reserved.
+          - link "Privacy Policy" [ref=e643] [cursor=pointer]:
+            - /url: /privacy
+        - generic [ref=e644]:
+          - link "DesignRush Verified Agency" [ref=e645] [cursor=pointer]:
+            - /url: https://www.designrush.com/agency/ai-companies/us
+          - generic [ref=e648]: Save Time · Save Money · Grow
+  - alert [ref=e649]

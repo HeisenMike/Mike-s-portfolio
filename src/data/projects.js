@@ -367,6 +367,74 @@ export const projects = [
       '/project-screenshots/InvoiceProcessingImage4.png'
     ],
   },
+
+  // PROJECT 7: Real Estate Transaction Automation (DocuSeal)
+  {
+    id: 7,
+    slug: 'real-estate-transaction-automation',
+    client: "Real Estate Transaction Coordination",
+    role: "Real Estate Transaction Automation — n8n Workflows",
+
+    shortDescription:
+      "Two production n8n workflows automating contract-to-close coordination: DocuSeal webhook triggers deal creation with 8 calculated milestones, Google Drive folder structure, and multi-sheet pipeline; daily morning sweep routes urgent deadlines via Slack/Email by urgency tier.",
+
+    narrative:
+      "Built a dual-workflow automation system for real estate transaction coordination. Flow 1 triggers instantly when the last signature lands on a purchase agreement via DocuSeal webhook — normalizes deal data, calculates 8 milestone dates with 2-day reminders, creates a structured Google Drive folder hierarchy, and populates three Google Sheets (Pipeline dashboard, Key Dates calendar, Deadlines action list). Flow 2 runs every weekday at 8 AM, reads all active deadlines, tags urgency (OVERDUE / DUE TODAY / DUE IN 3 DAYS), and routes via Slack DM (overdue), single-item Gmail (due today), or batched Gmail digest (due in 3 days) — each with tailored tone and psychological intent. Designed for production reliability with retry logic, idempotency, and graceful degradation.",
+
+    whatItDoes: [
+      "Flow 1: DocuSeal webhook fires on final signature → normalizes deal data (parties, dates, property, IDs) → calculates 8 milestone dates from Acceptance + Close dates with 2-day reminders → appends to 3 Google Sheets (Pipeline, Key Dates, Deadlines) → creates Drive folder /Deals/{Deal_ID}/ with 4 subfolders → sends kickoff Gmail to all parties → posts deal summary to Slack #transactions.",
+      "Flow 2: Scheduled trigger (Mon–Fri 8:00 AM) → reads Key Dates sheet → filters active items (Status ≠ 'Submitted') → computes days until due → routes by urgency: OVERDUE → Slack DM with commitment request, DUE TODAY → Gmail with execution checklist, DUE IN 3 DAYS → aggregated batched Gmail per owner with prep recommendations.",
+      "Three-sheet data model: Pipeline (1 row/deal, dashboard view), Key Dates (8 rows/deal, full calendar with owners & reminders), Deadlines (8 hard deadlines/deal + Drive link for quick access).",
+      "8 milestones auto-calculated: Earnest Money (+1), Disclosures (+3), Inspection (+7), Inspection Contingency Removal (+10) 🚨, Appraisal Ordered (+12), Appraisal Contingency Removal (+17) 🚨, Loan Contingency Removal (+21) 🚨, Close of Escrow (+30) 🚨.",
+      "Urgency-based channel strategy: Slack for interruptive/urgent, Email for focused/batched — prevents alert fatigue while ensuring deadlines are met.",
+      "Expression-based email templating in n8n (no Code nodes needed): dynamic HTML via template literals in Gmail Body field for all three urgency tiers."
+    ],
+
+    result: [
+      "⚠️ Mock data only — production-ready workflows deployed in test environment; metrics will be captured on first live transactions.",
+      "Architecture eliminates manual deal setup: previously ~45 min/deal for folder creation, milestone calculation, sheet population, and notifications — now <30 seconds automated.",
+      "Eliminates missed deadlines: Morning sweep catches every active date daily with tiered escalation; overdue items demand commitment via Slack, due-today items get execution checklists, upcoming items get batched prep digests.",
+      "Complete audit trail: Every deal logged across 3 Sheets + Drive folder structure with status tracking (Pending → In Progress → Submitted).",
+      "Scalable: Handles unlimited concurrent deals; Drive folder per deal keeps documents organized; status field drives sweep filtering automatically."
+    ],
+
+    tools: ["n8n", "DocuSeal", "Google Sheets", "Google Drive", "Gmail", "Slack"],
+
+    architecture: [
+      "Flow 1 (Deal Creation): DocuSeal Webhook → Set (Normalize) → Code (Build 8 Milestones + Reminders) → Google Sheets×3 (Pipeline, Deadlines, Key Dates) → Google Drive (Create Folder + 4 Subfolders) → Gmail (Kickoff) → Slack (Channel Post).",
+      "Flow 2 (Morning Sweep): ScheduleTrigger (8 AM weekdays) → Google Sheets (Read Key Dates) → Code (Filter Active + Tag Urgency) → Switch (Router: OVERDUE/DUE_TODAY/DUE_IN_3_DAYS) → Slack DM / Gmail Single / ItemLists+Gmail Batched.",
+      "Data Layer: 3 Google Sheets (Pipeline dashboard, Key Dates calendar, Deadlines action list) + Google Drive folder hierarchy (/Deals/{Deal_ID}/{Documents,Emails,Milestones,Compliance}).",
+      "Date Engineering: 8 milestones derived from 2 input dates (Acceptance, Close) using Code node; reminders auto-set 2 days before each 🚨 hard deadline.",
+      "Channel Strategy: Switch node routes to 3 branches with distinct tone/psychology — Slack (firm, consequence-aware), Gmail single (calm, checklist), Gmail batched (collaborative, prep-focused)."
+    ],
+
+    errorHandling: [
+      "Retry logic: Google Sheets/Drive/Gmail/Slack nodes use n8n built-in retry (3 attempts, exponential backoff) on API failures.",
+      "Sheets rate limit handling: Sequential operations with implicit n8n queue; Code node filters reduce API calls.",
+      "Date format resilience: parseSheetDate helper normalizes MM/DD/YYYY → ISO before date math.",
+      "Missing Drive folder: Flow 1 creates folder + subfolders on deal creation; Flow 2 assumes existence (validated by Flow 1).",
+      "Owner not in Slack: Fallback to email via contact lookup (can be added as enhancement).",
+      "DocuSeal webhook validation: Set node validates required fields (Deal_ID, Acceptance_Date, Close_Date, parties) before proceeding.",
+      "DocuSeal retry: DocuSeal retries webhook with exponential backoff on non-2xx responses from n8n.",
+      "Idempotency: Deal_ID used as primary key across Sheets; Drive folder named by Deal_ID prevents duplicates.",
+      "Status-driven filtering: Key Dates Status = 'Submitted' removes item from sweep; only active deadlines processed."
+    ],
+
+    demo: {
+      loomUrl: null,
+      n8nTemplateUrl: null,
+      liveDemoUrl: null
+    },
+
+    images: [
+      '/project-screenshots/DocusealTC1.png',
+      '/project-screenshots/DocusealTC2.png',
+      '/project-screenshots/DocusealTC3.png',
+      '/project-screenshots/DocusealTC4.png',
+      '/project-screenshots/DocusealTC5.png',
+      '/project-screenshots/DocusealTC6.png'
+    ],
+  },
 ];
 
 /**

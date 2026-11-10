@@ -20,7 +20,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm font-medium transition-colors ${link.name === 'CV' ? 'text-[var(--text-muted)] hover:text-[var(--text-primary)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}
+              className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               {link.name}
             </a>
